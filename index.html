@@ -1,216 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>faeblette</title>
-  <meta name="description" content="An independent studio creating pensive stories and goods, guided by old forms, quiet palettes, and the beauty of imperfection." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #F0E8DA;
-      font-family: 'Libre Baskerville', Georgia, serif;
-      color: #26201A;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 5rem;
-    }
-
-    .fb-wrap {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    /* NAV */
-    .fb-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 3rem;
-    }
-
-    .fb-nav-links {
-      display: flex;
-      gap: 2.2rem;
-      align-items: center;
-    }
-
-    .fb-nav-links a {
-      font-family: 'Courier Prime', monospace;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      color: #8A7660;
-      text-decoration: none;
-      text-transform: lowercase;
-    }
-
-    /* HERO */
-    .fb-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 420px;
-      margin: 0 3rem;
-      gap: 2rem;
-      padding-bottom: 4rem;
-      border-bottom: 0.5px solid #C4B09A;
-    }
-
-    .fb-hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 54px;
-      font-weight: 400;
-      line-height: 1.0;
-      margin-bottom: 0.4rem;
-    }
-
-    .fb-hero-body {
-      font-size: 15px;
-      line-height: 1.9;
-      color: #5C4A36;
-      max-width: 320px;
-    }
-
-    /* SECTION */
-    .fb-section {
-      margin: 4rem 3rem 0;
-      border-top: 0.5px solid #C4B09A;
-      padding-top: 3rem;
-    }
-
-    .fb-section-label {
-      font-family: 'Courier Prime', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: #A8917A;
-      text-transform: lowercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .fb-section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 34px;
-      font-weight: 400;
-      margin-bottom: 2rem;
-    }
-
-    /* FIELD NOTES (SIMPLIFIED) */
-    .fb-notes-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .fb-note-link {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 0.5px solid #C4B09A;
-      text-decoration: none;
-      color: #26201A;
-    }
-
-    .fb-note-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-    }
-
-    .fb-note-meta {
-      font-family: 'Courier Prime', monospace;
-      font-size: 10px;
-      color: #A8917A;
-      letter-spacing: 0.1em;
-    }
-
-    .fb-section-cta {
-      display: inline-block;
-      margin-top: 1.5rem;
-      font-family: 'Courier Prime', monospace;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      color: #8A7660;
-      text-decoration: none;
-      border-bottom: 0.5px solid #C4B09A;
-      padding-bottom: 2px;
-    }
-
-    /* FOOTER (shortened for clarity here) */
-    .fb-footer {
-      margin: 4rem 3rem 0;
-      border-top: 0.5px solid #C4B09A;
-      padding: 2.5rem 0;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .fb-footer-bottom-text {
-      font-family: 'Courier Prime', monospace;
-      font-size: 8px;
-      letter-spacing: 0.12em;
-      color: #C4B09A;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
 </head>
 <body>
-<div class="fb-wrap">
-
-  <!-- NAV -->
-  <nav class="fb-nav">
-    <div class="fb-nav-links">
-      <a href="#field-notes">the field notes</a>
-      <a href="#films">films</a>
-      <a href="#shop">shop</a>
-      <a href="about.html">about</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="fb-hero">
-    <div>
-      <div class="fb-hero-name">faeblette</div>
-      <p class="fb-hero-body">
-        Pensive stories and goods made slowly. Guided by old forms, quiet palettes, and the beauty of imperfection.
-      </p>
-    </div>
-  </div>
-
-  <!-- FIELD NOTES (NOW CLEAN + SCALABLE) -->
-  <div id="field-notes" class="fb-section">
-    <div class="fb-section-label">the field notes</div>
-    <div class="fb-section-title">dispatches from inside the world</div>
-
-    <div class="fb-notes-list">
-
-      <a class="fb-note-link" href="notes/03-real-power.html">
-        <span class="fb-note-title">Real power is bowing down</span>
-        <span class="fb-note-meta">apr 2026</span>
-      </a>
-
-      <a class="fb-note-link" href="notes/02-serious-fox.html">
-        <span class="fb-note-title">Why I draw animals with serious faces</span>
-        <span class="fb-note-meta">mar 2026</span>
-      </a>
-
-      <a class="fb-note-link" href="notes/01-exposing-chair.html">
-        <span class="fb-note-title">On making things that expose you</span>
-        <span class="fb-note-meta">apr 2026</span>
-      </a>
-
-    </div>
-
-    <a href="field-notes.html" class="fb-section-cta">read all notes →</a>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="fb-footer">
-    <span class="fb-footer-bottom-text">© 2026 faeblette</span>
-    <span class="fb-footer-bottom-text">faeblette.com</span>
-  </div>
-
-</div>
+    <header>
+        <h1>Hero Section</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Field Notes</h2>
+            <p>This is where field notes will go.</p>
+        </section>
+    </main>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
