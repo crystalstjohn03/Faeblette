@@ -3,24 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
+    <title>Faeblette</title>
 </head>
-<body>
+<body style="background-color: #F0E8DA; color: #26201A;">
     <header>
-        <h1>Hero Section</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#films">Films</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Studio</h1>
+        </div>
     </header>
     <main>
-        <section>
+        <section id="mood-grid">
+            <h2>Mood</h2>
+            <div class="quotes">
+                <blockquote>"Quote 1" - Author
+                </blockquote>
+                <blockquote>"Quote 2" - Author
+                </blockquote>
+                <blockquote>"Quote 3" - Author
+                </blockquote>
+            </div>
+        </section>
+        <section id="films">
+            <h2>Films</h2>
+            <p>Details about films go here.</p>
+        </section>
+        <section id="shop">
+            <h2>Shop</h2>
+            <div class="product-grid">
+                <div class="product-placeholder">Product 1</div>
+                <div class="product-placeholder">Product 2</div>
+                <div class="product-placeholder">Product 3</div>
+            </div>
+        </section>
+        <section id="coming-soon">
+            <h2>Coming Soon</h2>
+            <p>Book details will be available soon.</p>
+        </section>
+        <section id="field-notes">
             <h2>Field Notes</h2>
-            <p>This is where field notes will go.</p>
+            <div class="pinned-post">Pinned post content</div>
         </section>
     </main>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <footer>
+        <div class="logo">Logo</div>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
 </body>
 </html>
