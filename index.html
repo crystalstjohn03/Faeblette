@@ -1,67 +1,966 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
-    <title>Faeblette</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>faeblette</title>
+  <meta name="description" content="An independent studio creating pensive stories and goods, guided by old forms, quiet palettes, and the beauty of imperfection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <style>
+
+    /* ─────────────────────────────────────────
+       FAEBLETTE.COM — index.html
+       To edit text: open in any text editor
+       (TextEdit, VS Code, Notes), find the words,
+       change them, save. That's it.
+       All images should live in the same folder
+       as this file.
+    ───────────────────────────────────────── */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F0E8DA;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      color: #26201A;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    .fb-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── NAVIGATION ── */
+    .fb-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+    }
+    .fb-nav-bird img {
+      height: 28px;
+      width: auto;
+      filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
+      opacity: 0.7;
+    }
+    .fb-nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .fb-nav-links a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: #8A7660;
+      text-decoration: none;
+      text-transform: lowercase;
+    }
+    .fb-nav-links a:hover { color: #26201A; }
+
+    /* ── HERO ── */
+    .fb-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+      margin: 0 3rem;
+      gap: 2rem;
+      padding-bottom: 4rem;
+      border-bottom: 0.5px solid #C4B09A;
+    }
+    .fb-hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 3rem;
+    }
+    .fb-hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.0;
+      color: #26201A;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .fb-hero-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: #A8917A;
+      text-transform: lowercase;
+      margin-bottom: 2rem;
+    }
+    .fb-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.05;
+      color: #26201A;
+      margin: 0 0 1.2rem;
+    }
+    .fb-hero-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #5C4A36;
+      max-width: 320px;
+    }
+    .fb-hero-cta {
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: #8A7660;
+      text-transform: lowercase;
+      border-bottom: 0.5px solid #C4B09A;
+      padding-bottom: 2px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .fb-hero-right {
+      background: #1C140D;
+      border-radius: 5px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .fb-glow-a {
+      position: absolute; width: 220px; height: 180px;
+      background: #B8720A; opacity: 0.13;
+      border-radius: 50%; top: 20%; left: 25%;
+    }
+    .fb-glow-b {
+      position: absolute; width: 90px; height: 120px;
+      background: #D4A020; opacity: 0.08;
+      border-radius: 50%; top: 10%; left: 60%;
+    }
+    .fb-damask {
+      position: absolute; inset: 0; opacity: 0.025;
+      background-image: radial-gradient(ellipse 5px 7px at 50% 50%, #F0E8DA 60%, transparent 70%);
+      background-size: 22px 26px;
+    }
+    .fb-hero-bird-corner {
+      position: absolute; top: 1.5rem; right: 1.8rem; z-index: 2;
+    }
+    .fb-hero-bird-corner img {
+      width: 46px; height: auto; filter: invert(1); opacity: 0.1;
+    }
+    .fb-hero-film { position: relative; z-index: 2; }
+    .fb-hero-film-label {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.18em; color: rgba(240,232,218,0.35);
+      text-transform: lowercase; margin-bottom: 6px;
+    }
+    .fb-hero-film-title {
+      font-family: 'Playfair Display', serif; font-size: 30px;
+      font-weight: 400; color: rgba(240,232,218,0.65); line-height: 1.1;
+    }
+
+    /* ── GATHERED / MOOD GRID ── */
+    .fb-gathered {
+      margin: 3rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 190px 150px;
+      gap: 10px;
+    }
+    .fb-gc {
+      border-radius: 5px; position: relative;
+      overflow: hidden; display: flex;
+      align-items: flex-end; padding: 1.2rem 1.4rem;
+    }
+    .fb-gc-dark  { background: #221608; }
+    .fb-gc-warm  { background: #2E1C0A; }
+    .fb-gc-mid   { background: #3A2610; }
+    .fb-gc-cream { background: #E4D9CB; }
+    .fb-gc-pale  { background: #EAE1D3; }
+    .fb-gc-tall  { grid-row: span 2; }
+    .fb-gc-glow {
+      position: absolute; width: 160px; height: 130px;
+      background: #C07808; opacity: 0.11;
+      border-radius: 50%; top: 20%; left: 20%;
+    }
+    .fb-gc-label {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.14em; color: rgba(240,232,218,0.3); text-transform: lowercase;
+    }
+    .fb-gc-label-dk { color: rgba(38,32,26,0.35); }
+    .fb-gc-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; color: rgba(240,232,218,0.45); line-height: 1.55;
+    }
+    .fb-gc-bird-bg {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .fb-gc-toptext { position: absolute; top: 1.2rem; left: 1.4rem; }
+
+    /* ── SHARED SECTION STYLES ── */
+    .fb-section        { margin: 4rem 3rem 0; }
+    .fb-section-border { border-top: 0.5px solid #C4B09A; padding-top: 3rem; }
+    .fb-section-label  {
+      font-family: 'Courier Prime', monospace; font-size: 13px;
+      letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 0.6rem;
+    }
+    .fb-section-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 2.2rem;
+    }
+    .fb-section-title {
+      font-family: 'Playfair Display', serif; font-size: 34px;
+      font-weight: 400; color: #26201A; margin: 0; line-height: 1.1;
+    }
+    .fb-section-cta {
+      font-family: 'Courier Prime', monospace; font-size: 13px;
+      letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
+      border-bottom: 0.5px solid #C4B09A; padding-bottom: 2px; text-decoration: none;
+    }
+
+    /* ── FILMS ── */
+    .fb-films { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fb-film-featured {
+      background: #1A1108; border-radius: 5px; overflow: hidden;
+      position: relative; min-height: 280px; display: flex;
+      flex-direction: column; justify-content: flex-end; padding: 2rem;
+    }
+    .fb-film-featured-glow {
+      position: absolute; width: 200px; height: 160px;
+      background: #A06808; opacity: 0.14;
+      border-radius: 50%; top: 15%; left: 30%;
+    }
+    .fb-film-meta { position: relative; z-index: 2; }
+    .fb-film-tag {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.16em; color: rgba(240,232,218,0.3);
+      text-transform: lowercase; margin-bottom: 8px;
+    }
+    .fb-film-title {
+      font-family: 'Playfair Display', serif; font-size: 36px;
+      font-weight: 400; color: rgba(240,232,218,0.72);
+      line-height: 1.05; margin-bottom: 8px;
+    }
+    .fb-film-desc {
+      font-size: 13.5px; line-height: 1.75;
+      color: rgba(240,232,218,0.38); max-width: 280px;
+    }
+    .fb-film-watch {
+      font-family: 'Courier Prime', monospace; font-size: 11px;
+      letter-spacing: 0.14em; color: rgba(240,232,218,0.32);
+      text-transform: lowercase; margin-top: 1rem;
+      border-bottom: 0.5px solid rgba(240,232,218,0.15);
+      padding-bottom: 2px; display: inline-block; text-decoration: none;
+    }
+    .fb-film-stack { display: flex; flex-direction: column; gap: 10px; }
+    .fb-film-small {
+      background: #261B0C; border-radius: 5px; padding: 1.5rem;
+      display: flex; flex-direction: column;
+      justify-content: space-between; flex: 1;
+    }
+    .fb-film-small-title {
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      color: rgba(240,232,218,0.55); margin: 4px 0;
+    }
+    .fb-film-small-label {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.12em; color: rgba(240,232,218,0.22); text-transform: lowercase;
+    }
+
+    /* ── SHOP ── */
+    .fb-shop-intro {
+      font-size: 15px; line-height: 1.9; color: #5C4A36;
+      max-width: 480px; margin-bottom: 2.5rem;
+    }
+    .fb-shop-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    .fb-shop-item {
+      display: flex; flex-direction: column;
+      border-radius: 5px; overflow: hidden; border: 0.5px solid #C4B09A;
+    }
+    /* 4x5 image — replace background-color with your photo:
+       style="background-image: url('your-product-photo.jpg');
+       background-size:cover; background-position:center;" */
+    .fb-shop-img {
+      width: 100%; aspect-ratio: 4 / 5;
+      background: #DDD4C0; position: relative;
+      display: flex; align-items: center;
+      justify-content: center; overflow: hidden;
+    }
+    .fb-shop-img-inner {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 3px 4px at 50% 50%, #C4B09A 40%, transparent 60%);
+      background-size: 18px 20px; opacity: 0.2;
+    }
+    .fb-shop-img-label {
+      position: relative; z-index: 2;
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.14em; color: rgba(38,32,26,0.3); text-transform: lowercase;
+    }
+    .fb-shop-item-body {
+      background: #EDE4D6; padding: 1rem 1.1rem 1.2rem;
+      display: flex; flex-direction: column; justify-content: space-between; flex: 1;
+    }
+    .fb-shop-item-name {
+      font-family: 'Playfair Display', serif; font-size: 16px;
+      font-weight: 400; color: #26201A; line-height: 1.2; margin-bottom: 0.3rem;
+    }
+    .fb-shop-item-desc {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.1em; color: #A8917A;
+      text-transform: lowercase; line-height: 1.6; margin-bottom: 0.6rem;
+    }
+    .fb-shop-item-tag {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.1em; color: #C4B09A; text-transform: lowercase; text-decoration: none;
+    }
+    .fb-shop-bottom {
+      margin-top: 1.8rem; display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .fb-shop-note { font-size: 13.5px; font-style: italic; color: #8A7660; }
+    .fb-shop-btn {
+      font-family: 'Courier Prime', monospace; font-size: 13px;
+      letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
+      border: 0.5px solid #C4B09A; padding: 8px 20px;
+      border-radius: 3px; text-decoration: none;
+    }
+
+    /* ── BOOK / COMING SOON ── */
+    .fb-book {
+      margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A;
+      padding: 3rem 0 4rem; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      border-bottom: 0.5px solid #C4B09A;
+    }
+    .fb-book-label {
+      font-family: 'Courier Prime', monospace; font-size: 13px;
+      letter-spacing: 0.2em; color: #A8917A;
+      text-transform: lowercase; margin-bottom: 1rem;
+    }
+    .fb-book-title {
+      font-family: 'Playfair Display', serif; font-size: 40px;
+      font-weight: 400; color: #26201A; line-height: 1.1; margin: 0 0 1rem;
+    }
+    .fb-book-body { font-size: 15px; line-height: 1.9; color: #5C4A36; }
+    .fb-book-right { display: flex; justify-content: center; align-items: center; }
+    /* 5x4 landscape placeholder — replace with cover image:
+       style="background-image: url('book-cover.jpg');
+       background-size:cover; background-position:center;" */
+    .fb-book-placeholder {
+      width: 100%; max-width: 460px; aspect-ratio: 5 / 4;
+      background: #1C140D; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .fb-book-spine {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 18px; background: #120E08;
+    }
+    .fb-book-glow {
+      position: absolute; width: 180px; height: 140px;
+      background: #A06808; opacity: 0.12;
+      border-radius: 50%; top: 25%; left: 20%;
+    }
+    .fb-book-text { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
+    .fb-book-bird {
+      width: 44px; height: auto; filter: invert(1); opacity: 0.1;
+      display: block; margin: 0 auto 12px;
+    }
+    .fb-book-coming {
+      font-family: 'Courier Prime', monospace; font-size: 11px;
+      letter-spacing: 0.18em; color: rgba(240,232,218,0.28); text-transform: lowercase;
+    }
+
+    /* ── FIELD NOTES ── */
+    .fb-notes { margin: 4rem 3rem 0; }
+    .fb-notes-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 2rem;
+      border-top: 0.5px solid #C4B09A; padding-top: 3rem;
+    }
+
+    /* FIELD NOTES LIST */
+    .fb-note-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+      border-bottom: 0.5px solid #C4B09A;
+      text-decoration: none; color: #26201A;
+      gap: 1.5rem;
+    }
+    .fb-note-row:first-of-type { border-top: 0.5px solid #C4B09A; }
+    .fb-note-row:hover .fb-note-title { color: #5C4A36; }
+
+    /* PINNED ROW */
+    .fb-note-pinned {
+      background: #E8DDD0;
+      border-radius: 5px;
+      border: 0.5px solid #C4B09A !important;
+      padding: 1.2rem 1rem;
+      margin-bottom: 4px;
+    }
+    .fb-note-pin-marker {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 5px;
+      padding-right: 1rem;
+      border-right: 0.5px solid #C4B09A;
+      min-width: 36px;
+    }
+    .fb-pin-icon { width: 9px; height: 9px; background: #A8917A; border-radius: 50%; flex-shrink: 0; }
+    .fb-pin-label {
+      font-family: 'Courier Prime', monospace; font-size: 7px;
+      letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase;
+      writing-mode: vertical-rl; transform: rotate(180deg);
+    }
+    .fb-note-content {
+      display: flex; flex-direction: column; gap: 4px; flex: 1;
+      padding-left: 1rem;
+    }
+    .fb-note-title {
+      font-family: 'Playfair Display', serif; font-size: 19px;
+      font-weight: 400; color: #26201A; line-height: 1.2;
+    }
+    .fb-note-tag {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.1em; color: #C4A882; text-transform: lowercase;
+    }
+    .fb-note-date {
+      font-family: 'Courier Prime', monospace; font-size: 11px;
+      letter-spacing: 0.12em; color: #B0977E; text-transform: lowercase;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    .fb-footer {
+      margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A;
+      padding: 2.5rem 0; display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .fb-footer-logo img {
+      height: 30px; width: auto;
+      filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
+      opacity: 0.45; display: block; margin-bottom: 0.8rem;
+    }
+    .fb-footer-sub {
+      font-family: 'Courier Prime', monospace; font-size: 11px;
+      letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase;
+    }
+    .fb-footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .fb-footer-links a {
+      font-family: 'Courier Prime', monospace; font-size: 12px;
+      letter-spacing: 0.12em; color: #8A7660; text-decoration: none; text-transform: lowercase;
+    }
+    .fb-footer-tagline {
+      font-family: 'Libre Baskerville', serif; font-size: 14px;
+      font-style: italic; color: #A8917A; line-height: 1.8;
+    }
+    .fb-footer-bottom {
+      margin: 0 3rem; padding: 1.5rem 0 0;
+      border-top: 0.5px solid #C4B09A;
+      display: flex; justify-content: space-between;
+    }
+    .fb-footer-bottom-text {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase;
+    }
+
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE — MOBILE & TABLET
+       Breakpoints:
+       768px and below = tablet/large phone
+       480px and below = phone
+    ───────────────────────────────────────── */
+
+    @media (max-width: 768px) {
+
+      /* NAV */
+      .fb-nav {
+        padding: 1.5rem 1.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .fb-nav-bird img { height: 22px; }
+      .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .fb-nav-links a { font-size: 11px; }
+
+      /* HERO */
+      .fb-hero {
+        grid-template-columns: 1fr;
+        margin: 0 1.5rem;
+        min-height: auto;
+        padding-bottom: 3rem;
+        gap: 1.5rem;
+      }
+      .fb-hero-name { font-size: 38px; }
+      .fb-hero-right {
+        min-height: 260px;
+        margin-top: 0;
+      }
+
+      /* GATHERED MOOD GRID */
+      .fb-gathered {
+        margin: 2rem 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .fb-gc-tall { grid-row: span 1; }
+
+      /* SECTIONS */
+      .fb-section { margin: 3rem 1.5rem 0; }
+      .fb-section-head { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+
+      /* FILMS */
+      .fb-films { grid-template-columns: 1fr; }
+      .fb-film-stack { flex-direction: row; }
+      .fb-film-small { flex: 1; }
+
+      /* SHOP */
+      .fb-shop-grid { grid-template-columns: 1fr 1fr; }
+      .fb-shop-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+      /* BOOK */
+      .fb-book {
+        margin: 3rem 1.5rem 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .fb-book-right { justify-content: flex-start; }
+      .fb-book-placeholder { max-width: 100%; }
+
+      /* NOTES */
+      .fb-notes { margin: 3rem 1.5rem 0; }
+      .fb-notes-head { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+
+      /* FOOTER */
+      .fb-footer {
+        margin: 3rem 1.5rem 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .fb-footer-bottom {
+        margin: 0 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+
+      /* NAV */
+      .fb-nav { padding: 1.2rem 1.2rem; }
+      .fb-nav-links { gap: 1rem; }
+      .fb-nav-links a { font-size: 10px; letter-spacing: 0.1em; }
+
+      /* HERO */
+      .fb-hero { margin: 0 1.2rem; padding-bottom: 2.5rem; }
+      .fb-hero-name { font-size: 32px; }
+      .fb-hero-label { font-size: 10px; }
+      .fb-hero-body { font-size: 14px; }
+      .fb-hero-right { min-height: 220px; }
+      .fb-hero-film-title { font-size: 24px; }
+
+      /* GATHERED */
+      .fb-gathered {
+        margin: 1.5rem 1.2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .fb-gc { min-height: 120px; }
+
+      /* SECTIONS */
+      .fb-section { margin: 2.5rem 1.2rem 0; }
+      .fb-section-title { font-size: 26px; }
+
+      /* FILMS */
+      .fb-film-stack { flex-direction: column; }
+      .fb-film-title { font-size: 28px; }
+      .fb-film-featured { min-height: 240px; }
+
+      /* SHOP */
+      .fb-shop-grid { grid-template-columns: 1fr; }
+      .fb-shop-intro { font-size: 14px; }
+
+      /* BOOK */
+      .fb-book { margin: 2.5rem 1.2rem 0; }
+      .fb-book-title { font-size: 30px; }
+      .fb-book-placeholder { aspect-ratio: 4 / 3; }
+
+      /* NOTES */
+      .fb-notes { margin: 2.5rem 1.2rem 0; }
+      .fb-note-title { font-size: 16px; }
+      .fb-note-row { padding: 1rem 0; }
+      .fb-note-pinned { padding: 1rem 0.8rem; }
+
+      /* FOOTER */
+      .fb-footer { margin: 2.5rem 1.2rem 0; }
+      .fb-footer-bottom { margin: 0 1.2rem; }
+      .fb-footer-tagline { font-size: 13px; }
+
+    }
+  </style>
 </head>
-<body style="background-color: #F0E8DA; color: #26201A;">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#films">Films</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Studio</h1>
+<body>
+<div class="fb-wrap">
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+       Bird mark only in the nav — no text.
+       Update href values to real URLs when live.
+  ═══════════════════════════════════════ -->
+  <nav class="fb-nav">
+    <div class="fb-nav-bird">
+      <img src="faeblette-bird.png" alt="faeblette" />
+    </div>
+    <div class="fb-nav-links">
+      <a href="#field-notes">the field notes</a>
+      <a href="#films">films</a>
+      <a href="#shop">shop</a>
+      <a href="about.html">about</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+       "faeblette" typed in Playfair sits beneath
+       the studio label. The handwritten logo
+       lives only in the footer.
+  ═══════════════════════════════════════ -->
+  <div class="fb-hero">
+    <div class="fb-hero-left">
+      <div>
+        <!-- BRAND NAME — the first thing seen -->
+        <div class="fb-hero-name">faeblette</div>
+        <!-- STUDIO LABEL — edit freely -->
+        <div class="fb-hero-label">an independent studio — los angeles</div>
+      </div>
+      <div>
+        <!-- BODY — edit freely -->
+        <p class="fb-hero-body">Pensive stories and goods made slowly. Guided by old forms, quiet palettes, and the beauty of imperfection.</p>
+      </div>
+      <a href="#field-notes" class="fb-hero-cta">explore the world →</a>
+    </div>
+    <!-- To add a film still: add to this div's style attribute —
+         background-image: url('your-film-still.jpg');
+         background-size: cover; background-position: center; -->
+    <div class="fb-hero-right">
+      <div class="fb-damask"></div>
+      <div class="fb-glow-a"></div>
+      <div class="fb-glow-b"></div>
+      <div class="fb-hero-bird-corner">
+        <img src="faeblette-bird.png" alt="" />
+      </div>
+      <div class="fb-hero-film">
+        <!-- Update when a new film releases -->
+        <div class="fb-hero-film-label">now showing — short film</div>
+        <div class="fb-hero-film-title">numb</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       GATHERED / MOOD GRID
+       Replace dark cell backgrounds with photos.
+       Edit quotes and labels freely.
+  ═══════════════════════════════════════ -->
+  <div class="fb-gathered">
+    <div class="fb-gc fb-gc-dark fb-gc-tall">
+      <div class="fb-gc-glow"></div>
+      <div class="fb-gc-bird-bg">
+        <img src="faeblette-bird.png" alt="" style="width:80px; height:auto; filter:invert(1); opacity:0.04;" />
+      </div>
+      <div style="position:relative; z-index:2;">
+        <!-- CENTRAL QUOTE — edit freely -->
+        <div class="fb-gc-quote" style="font-size:15px; margin-bottom:10px;">
+          may we see, reflect,<br>and become the little lights<br>that guide each other home.
         </div>
-    </header>
-    <main>
-        <section id="mood-grid">
-            <h2>Mood</h2>
-            <div class="quotes">
-                <blockquote>"Quote 1" - Author
-                </blockquote>
-                <blockquote>"Quote 2" - Author
-                </blockquote>
-                <blockquote>"Quote 3" - Author
-                </blockquote>
-            </div>
-        </section>
-        <section id="films">
-            <h2>Films</h2>
-            <p>Details about films go here.</p>
-        </section>
-        <section id="shop">
-            <h2>Shop</h2>
-            <div class="product-grid">
-                <div class="product-placeholder">Product 1</div>
-                <div class="product-placeholder">Product 2</div>
-                <div class="product-placeholder">Product 3</div>
-            </div>
-        </section>
-        <section id="coming-soon">
-            <h2>Coming Soon</h2>
-            <p>Book details will be available soon.</p>
-        </section>
-        <section id="field-notes">
-            <h2>Field Notes</h2>
-            <div class="pinned-post">Pinned post content</div>
-        </section>
-    </main>
-    <footer>
-        <div class="logo">Logo</div>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
+        <div class="fb-gc-label">— faeblette</div>
+      </div>
+    </div>
+    <div class="fb-gc fb-gc-warm">
+      <div class="fb-gc-toptext"><div class="fb-gc-label">short film — 2025</div></div>
+      <div class="fb-gc-quote">Sadie's<br>Song</div>
+    </div>
+    <div class="fb-gc fb-gc-cream">
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center;">
+        <img src="faeblette-bird.png" alt="" style="width:48px; height:auto; opacity:0.14;" />
+      </div>
+      <div class="fb-gc-label fb-gc-label-dk">100% whimsy guaranteed</div>
+    </div>
+    <div class="fb-gc fb-gc-mid">
+      <div class="fb-gc-toptext"><div class="fb-gc-label">from the shop</div></div>
+      <!-- Update when new illustration is ready -->
+      <div class="fb-gc-quote">the fox<br>in glasses</div>
+    </div>
+    <div class="fb-gc fb-gc-pale">
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:1.2rem;">
+        <!-- MOOD PHRASE — edit freely -->
+        <div style="font-family:'Playfair Display',serif; font-size:12px; color:rgba(38,32,26,0.32); text-align:center; line-height:1.65;">
+          find me where<br>the wild things are
         </div>
-    </footer>
+      </div>
+      <div class="fb-gc-label fb-gc-label-dk" style="position:relative;z-index:2;">wonder</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FILMS
+       Update featured film and stack cards
+       as new films are made.
+  ═══════════════════════════════════════ -->
+  <div id="films" class="fb-section fb-section-border">
+    <div class="fb-section-head">
+      <div>
+        <div class="fb-section-label">films</div>
+        <h2 class="fb-section-title">stories in moving light</h2>
+      </div>
+      <a href="films.html" class="fb-section-cta">view all films →</a>
+    </div>
+    <div class="fb-films">
+      <!-- FEATURED FILM — add still: background-image: url('numb-still.jpg') -->
+      <div class="fb-film-featured">
+        <div class="fb-film-featured-glow"></div>
+        <div class="fb-film-meta">
+          <div class="fb-film-tag">short film — drama — 2025</div>
+          <div class="fb-film-title">numb</div>
+          <div class="fb-film-desc">A grieving writer rediscovers his voice. About what we lose and what remains when the noise finally stops.</div>
+          <a href="https://www.youtube.com/watch?v=HcSnyYpL2fo" class="fb-film-watch" target="_blank">watch on youtube →</a>
+        </div>
+      </div>
+      <div class="fb-film-stack">
+        <!-- FILM CARD — duplicate to add films -->
+        <div class="fb-film-small">
+          <div class="fb-film-small-label">short film — 2025</div>
+          <div class="fb-film-small-title">Sadie's Song</div>
+          <div class="fb-film-small-label" style="margin-top:6px;">on imperfection, invisibility,<br>and being truly seen</div>
+        </div>
+        <div class="fb-film-small">
+          <div class="fb-film-small-label">in production — 2026</div>
+          <div class="fb-film-small-title">The Exposing Chair</div>
+          <div class="fb-film-small-label" style="margin-top:6px;">three women. one room.<br>the fear of being seen as a hypocrite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SHOP
+       Each item has a 4x5 image placeholder.
+       To add your photo, find the .fb-shop-img div
+       for that item and add to its style:
+       background-image: url('your-photo.jpg');
+       background-size: cover; background-position: center;
+       Then remove the fb-shop-img-inner and label span.
+  ═══════════════════════════════════════ -->
+  <div id="shop" class="fb-section fb-section-border">
+    <div class="fb-section-head">
+      <div>
+        <div class="fb-section-label">goods for the curious</div>
+        <h2 class="fb-section-title">things made with intention</h2>
+      </div>
+      <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-section-cta" target="_blank">visit the faeblette shop →</a>
+    </div>
+    <!-- INTRO — edit freely -->
+    <p class="fb-shop-intro">Each object is an invitation — to pause, to write something down, to wear something that means something. Made for the ones who notice the small things.</p>
+    <div class="fb-shop-grid">
+
+      <!-- SHOP ITEM 1 — add photo to fb-shop-img style -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to wear</div>
+            <div class="fb-shop-item-desc">comfort colors shirts<br>&amp; sweatshirts</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">cozy apparel →</a>
+        </div>
+      </div>
+
+      <!-- SHOP ITEM 2 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to write in</div>
+            <div class="fb-shop-item-desc">journals for the<br>quiet ones</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">journals →</a>
+        </div>
+      </div>
+
+      <!-- SHOP ITEM 3 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to drink from</div>
+            <div class="fb-shop-item-desc">mugs for slow<br>mornings</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">mugs →</a>
+        </div>
+      </div>
+
+      <!-- SHOP ITEM 4 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things for your walls</div>
+            <div class="fb-shop-item-desc">prints &amp; digital<br>downloads</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">wall art →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="fb-shop-bottom">
+      <span class="fb-shop-note">Fulfilled through Printify &amp; Etsy — ships worldwide.</span>
+      <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-btn" target="_blank">browse everything →</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       COMING SOON / BOOK
+       5x4 landscape placeholder.
+       When ready to reveal: replace the
+       fb-book-placeholder background with
+       your cover image and update text.
+  ═══════════════════════════════════════ -->
+  <div class="fb-book">
+    <div>
+      <div class="fb-book-label">coming soon — a surprise</div>
+      <!-- HEADLINE — edit freely -->
+      <h2 class="fb-book-title">something is<br>being made.</h2>
+      <!-- BODY — edit freely -->
+      <p class="fb-book-body">It isn't ready to be named yet. But it exists. And when it arrives, you'll know it was always meant to.</p>
+    </div>
+    <div class="fb-book-right">
+      <!-- 5x4 placeholder — when ready, add:
+           style="background-image: url('book-cover.jpg');
+           background-size:cover; background-position:center;" -->
+      <div class="fb-book-placeholder">
+        <div class="fb-book-spine"></div>
+        <div class="fb-book-glow"></div>
+        <div class="fb-book-text">
+          <img class="fb-book-bird" src="faeblette-bird.png" alt="" />
+          <div class="fb-book-coming">it's a surprise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FIELD NOTES
+       PINNED POST: update href, title, date, tag.
+       REGULAR POSTS: add new posts at the top.
+       Each post links to its own page in /notes/
+       e.g. notes/your-post-title.html
+       To add a post: copy one fb-note-row block,
+       paste above the others, update all fields.
+  ═══════════════════════════════════════ -->
+  <div id="field-notes" class="fb-notes">
+    <div class="fb-notes-head">
+      <div>
+        <div class="fb-section-label">the field notes</div>
+        <h2 class="fb-section-title">dispatches from inside the world</h2>
+      </div>
+      <a href="field-notes.html" class="fb-section-cta">read all notes →</a>
+    </div>
+
+    <!-- ── PINNED POST ──
+         Edit href, title, date and tag to change
+         what's pinned. Marker appears automatically. -->
+    <a href="notes/real-power.html" class="fb-note-row fb-note-pinned">
+      <div class="fb-note-pin-marker">
+        <div class="fb-pin-icon"></div>
+        <span class="fb-pin-label">pinned</span>
+      </div>
+      <div class="fb-note-content">
+        <span class="fb-note-title">Real power is bowing down</span>
+        <span class="fb-note-tag">philosophy — start here</span>
+      </div>
+      <span class="fb-note-date">apr 2026</span>
+    </a>
+
+    <!-- ── REGULAR POSTS ──
+         Copy a block, paste above the others,
+         update href, title, tag, and date. -->
+
+    <!-- POST — duplicate to add more -->
+    <a href="notes/exposing-chair.html" class="fb-note-row">
+      <div class="fb-note-content">
+        <span class="fb-note-title">On making things that expose you</span>
+        <span class="fb-note-tag">film / process</span>
+      </div>
+      <span class="fb-note-date">apr 2026</span>
+    </a>
+
+    <a href="notes/serious-faces.html" class="fb-note-row">
+      <div class="fb-note-content">
+        <span class="fb-note-title">Why I draw animals with serious faces</span>
+        <span class="fb-note-tag">illustration</span>
+      </div>
+      <span class="fb-note-date">mar 2026</span>
+    </a>
+
+    <a href="notes/real-power.html" class="fb-note-row">
+      <div class="fb-note-content">
+        <span class="fb-note-title">Real power is bowing down</span>
+        <span class="fb-note-tag">philosophy</span>
+      </div>
+      <span class="fb-note-date">feb 2026</span>
+    </a>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+       Handwritten logo lives here only.
+       Update social and nav links below.
+  ═══════════════════════════════════════ -->
+  <div class="fb-footer">
+    <div class="fb-footer-logo">
+      <!-- Handwritten faeblette logo — only here -->
+      <img src="faeblette-logo.png" alt="faeblette" />
+      <div class="fb-footer-sub">est. 2024 — los angeles, ca</div>
+    </div>
+    <div class="fb-footer-links">
+      <a href="#field-notes">the field notes</a>
+      <a href="#films">films</a>
+      <a href="https://etsy.com/shop/TheFaebletteShop" target="_blank">the faeblette shop</a>
+      <a href="about.html">about</a>
+      <a href="https://www.instagram.com/faeblette" target="_blank">instagram</a>
+      <a href="https://www.youtube.com/@faeblette" target="_blank">youtube</a>
+      <a href="https://www.tiktok.com/@faeblette" target="_blank">tiktok</a>
+    </div>
+    <div class="fb-footer-tagline">
+      honor the unseen,<br>the forgotten,<br>and the small.
+    </div>
+  </div>
+  <div class="fb-footer-bottom">
+    <span class="fb-footer-bottom-text">© 2026 faeblette — all rights reserved</span>
+    <span class="fb-footer-bottom-text">faeblette.com</span>
+  </div>
+
+</div>
 </body>
 </html>
