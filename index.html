@@ -273,225 +273,59 @@
     }
 
     /* ── SHOP ── */
-    <!-- ═══════════════════════════════════════════════════════════
-     SHOP SECTION — CSS REPLACEMENT
-     In your index.html, find the comment "── SHOP ──" in the
-     <style> block and REPLACE everything from
-     .fb-shop-intro { ... } down to .fb-shop-btn { ... }
-     with the CSS below.
-════════════════════════════════════════════════════════════ -->
-
-<!-- ░░░░░░░░░░  PASTE THIS INTO YOUR <style> BLOCK  ░░░░░░░░░░ -->
-<!--
-    .fb-shop-intro {
-      font-size: 15px; line-height: 1.9; color: #5C4A36;
-      max-width: 480px; margin-bottom: 2.5rem;
-    }
-
-    /* ── SHOP GRID — Option A
-       Wall art = tall hero left (spans 2 rows)
-       Shirt    = top right
-       Journal  = wide bottom (spans 2 cols)
-       Mug      = bottom right
-    ── */
-    .fb-shop-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      grid-template-rows: 280px 220px;
-      gap: 10px;
-    }
-
-    .fb-shop-item {
-      display: flex; flex-direction: column;
-      border-radius: 5px; overflow: hidden;
-      border: 0.5px solid #C4B09A;
-      position: relative;
-    }
-
-    /* Wall art — tall hero, spans both rows */
-    .fb-shop-item-hero {
-      grid-row: span 2;
-    }
-
-    /* Journal — wide landscape, spans 2 columns */
-    .fb-shop-item-wide {
-      grid-column: span 2;
-    }
-
-    /* All product image areas */
-    .fb-shop-img {
-      flex: 1;
-      background: #DDD4C0;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      min-height: 120px;
-    }
-    .fb-shop-img-inner {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(ellipse 3px 4px at 50% 50%, #C4B09A 40%, transparent 60%);
-      background-size: 18px 20px; opacity: 0.2;
-    }
-    .fb-shop-img-label {
-      position: relative; z-index: 2;
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.14em; color: rgba(38,32,26,0.3); text-transform: lowercase;
-    }
-
-    .fb-shop-item-body {
-      background: #EDE4D6;
-      padding: 1rem 1.1rem 1.2rem;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .fb-shop-item-name {
-      font-family: 'Playfair Display', serif; font-size: 16px;
-      font-weight: 400; color: #26201A; line-height: 1.2; margin-bottom: 0.3rem;
-    }
-    .fb-shop-item-desc {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.1em; color: #A8917A;
-      text-transform: lowercase; line-height: 1.6; margin-bottom: 0.6rem;
-    }
-    .fb-shop-item-tag {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.1em; color: #C4B09A;
-      text-transform: lowercase; text-decoration: none;
-    }
-    .fb-shop-bottom {
-      margin-top: 1.8rem; display: flex;
-      justify-content: space-between; align-items: center;
-    }
-    .fb-shop-note { font-size: 13.5px; font-style: italic; color: #8A7660; }
-    .fb-shop-btn {
-      font-family: 'Courier Prime', monospace; font-size: 13px;
-      letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
-      border: 0.5px solid #C4B09A; padding: 8px 20px;
-      border-radius: 3px; text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .fb-shop-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .fb-shop-item-hero { grid-row: span 1; }
-      .fb-shop-item-wide { grid-column: span 2; }
-    }
-
-    @media (max-width: 480px) {
-      .fb-shop-grid {
-        grid-template-columns: 1fr;
-      }
-      .fb-shop-item-wide { grid-column: span 1; }
-    }
--->
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     SHOP SECTION — HTML REPLACEMENT
-     In your index.html, find the comment "SHOP" section
-     and REPLACE the entire <div class="fb-shop-grid"> block
-     (everything from that opening div to its closing </div>)
-     with the HTML below.
-════════════════════════════════════════════════════════════ -->
-
-<!-- ░░░░░░░░░░  PASTE THIS INTO YOUR HTML BODY  ░░░░░░░░░░ -->
-
-    <div class="fb-shop-grid">
-
-      <!-- ─────────────────────────────────────────
-           WALL ART — hero card, tall left column
-           Image: product-print.jpg (already named)
-           To activate: the style attribute below
-           already has your image wired in.
-           Remove fb-shop-img-inner and fb-shop-img-label
-           once the image looks right.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item fb-shop-item-hero">
-        <div class="fb-shop-img" style="background-image: url('product-print.jpg'); background-size: cover; background-position: center;">
-          <!-- Remove these two lines once photo is confirmed looking good -->
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">product-print.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things for your walls</div>
-            <div class="fb-shop-item-desc">prints &amp; digital<br>downloads</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">wall art →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           SHIRT — top right
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-shirt.jpg');
-           background-size: cover; background-position: center top;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-shirt.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to wear</div>
-            <div class="fb-shop-item-desc">comfort colors shirts<br>&amp; sweatshirts</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">cozy apparel →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           MUG — bottom right
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-mug.jpg');
-           background-size: cover; background-position: center;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-mug.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to drink from</div>
-            <div class="fb-shop-item-desc">mugs for slow<br>mornings</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">mugs →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           JOURNAL — wide landscape, spans bottom
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-journal.jpg');
-           background-size: cover; background-position: center;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item fb-shop-item-wide">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-journal.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to write in</div>
-            <div class="fb-shop-item-desc">journals for the quiet ones</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">journals →</a>
-        </div>
-      </div>
-
-    </div>
+    .fb-shop-intro {
+      font-size: 15px; line-height: 1.9; color: #5C4A36;
+      max-width: 480px; margin-bottom: 2.5rem;
+    }
+    .fb-shop-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    .fb-shop-item {
+      display: flex; flex-direction: column;
+      border-radius: 5px; overflow: hidden; border: 0.5px solid #C4B09A;
+    }
+    /* 4x5 image — replace background-color with your photo:
+       style="background-image: url('your-product-photo.jpg');
+       background-size:cover; background-position:center;" */
+    .fb-shop-img {
+      width: 100%; aspect-ratio: 4 / 5;
+      background: #DDD4C0; position: relative;
+      display: flex; align-items: center;
+      justify-content: center; overflow: hidden;
+    }
+    .fb-shop-img-inner {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 3px 4px at 50% 50%, #C4B09A 40%, transparent 60%);
+      background-size: 18px 20px; opacity: 0.2;
+    }
+    .fb-shop-img-label {
+      position: relative; z-index: 2;
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.14em; color: rgba(38,32,26,0.3); text-transform: lowercase;
+    }
+    .fb-shop-item-body {
+      background: #EDE4D6; padding: 1rem 1.1rem 1.2rem;
+      display: flex; flex-direction: column; justify-content: space-between; flex: 1;
+    }
+    .fb-shop-item-name {
+      font-family: 'Playfair Display', serif; font-size: 16px;
+      font-weight: 400; color: #26201A; line-height: 1.2; margin-bottom: 0.3rem;
+    }
+    .fb-shop-item-desc {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.1em; color: #A8917A;
+      text-transform: lowercase; line-height: 1.6; margin-bottom: 0.6rem;
+    }
+    .fb-shop-item-tag {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.1em; color: #C4B09A; text-transform: lowercase; text-decoration: none;
+    }
+    .fb-shop-bottom {
+      margin-top: 1.8rem; display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .fb-shop-note { font-size: 13.5px; font-style: italic; color: #8A7660; }
+    .fb-shop-btn {
       font-family: 'Courier Prime', monospace; font-size: 13px;
       letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
       border: 0.5px solid #C4B09A; padding: 8px 20px;
@@ -936,225 +770,67 @@
     </div>
     <!-- INTRO — edit freely -->
     <p class="fb-shop-intro">Each object is an invitation — to pause, to write something down, to wear something that means something. Made for the ones who notice the small things.</p>
-    <!-- ═══════════════════════════════════════════════════════════
-     SHOP SECTION — CSS REPLACEMENT
-     In your index.html, find the comment "── SHOP ──" in the
-     <style> block and REPLACE everything from
-     .fb-shop-intro { ... } down to .fb-shop-btn { ... }
-     with the CSS below.
-════════════════════════════════════════════════════════════ -->
+    <div class="fb-shop-grid">
 
-<!-- ░░░░░░░░░░  PASTE THIS INTO YOUR <style> BLOCK  ░░░░░░░░░░ -->
-<!--
-    .fb-shop-intro {
-      font-size: 15px; line-height: 1.9; color: #5C4A36;
-      max-width: 480px; margin-bottom: 2.5rem;
-    }
+      <!-- SHOP ITEM 1 — add photo to fb-shop-img style -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to wear</div>
+            <div class="fb-shop-item-desc">comfort colors shirts<br>&amp; sweatshirts</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">cozy apparel →</a>
+        </div>
+      </div>
 
-    /* ── SHOP GRID — Option A
-       Wall art = tall hero left (spans 2 rows)
-       Shirt    = top right
-       Journal  = wide bottom (spans 2 cols)
-       Mug      = bottom right
-    ── */
-    .fb-shop-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      grid-template-rows: 280px 220px;
-      gap: 10px;
-    }
+      <!-- SHOP ITEM 2 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to write in</div>
+            <div class="fb-shop-item-desc">journals for the<br>quiet ones</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">journals →</a>
+        </div>
+      </div>
 
-    .fb-shop-item {
-      display: flex; flex-direction: column;
-      border-radius: 5px; overflow: hidden;
-      border: 0.5px solid #C4B09A;
-      position: relative;
-    }
+      <!-- SHOP ITEM 3 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things to drink from</div>
+            <div class="fb-shop-item-desc">mugs for slow<br>mornings</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">mugs →</a>
+        </div>
+      </div>
 
-    /* Wall art — tall hero, spans both rows */
-    .fb-shop-item-hero {
-      grid-row: span 2;
-    }
-
-    /* Journal — wide landscape, spans 2 columns */
-    .fb-shop-item-wide {
-      grid-column: span 2;
-    }
-
-    /* All product image areas */
-    .fb-shop-img {
-      flex: 1;
-      background: #DDD4C0;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      min-height: 120px;
-    }
-    .fb-shop-img-inner {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(ellipse 3px 4px at 50% 50%, #C4B09A 40%, transparent 60%);
-      background-size: 18px 20px; opacity: 0.2;
-    }
-    .fb-shop-img-label {
-      position: relative; z-index: 2;
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.14em; color: rgba(38,32,26,0.3); text-transform: lowercase;
-    }
-
-    .fb-shop-item-body {
-      background: #EDE4D6;
-      padding: 1rem 1.1rem 1.2rem;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .fb-shop-item-name {
-      font-family: 'Playfair Display', serif; font-size: 16px;
-      font-weight: 400; color: #26201A; line-height: 1.2; margin-bottom: 0.3rem;
-    }
-    .fb-shop-item-desc {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.1em; color: #A8917A;
-      text-transform: lowercase; line-height: 1.6; margin-bottom: 0.6rem;
-    }
-    .fb-shop-item-tag {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.1em; color: #C4B09A;
-      text-transform: lowercase; text-decoration: none;
-    }
-    .fb-shop-bottom {
-      margin-top: 1.8rem; display: flex;
-      justify-content: space-between; align-items: center;
-    }
-    .fb-shop-note { font-size: 13.5px; font-style: italic; color: #8A7660; }
-    .fb-shop-btn {
-      font-family: 'Courier Prime', monospace; font-size: 13px;
-      letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
-      border: 0.5px solid #C4B09A; padding: 8px 20px;
-      border-radius: 3px; text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .fb-shop-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .fb-shop-item-hero { grid-row: span 1; }
-      .fb-shop-item-wide { grid-column: span 2; }
-    }
-
-    @media (max-width: 480px) {
-      .fb-shop-grid {
-        grid-template-columns: 1fr;
-      }
-      .fb-shop-item-wide { grid-column: span 1; }
-    }
--->
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     SHOP SECTION — HTML REPLACEMENT
-     In your index.html, find the comment "SHOP" section
-     and REPLACE the entire <div class="fb-shop-grid"> block
-     (everything from that opening div to its closing </div>)
-     with the HTML below.
-════════════════════════════════════════════════════════════ -->
-
-<!-- ░░░░░░░░░░  PASTE THIS INTO YOUR HTML BODY  ░░░░░░░░░░ -->
-
-    <div class="fb-shop-grid">
-
-      <!-- ─────────────────────────────────────────
-           WALL ART — hero card, tall left column
-           Image: product-print.jpg (already named)
-           To activate: the style attribute below
-           already has your image wired in.
-           Remove fb-shop-img-inner and fb-shop-img-label
-           once the image looks right.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item fb-shop-item-hero">
-        <div class="fb-shop-img" style="background-image: url('product-print.jpg'); background-size: cover; background-position: center;">
-          <!-- Remove these two lines once photo is confirmed looking good -->
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">product-print.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things for your walls</div>
-            <div class="fb-shop-item-desc">prints &amp; digital<br>downloads</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">wall art →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           SHIRT — top right
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-shirt.jpg');
-           background-size: cover; background-position: center top;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-shirt.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to wear</div>
-            <div class="fb-shop-item-desc">comfort colors shirts<br>&amp; sweatshirts</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">cozy apparel →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           MUG — bottom right
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-mug.jpg');
-           background-size: cover; background-position: center;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-mug.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to drink from</div>
-            <div class="fb-shop-item-desc">mugs for slow<br>mornings</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">mugs →</a>
-        </div>
-      </div>
-
-      <!-- ─────────────────────────────────────────
-           JOURNAL — wide landscape, spans bottom
-           Image: when ready, add filename to style below
-           e.g. style="background-image: url('product-journal.jpg');
-           background-size: cover; background-position: center;"
-           Then remove fb-shop-img-inner and fb-shop-img-label.
-      ───────────────────────────────────────── -->
-      <div class="fb-shop-item fb-shop-item-wide">
-        <div class="fb-shop-img">
-          <div class="fb-shop-img-inner"></div>
-          <span class="fb-shop-img-label">add product-journal.jpg</span>
-        </div>
-        <div class="fb-shop-item-body">
-          <div>
-            <div class="fb-shop-item-name">things to write in</div>
-            <div class="fb-shop-item-desc">journals for the quiet ones</div>
-          </div>
-          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">journals →</a>
-        </div>
-      </div>
-
-    </div>
+      <!-- SHOP ITEM 4 -->
+      <div class="fb-shop-item">
+        <div class="fb-shop-img">
+          <div class="fb-shop-img-inner"></div>
+          <span class="fb-shop-img-label">add product photo</span>
+        </div>
+        <div class="fb-shop-item-body">
+          <div>
+            <div class="fb-shop-item-name">things for your walls</div>
+            <div class="fb-shop-item-desc">prints &amp; digital<br>downloads</div>
+          </div>
+          <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-shop-item-tag" target="_blank">wall art →</a>
+        </div>
+      </div>
 
     </div>
     <div class="fb-shop-bottom">
