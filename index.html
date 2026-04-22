@@ -11,15 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
   <style>
 
-    /* ─────────────────────────────────────────
-       FAEBLETTE.COM — index.html
-       To edit text: open in any text editor
-       (TextEdit, VS Code, Notes), find the words,
-       change them, save. That's it.
-       All images should live in the same folder
-       as this file.
-    ───────────────────────────────────────── */
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -67,11 +58,12 @@
     .fb-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 420px;
+      min-height: 480px;
       margin: 0 3rem;
       gap: 2rem;
       padding-bottom: 4rem;
       border-bottom: 0.5px solid #C4B09A;
+      align-items: stretch;
     }
     .fb-hero-left {
       display: flex;
@@ -129,7 +121,8 @@
       display: flex;
       align-items: flex-end;
       padding: 2rem;
-      margin-top: 2rem;
+      margin-top: 0;
+      min-height: 420px;
     }
     .fb-glow-a {
       position: absolute; width: 220px; height: 180px;
@@ -284,9 +277,6 @@
       display: flex; flex-direction: column;
       border-radius: 5px; overflow: hidden; border: 0.5px solid #C4B09A;
     }
-    /* 4x5 image — replace background-color with your photo:
-       style="background-image: url('your-product-photo.jpg');
-       background-size:cover; background-position:center;" */
     .fb-shop-img {
       width: 100%; aspect-ratio: 4 / 5;
       background: #DDD4C0; position: relative;
@@ -335,26 +325,23 @@
     /* ── BOOK / COMING SOON ── */
     .fb-book {
       margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A;
-      padding: 3rem 0 4rem; display: grid;
-      grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      padding: 2rem 0 2.5rem; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
       border-bottom: 0.5px solid #C4B09A;
     }
     .fb-book-label {
       font-family: 'Courier Prime', monospace; font-size: 13px;
       letter-spacing: 0.2em; color: #A8917A;
-      text-transform: lowercase; margin-bottom: 1rem;
+      text-transform: lowercase; margin-bottom: 0.6rem;
     }
     .fb-book-title {
-      font-family: 'Playfair Display', serif; font-size: 40px;
-      font-weight: 400; color: #26201A; line-height: 1.1; margin: 0 0 1rem;
+      font-family: 'Playfair Display', serif; font-size: 32px;
+      font-weight: 400; color: #26201A; line-height: 1.1; margin: 0 0 0.6rem;
     }
     .fb-book-body { font-size: 15px; line-height: 1.9; color: #5C4A36; }
     .fb-book-right { display: flex; justify-content: center; align-items: center; }
-    /* 5x4 landscape placeholder — replace with cover image:
-       style="background-image: url('book-cover.jpg');
-       background-size:cover; background-position:center;" */
     .fb-book-placeholder {
-      width: 100%; max-width: 460px; aspect-ratio: 5 / 4;
+      width: 100%; max-width: 320px; aspect-ratio: 5 / 4;
       background: #1C140D; border-radius: 5px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
@@ -386,7 +373,6 @@
       border-top: 0.5px solid #C4B09A; padding-top: 3rem;
     }
 
-    /* FIELD NOTES LIST */
     .fb-note-row {
       display: flex; align-items: center;
       justify-content: space-between;
@@ -398,7 +384,6 @@
     .fb-note-row:first-of-type { border-top: 0.5px solid #C4B09A; }
     .fb-note-row:hover .fb-note-title { color: #5C4A36; }
 
-    /* PINNED ROW */
     .fb-note-pinned {
       background: #E8DDD0;
       border-radius: 5px;
@@ -471,151 +456,67 @@
       letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase;
     }
 
-
-    /* ─────────────────────────────────────────
-       RESPONSIVE — MOBILE & TABLET
-       Breakpoints:
-       768px and below = tablet/large phone
-       480px and below = phone
-    ───────────────────────────────────────── */
-
     @media (max-width: 768px) {
-
-      /* NAV */
-      .fb-nav {
-        padding: 1.5rem 1.5rem;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+      .fb-nav { padding: 1.5rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
       .fb-nav-bird img { height: 22px; }
       .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
       .fb-nav-links a { font-size: 11px; }
-
-      /* HERO */
-      .fb-hero {
-        grid-template-columns: 1fr;
-        margin: 0 1.5rem;
-        min-height: auto;
-        padding-bottom: 3rem;
-        gap: 1.5rem;
-      }
+      .fb-hero { grid-template-columns: 1fr; margin: 0 1.5rem; min-height: auto; padding-bottom: 3rem; gap: 1.5rem; }
       .fb-hero-name { font-size: 38px; }
-      .fb-hero-right {
-        min-height: 260px;
-        margin-top: 0;
-      }
-
-      /* GATHERED MOOD GRID */
-      .fb-gathered {
-        margin: 2rem 1.5rem;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
+      .fb-hero-right { min-height: 260px; margin-top: 0; }
+      .fb-gathered { margin: 2rem 1.5rem; grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .fb-gc-tall { grid-row: span 1; }
-
-      /* SECTIONS */
       .fb-section { margin: 3rem 1.5rem 0; }
       .fb-section-head { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-
-      /* FILMS */
       .fb-films { grid-template-columns: 1fr; }
       .fb-film-stack { flex-direction: row; }
       .fb-film-small { flex: 1; }
-
-      /* SHOP */
       .fb-shop-grid { grid-template-columns: 1fr 1fr; }
       .fb-shop-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
-
-      /* BOOK */
-      .fb-book {
-        margin: 3rem 1.5rem 0;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .fb-book { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
       .fb-book-right { justify-content: flex-start; }
       .fb-book-placeholder { max-width: 100%; }
-
-      /* NOTES */
       .fb-notes { margin: 3rem 1.5rem 0; }
       .fb-notes-head { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-
-      /* FOOTER */
-      .fb-footer {
-        margin: 3rem 1.5rem 0;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .fb-footer-bottom {
-        margin: 0 1.5rem;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
+      .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
 
     @media (max-width: 480px) {
-
-      /* NAV */
       .fb-nav { padding: 1.2rem 1.2rem; }
       .fb-nav-links { gap: 1rem; }
       .fb-nav-links a { font-size: 10px; letter-spacing: 0.1em; }
-
-      /* HERO */
       .fb-hero { margin: 0 1.2rem; padding-bottom: 2.5rem; }
       .fb-hero-name { font-size: 32px; }
       .fb-hero-label { font-size: 10px; }
       .fb-hero-body { font-size: 14px; }
       .fb-hero-right { min-height: 220px; }
       .fb-hero-film-title { font-size: 24px; }
-
-      /* GATHERED */
-      .fb-gathered {
-        margin: 1.5rem 1.2rem;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
+      .fb-gathered { margin: 1.5rem 1.2rem; grid-template-columns: 1fr; grid-template-rows: auto; }
       .fb-gc { min-height: 120px; }
-
-      /* SECTIONS */
       .fb-section { margin: 2.5rem 1.2rem 0; }
       .fb-section-title { font-size: 26px; }
-
-      /* FILMS */
       .fb-film-stack { flex-direction: column; }
       .fb-film-title { font-size: 28px; }
       .fb-film-featured { min-height: 240px; }
-
-      /* SHOP */
       .fb-shop-grid { grid-template-columns: 1fr; }
       .fb-shop-intro { font-size: 14px; }
-
-      /* BOOK */
       .fb-book { margin: 2.5rem 1.2rem 0; }
-      .fb-book-title { font-size: 30px; }
+      .fb-book-title { font-size: 26px; }
       .fb-book-placeholder { aspect-ratio: 4 / 3; }
-
-      /* NOTES */
       .fb-notes { margin: 2.5rem 1.2rem 0; }
       .fb-note-title { font-size: 16px; }
       .fb-note-row { padding: 1rem 0; }
       .fb-note-pinned { padding: 1rem 0.8rem; }
-
-      /* FOOTER */
       .fb-footer { margin: 2.5rem 1.2rem 0; }
       .fb-footer-bottom { margin: 0 1.2rem; }
       .fb-footer-tagline { font-size: 13px; }
-
     }
   </style>
 </head>
 <body>
 <div class="fb-wrap">
 
-  <!-- ═══════════════════════════════════════
-       NAVIGATION
-       Bird mark only in the nav — no text.
-       Update href values to real URLs when live.
-  ═══════════════════════════════════════ -->
   <nav class="fb-nav">
     <div class="fb-nav-bird">
       <img src="faeblette-bird.png" alt="faeblette" />
@@ -628,12 +529,6 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-       "faeblette" typed in Playfair sits beneath
-       the studio label. The handwritten logo
-       lives only in the footer.
-  ═══════════════════════════════════════ -->
   <div class="fb-hero">
     <div class="fb-hero-left">
       <div>
@@ -658,76 +553,64 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       GATHERED / MOOD GRID
-       Replace dark cell backgrounds with photos.
-       Edit quotes and labels freely.
-  ═══════════════════════════════════════ -->
-<div class="fb-gathered">
-  <div class="fb-gc fb-gc-dark fb-gc-tall">
-    <img src="openbook-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
-    <div style="position:absolute; inset:0; background:rgba(38,27,12,0.25); z-index:1; border-radius:inherit;"></div>
-    <div class="fb-gc-glow"></div>
-    <div style="position:absolute; bottom:1.2rem; left:1.2rem; right:1.2rem; z-index:2;">
-      <div class="fb-gc-quote" style="font-size:15px; margin-bottom:10px; color:rgba(255,245,235,0.9);">
-        led by curiosity.
-      </div>
-      <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">— faeblette</div>
-    </div>
-  </div>
-
-  <div class="fb-gc fb-gc-warm">
-    <img src="sadie-song-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
-    <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
-    <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">short film — 2026</div>
-    </div>
-    <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">Sadie's<br>Song</div>
-    </div>
-  </div>
-
-  <div class="fb-gc fb-gc-warm">
-    <img src="numb-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
-    <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
-    <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">short film — 2026</div>
-    </div>
-    <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">Numb</div>
-    </div>
-  </div>
-
-  <div class="fb-gc fb-gc-mid">
-    <img src="fox-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
-    <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
-    <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">from the shop</div>
-    </div>
-    <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">the fox<br>in glasses</div>
-    </div>
-  </div>
-
-  <div class="fb-gc fb-gc-pale">
-    <img src="books-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
-    <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
-    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:1.2rem; z-index:2;">
-      <div style="font-family:'Playfair Display',serif; font-size:12px; color:rgba(255,245,235,0.6); text-align:center; line-height:1.65;">
-        may we see, reflect,<br>and become the little lights<br>that guide each other home.
+  <div class="fb-gathered">
+    <div class="fb-gc fb-gc-dark fb-gc-tall">
+      <img src="openbook-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
+      <div style="position:absolute; inset:0; background:rgba(38,27,12,0.25); z-index:1; border-radius:inherit;"></div>
+      <div class="fb-gc-glow"></div>
+      <div style="position:absolute; bottom:1.2rem; left:1.2rem; right:1.2rem; z-index:2;">
+        <div class="fb-gc-quote" style="font-size:15px; margin-bottom:10px; color:rgba(255,245,235,0.9);">led by curiosity.</div>
+        <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">— faeblette</div>
       </div>
     </div>
-    <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
-      <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">-faeblette</div>
+
+    <div class="fb-gc fb-gc-warm">
+      <img src="sadie-song-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
+      <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
+      <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">short film — 2026</div>
+      </div>
+      <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">Sadie's<br>Song</div>
+      </div>
+    </div>
+
+    <div class="fb-gc fb-gc-warm">
+      <img src="numb-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
+      <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
+      <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">short film — 2026</div>
+      </div>
+      <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">Numb</div>
+      </div>
+    </div>
+
+    <div class="fb-gc fb-gc-mid">
+      <img src="fox-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
+      <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
+      <div style="position:absolute; top:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">from the shop</div>
+      </div>
+      <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-quote" style="color:rgba(255,245,235,0.9);">the fox<br>in glasses</div>
+      </div>
+    </div>
+
+    <div class="fb-gc fb-gc-pale">
+      <img src="books-grid.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9; z-index:0;" />
+      <div style="position:absolute; inset:0; background:rgba(38,27,12,0.3); z-index:1; border-radius:inherit;"></div>
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:1.2rem; z-index:2;">
+        <div style="font-family:'Playfair Display',serif; font-size:12px; color:rgba(255,245,235,0.6); text-align:center; line-height:1.65;">
+          may we see, reflect,<br>and become the little lights<br>that guide each other home.
+        </div>
+      </div>
+      <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2;">
+        <div class="fb-gc-label" style="color:rgba(255,245,235,0.6);">-faeblette</div>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- ═══════════════════════════════════════
-       FILMS
-       Update featured film and stack cards
-       as new films are made.
-  ═══════════════════════════════════════ -->
   <div id="films" class="fb-section fb-section-border">
     <div class="fb-section-head">
       <div>
@@ -737,47 +620,36 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       <a href="films.html" class="fb-section-cta">view all films →</a>
     </div>
     <div class="fb-films">
-      <!-- FEATURED FILM — add still: background-image: url('numb-still.jpg') -->
       <div class="fb-film-featured" style="background-image: url('numb-still.jpg'); background-size: cover; background-position: center;">
         <div class="fb-film-featured-glow"></div>
         <div class="fb-film-meta">
           <div class="fb-film-tag">short film — drama — 2025</div>
           <div class="fb-film-title">numb</div>
-          <div class="fb-film-desc">A grieving writer rediscovers his voice. What do we gain when we've lost it all? </div>
+          <div class="fb-film-desc">A grieving writer rediscovers his voice. What do we gain when we've lost it all?</div>
           <a href="https://www.youtube.com/watch?v=HcSnyYpL2fo" class="fb-film-watch" target="_blank">watch on youtube →</a>
         </div>
       </div>
       <div class="fb-film-stack">
-        <!-- FILM CARD — duplicate to add films -->
         <div class="fb-film-small" style="background-image: url('sadies-song-still.jpg'); background-size: cover; background-position: center; position: relative;">
-  <div style="position: absolute; inset: 0; background: rgba(38,27,12,0.7); border-radius: 5px;"></div>
-  <div style="position: relative; z-index: 1;">
-    <div class="fb-film-small-label">short film — 2025</div>
-    <div class="fb-film-small-title">Sadie's Song</div>
-    <div class="fb-film-small-label" style="margin-top:6px;">on imperfection, invisibility,<br>and being truly seen</div>
-  </div>
-</div>
-<div class="fb-film-small" style="background-image: url('the-exposing-chair-still.jpg'); background-size: cover; background-position: center; position: relative;">
-  <div style="position: absolute; inset: 0; background: rgba(38,27,12,0.7); border-radius: 5px;"></div>
-  <div style="position: relative; z-index: 1;">
-    <div class="fb-film-small-label">in production — 2026</div>
-    <div class="fb-film-small-title">The Exposing Chair - Coming Soon</div>
-    <div class="fb-film-small-label" style="margin-top:6px;">three women. one room.<br>unlimited imposter syndrome.</div>
-  </div>
-</div>
+          <div style="position: absolute; inset: 0; background: rgba(38,27,12,0.7); border-radius: 5px;"></div>
+          <div style="position: relative; z-index: 1;">
+            <div class="fb-film-small-label">short film — 2025</div>
+            <div class="fb-film-small-title">Sadie's Song</div>
+            <div class="fb-film-small-label" style="margin-top:6px;">on imperfection, invisibility,<br>and being truly seen</div>
+          </div>
+        </div>
+        <div class="fb-film-small" style="background-image: url('the-exposing-chair-still.jpg'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; inset: 0; background: rgba(38,27,12,0.7); border-radius: 5px;"></div>
+          <div style="position: relative; z-index: 1;">
+            <div class="fb-film-small-label">in production — 2026</div>
+            <div class="fb-film-small-title">The Exposing Chair - Coming Soon</div>
+            <div class="fb-film-small-label" style="margin-top:6px;">three women. one room.<br>unlimited imposter syndrome.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       SHOP
-       Each item has a 4x5 image placeholder.
-       To add your photo, find the .fb-shop-img div
-       for that item and add to its style:
-       background-image: url('your-photo.jpg');
-       background-size: cover; background-position: center;
-       Then remove the fb-shop-img-inner and label span.
-  ═══════════════════════════════════════ -->
   <div id="shop" class="fb-section fb-section-border">
     <div class="fb-section-head">
       <div>
@@ -786,14 +658,10 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       </div>
       <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-section-cta" target="_blank">visit the faeblette shop →</a>
     </div>
-    <!-- INTRO — edit freely -->
     <p class="fb-shop-intro">to wear, to write in, to drink from, to live with. each one made to feel like you.</p>
     <div class="fb-shop-grid">
-
-     <!-- SHOP ITEM 1 — add photo to fb-shop-img style -->
       <div class="fb-shop-item">
-        <div class="fb-shop-img" style="background-image: url('shirt-product.jpg'); background-size: cover; background-position: center;">
-        </div>
+        <div class="fb-shop-img" style="background-image: url('shirt-product.jpg'); background-size: cover; background-position: center;"></div>
         <div class="fb-shop-item-body">
           <div>
             <div class="fb-shop-item-name">things to wear</div>
@@ -802,10 +670,8 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
           <a href="https://www.etsy.com/shop/TheFaebletteShop?section_id=57413692" class="fb-shop-item-tag" target="_blank">cozy apparel →</a>
         </div>
       </div>
-      <!-- SHOP ITEM 2 -->
       <div class="fb-shop-item">
-        <div class="fb-shop-img" style="background-image: url('notebook-product.jpg'); background-size: cover; background-position: center;">
-        </div>
+        <div class="fb-shop-img" style="background-image: url('notebook-product.jpg'); background-size: cover; background-position: center;"></div>
         <div class="fb-shop-item-body">
           <div>
             <div class="fb-shop-item-name">things to write in</div>
@@ -814,10 +680,8 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
           <a href="https://www.etsy.com/shop/TheFaebletteShop?section_id=57413830" class="fb-shop-item-tag" target="_blank">journals →</a>
         </div>
       </div>
-      <!-- SHOP ITEM 3 -->
       <div class="fb-shop-item">
-        <div class="fb-shop-img" style="background-image: url('mug-product.jpg'); background-size: cover; background-position: center;">
-        </div>
+        <div class="fb-shop-img" style="background-image: url('mug-product.jpg'); background-size: cover; background-position: center;"></div>
         <div class="fb-shop-item-body">
           <div>
             <div class="fb-shop-item-name">things to drink from</div>
@@ -826,10 +690,8 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
           <a href="https://www.etsy.com/shop/TheFaebletteShop?section_id=57428129" class="fb-shop-item-tag" target="_blank">mugs →</a>
         </div>
       </div>
-      <!-- SHOP ITEM 4 -->
       <div class="fb-shop-item">
-        <div class="fb-shop-img" style="background-image: url('wallart-product.jpg'); background-size: cover; background-position: center;">
-        </div>
+        <div class="fb-shop-img" style="background-image: url('wallart-product.jpg'); background-size: cover; background-position: center;"></div>
         <div class="fb-shop-item-body">
           <div>
             <div class="fb-shop-item-name">things for your walls</div>
@@ -838,7 +700,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
           <a href="https://www.etsy.com/shop/TheFaebletteShop?section_id=57413750" class="fb-shop-item-tag" target="_blank">wall art →</a>
         </div>
       </div>
-
     </div>
     <div class="fb-shop-bottom">
       <span class="fb-shop-note">Fulfilled through Printify &amp; Etsy — ships worldwide.</span>
@@ -846,35 +707,19 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       COMING SOON / BOOK
-       5x4 landscape placeholder.
-       When ready to reveal: replace the
-       fb-book-placeholder background with
-       your cover image and update text.
-  ═══════════════════════════════════════ -->
-<div class="fb-book">
-  <div>
-    <div class="fb-book-label">coming soon</div>
-    <h2 class="fb-book-title">something is being made for you.</h2>
-    <p class="fb-book-body"></p>
+  <div class="fb-book">
+    <div>
+      <div class="fb-book-label">coming soon</div>
+      <h2 class="fb-book-title">something is being made for you.</h2>
+      <p class="fb-book-body"></p>
+    </div>
+    <div class="fb-book-right">
+      <div class="fb-book-placeholder" style="background:transparent;">
+        <img src="book-coming-soon.png" alt="coming 2027" style="width:100%; height:100%; object-fit:contain;" />
+      </div>
+    </div>
   </div>
- <div class="fb-book-right">
-  <div class="fb-book-placeholder" style="background:transparent;">
-    <img src="book-coming-soon.png" alt="coming 2027" style="width:100%; height:100%; object-fit:contain;" />
-  </div>
-</div>
-</div>
 
-  <!-- ═══════════════════════════════════════
-       FIELD NOTES
-       PINNED POST: update href, title, date, tag.
-       REGULAR POSTS: add new posts at the top.
-       Each post links to its own page in /notes/
-       e.g. notes/your-post-title.html
-       To add a post: copy one fb-note-row block,
-       paste above the others, update all fields.
-  ═══════════════════════════════════════ -->
   <div id="field-notes" class="fb-notes">
     <div class="fb-notes-head">
       <div>
@@ -884,9 +729,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       <a href="field-notes.html" class="fb-section-cta">read all notes →</a>
     </div>
 
-    <!-- ── PINNED POST ──
-         Edit href, title, date and tag to change
-         what's pinned. Marker appears automatically. -->
     <a href="notes/real-power.html" class="fb-note-row fb-note-pinned">
       <div class="fb-note-pin-marker">
         <div class="fb-pin-icon"></div>
@@ -899,11 +741,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       <span class="fb-note-date">apr 2026</span>
     </a>
 
-    <!-- ── REGULAR POSTS ──
-         Copy a block, paste above the others,
-         update href, title, tag, and date. -->
-
-    <!-- POST — duplicate to add more -->
     <a href="notes/stopped auditioning.html" class="fb-note-row">
       <div class="fb-note-content">
         <span class="fb-note-title">The role I stopped auditioning for.</span>
@@ -927,17 +764,10 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       </div>
       <span class="fb-note-date">feb 2026</span>
     </a>
-
   </div>
 
-  <!-- ═══════════════════════════════════════
-       FOOTER
-       Handwritten logo lives here only.
-       Update social and nav links below.
-  ═══════════════════════════════════════ -->
   <div class="fb-footer">
     <div class="fb-footer-logo">
-      <!-- Handwritten faeblette logo — only here -->
       <img src="faeblette-logo.png" alt="faeblette" />
       <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
     </div>
