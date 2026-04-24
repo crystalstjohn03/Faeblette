@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="faeblette-bird.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>about — faeblette</title>
-  <meta name="description" content="Faeblette is an independent studio founded by Crystal St. John. Creating films, goods, and writing for those who feel things deeply and move at their own pace." />
+  <meta name="description" content="Faeblette is an independent studio founded by Crystal St. John. Films, illustrated goods, and stories for those who feel things deeply." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
-
-  <script>
-    const CRYSTAL_PHOTO = "crystal-photo.jpg";
-    document.addEventListener("DOMContentLoaded", function () {
-      var el = document.getElementById("fb-about-photo");
-      if (el) {
-        el.style.backgroundImage  = "url('" + CRYSTAL_PHOTO + "')";
-        el.style.backgroundSize   = "cover";
-        el.style.backgroundPosition = "center top";
-        var placeholder = el.querySelector(".fb-about-photo-inner");
-        var label       = el.querySelector(".fb-about-photo-label");
-        if (placeholder) placeholder.style.display = "none";
-        if (label)       label.style.display       = "none";
-      }
-    });
-  </script>
-
   <style>
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,15 +23,14 @@
 
     .fb-wrap { max-width: 1400px; margin: 0 auto; }
 
-    /* ── NAVIGATION ── */
+    /* ── NAV ── */
     .fb-nav {
       display: flex; justify-content: space-between;
       align-items: center; padding: 2rem 3rem;
     }
     .fb-nav-bird img {
-      height: 28px; width: auto;
+      height: 40px; width: auto;
       filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
-      opacity: 0.7;
     }
     .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
     .fb-nav-links a {
@@ -76,13 +59,22 @@
     /* ── MAIN GRID ── */
     .fb-about-main {
       margin: 3.5rem 3rem 0;
-      display: grid; grid-template-columns: 1fr 1.2fr;
-      gap: 4rem; align-items: start;
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 4rem; align-items: stretch;
+    }
+    .fb-about-photo-col {
+      display: flex; flex-direction: column;
     }
     .fb-about-photo {
-      width: 100%; aspect-ratio: 3 / 4; background: #DDD4C0;
-      border-radius: 5px; position: relative;
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      width: 100%; flex: 1;
+      min-height: 280px;
+      background: #DDD4C0; border-radius: 5px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fb-about-photo img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
     }
     .fb-about-photo-inner {
       position: absolute; inset: 0;
@@ -107,21 +99,65 @@
       text-transform: lowercase; margin-bottom: 1.2rem;
     }
     .fb-about-copy-headline {
-      font-family: 'Playfair Display', serif; font-size: 36px;
+      font-family: 'Playfair Display', serif; font-size: 34px;
       font-weight: 400; line-height: 1.15; color: #26201A; margin-bottom: 1.8rem;
     }
     .fb-about-copy p {
       font-size: 15px; line-height: 1.95; color: #5C4A36; margin-bottom: 1.4rem;
     }
     .fb-about-copy p:last-of-type { margin-bottom: 0; }
-    .fb-about-copy .fb-closing-line {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-style: italic;
-      color: #8A7660; line-height: 1.8;
-      margin-top: 2rem; margin-bottom: 0;
+    .fb-about-crystal {
+      margin-top: 2rem; padding-top: 1.8rem;
+      border-top: 0.5px solid #C4B09A;
+      font-size: 15px; line-height: 1.95; color: #5C4A36;
     }
 
-    /* ── BIRD SECTION ── */
+    /* ── HOUSE ILLUSTRATION ── */
+    .fb-house {
+      margin: 4rem 3rem 0;
+      border-top: 0.5px solid #C4B09A;
+      padding-top: 3.5rem;
+    }
+    .fb-house-img-wrap {
+      width: 100%; border-radius: 5px; overflow: hidden;
+      background: #E4DACE;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 700px; position: relative;
+    }
+    .fb-house-img-wrap img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: center;
+    }
+    /* Placeholder shown when no image */
+    .fb-house-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem; padding: 4rem 2rem;
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+    }
+    .fb-house-placeholder-label {
+      font-family: 'Courier Prime', monospace; font-size: 10px;
+      letter-spacing: 0.18em; color: rgba(38,32,26,0.25); text-transform: lowercase;
+    }
+
+    /* ── HOME SECTION ── */
+    .fb-home {
+      margin: 4rem 3rem 0;
+      border-top: 0.5px solid #C4B09A;
+      padding-top: 3.5rem;
+    }
+    .fb-home-label {
+      font-family: 'Courier Prime', monospace; font-size: 13px;
+      letter-spacing: 0.2em; color: #A8917A;
+      text-transform: lowercase; margin-bottom: 0.6rem;
+    }
+    .fb-home-title {
+      font-family: 'Playfair Display', serif; font-size: 34px;
+      font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 1.4rem;
+    }
+
+    /* ── BIRD ── */
     .fb-bird {
       margin: 4rem 3rem 0;
       border-top: 0.5px solid #C4B09A;
@@ -143,59 +179,7 @@
       margin-bottom: 1.4rem;
     }
     .fb-bird-body p:last-of-type { margin-bottom: 0; }
-    .fb-bird-body em {
-      font-style: italic; color: #8A7660;
-    }
-
-    /* ── HOME SECTION ── */
-    .fb-home {
-      margin: 4rem 3rem 0;
-      border-top: 0.5px solid #C4B09A;
-      padding-top: 3.5rem;
-    }
-    .fb-home-label {
-      font-family: 'Courier Prime', monospace; font-size: 13px;
-      letter-spacing: 0.2em; color: #A8917A;
-      text-transform: lowercase; margin-bottom: 0.6rem;
-    }
-    .fb-home-title {
-      font-family: 'Playfair Display', serif; font-size: 34px;
-      font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 1.4rem;
-    }
-    .fb-home-intro {
-      font-size: 15px; line-height: 1.95; color: #5C4A36;
-      max-width: 680px; margin-bottom: 3rem;
-    }
-    .fb-home-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    }
-    .fb-home-card {
-      background: #E8DDD0; border-radius: 5px;
-      padding: 2.2rem 2rem; border: 0.5px solid #C4B09A;
-    }
-    .fb-home-card-label {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.2em; color: #C4B09A;
-      text-transform: lowercase; margin-bottom: 1rem; display: block;
-    }
-    .fb-home-list {
-      list-style: none; padding: 0; margin: 0;
-    }
-    .fb-home-list li {
-      font-size: 14px; line-height: 1.9; color: #5C4A36;
-      padding: 0.5rem 0; border-bottom: 0.5px solid #D4C8B8;
-    }
-    .fb-home-list li:last-child { border-bottom: none; }
-    .fb-home-door-note {
-      font-size: 14px; line-height: 1.9; color: #5C4A36;
-      margin-top: 1rem; font-style: italic;
-    }
-    .fb-home-film-note {
-      margin-top: 3rem; padding: 2rem;
-      border-left: 1.5px solid #C4B09A;
-      font-size: 14px; line-height: 1.95; color: #8A7660;
-      font-style: italic; max-width: 680px;
-    }
+    .fb-bird-body em { font-style: italic; color: #8A7660; }
 
     /* ── PHILOSOPHY ── */
     .fb-philosophy {
@@ -213,15 +197,12 @@
       font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 3rem;
     }
     .fb-philosophy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
     }
     .fb-phil-card {
       background: #1C140D; border-radius: 5px;
       padding: 2.2rem 2rem; position: relative; overflow: hidden;
     }
-    .fb-phil-card-wide { grid-column: span 2; }
     .fb-phil-glow {
       position: absolute; width: 200px; height: 160px;
       background: #A06808; opacity: 0.09;
@@ -236,15 +217,13 @@
     }
     .fb-phil-statement {
       font-family: 'Playfair Display', serif; font-size: 22px;
-      font-weight: 400; color: rgba(240,232,218,0.7);
+      font-weight: 400; color: rgba(240,232,218,0.85);
       line-height: 1.2; margin-bottom: 1rem;
     }
-    .fb-phil-card-wide .fb-phil-statement { font-size: 26px; }
     .fb-phil-body {
       font-size: 14px; line-height: 1.9;
-      color: rgba(240,232,218,0.35); max-width: 480px;
+      color: rgba(240,232,218,0.40); max-width: 480px;
     }
-    .fb-phil-card-wide .fb-phil-body { max-width: 700px; }
 
     /* ── CLOSING ── */
     .fb-closing {
@@ -306,21 +285,25 @@
     }
     .fb-make-link:hover { color: #26201A; }
 
-    /* ── CTA STRIP ── */
-    .fb-about-cta {
-      margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A;
-      padding-top: 3rem; display: flex;
-      justify-content: space-between; align-items: center; gap: 2rem;
+    /* ── COLLABORATE ── */
+    .fb-collab {
+      margin: 4rem 3rem 0;
+      border-top: 0.5px solid #C4B09A;
+      padding-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 2rem;
     }
-    .fb-about-cta-label {
+    .fb-collab-label {
       font-family: 'Courier Prime', monospace; font-size: 12px;
       letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 0.6rem;
     }
-    .fb-about-cta-headline {
+    .fb-collab-headline {
       font-family: 'Playfair Display', serif; font-size: 30px;
-      font-weight: 400; color: #26201A; line-height: 1.15;
+      font-weight: 400; color: #26201A; line-height: 1.15; margin-bottom: 0.6rem;
     }
-    .fb-about-cta-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+    .fb-collab-sub {
+      font-size: 14px; color: #5C4A36; line-height: 1.8;
+    }
+    .fb-collab-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
     .fb-cta-btn {
       font-family: 'Courier Prime', monospace; font-size: 13px;
       letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
@@ -333,7 +316,6 @@
       letter-spacing: 0.14em; color: #8A7660; text-transform: lowercase;
       border-bottom: 0.5px solid #C4B09A; padding-bottom: 2px; text-decoration: none;
     }
-    .fb-cta-link:hover { color: #26201A; }
 
     /* ── FOOTER ── */
     .fb-footer {
@@ -342,9 +324,9 @@
       grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start;
     }
     .fb-footer-logo img {
-      height: 30px; width: auto;
+      height: 150px; width: auto;
       filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
-      opacity: 0.45; display: block; margin-bottom: 0.8rem;
+      opacity: 0.9; display: block; margin-bottom: 0.8rem;
     }
     .fb-footer-sub {
       font-family: 'Courier Prime', monospace; font-size: 11px;
@@ -376,28 +358,29 @@
       .fb-nav-links a { font-size: 11px; }
       .fb-about-header { margin: 0 1.5rem; }
       .fb-about-header-title { font-size: 38px; }
-      .fb-about-main { margin: 2.5rem 1.5rem 0; grid-template-columns: 1fr; gap: 2.5rem; }
-      .fb-bird { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
+      .fb-about-main { margin: 2.5rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-house { margin: 3rem 1.5rem 0; }
       .fb-home { margin: 3rem 1.5rem 0; }
       .fb-home-grid { grid-template-columns: 1fr; }
+      .fb-bird { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
       .fb-philosophy { margin: 3rem 1.5rem 0; }
       .fb-philosophy-grid { grid-template-columns: 1fr; }
-      .fb-phil-card-wide { grid-column: span 1; }
-      .fb-phil-card-wide .fb-phil-statement { font-size: 20px; }
       .fb-closing { margin: 3rem 1.5rem 0; padding: 3rem 0; }
       .fb-closing-text { font-size: 22px; }
       .fb-makes { margin: 3rem 1.5rem 0; }
       .fb-makes-grid { grid-template-columns: 1fr; }
-      .fb-about-cta { margin: 3rem 1.5rem 0; flex-direction: column; align-items: flex-start; }
+      .fb-collab { margin: 3rem 1.5rem 0; flex-direction: column; align-items: flex-start; }
       .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
-
     @media (max-width: 480px) {
+      .fb-nav { padding: 1.2rem; }
       .fb-about-header-title { font-size: 30px; }
       .fb-about-copy-headline { font-size: 26px; }
+      .fb-bird-title, .fb-home-title, .fb-philosophy-title, .fb-makes-title { font-size: 26px; }
       .fb-phil-statement { font-size: 19px; }
       .fb-closing-text { font-size: 19px; }
+      .fb-collab-headline { font-size: 24px; }
     }
 
   </style>
@@ -417,93 +400,74 @@
     </div>
   </nav>
 
+  <!-- ── PAGE HEADER ── -->
   <div class="fb-about-header">
     <div class="fb-about-header-label">the story behind the studio</div>
     <h1 class="fb-about-header-title">about faeblette</h1>
   </div>
 
-  <!-- ── OPENING ── -->
+  <!-- ── OPENING: photo + why we exist ── -->
   <div class="fb-about-main">
-    <div>
-      <div class="fb-about-photo" id="fb-about-photo">
+    <div class="fb-about-photo-col">
+      <div class="fb-about-photo">
         <div class="fb-about-photo-inner"></div>
         <span class="fb-about-photo-label">photo coming soon</span>
+        <!-- When ready: <img src="crystal-photo.jpg" alt="Crystal St. John, founder of Faeblette" /> -->
       </div>
       <div class="fb-about-photo-caption">crystal st. john, founder</div>
     </div>
 
     <div class="fb-about-copy">
-      <div class="fb-about-copy-eyebrow">a note to you</div>
-      <h2 class="fb-about-copy-headline">In a world that profits from your restlessness, Faeblette is an exhale.</h2>
+      <div class="fb-about-copy-eyebrow">why does faeblette exist?</div>
+      <h2 class="fb-about-copy-headline">In a world that profits from your restlessness, Faeblette is a home where you can exhale.</h2>
 
-      <p>A place that does not shout. Does not rush you. Does not ask you to keep up.</p>
+      <p>Remember who you are. Come back to what matters most.</p>
 
-      <p>We make films, illustrated goods, and stories for children — all of it quietly in service of the same thing: helping you find your way back to the life that is specifically yours. The one underneath the noise.</p>
+      <p>We make films, illustrated goods, and tales for the child within, because we believe the quality of a life is shaped by the small things. The stories we take in. The art on the wall. The mug on the desk. The journal you spent time with today.</p>
 
-      <p class="fb-closing-line">Come with your heavy heart.<br>We hope you leave a little more grounded.</p>
+      <p>Here, we cultivate stories &amp; goods, but really, we cultivate a feeling of home.</p>
+
+      <div class="fb-about-crystal">
+        Founded by Crystal St. John, she brings an eye trained across many disciplines: film, illustration, design, the way a room feels when you walk into it, and a philosophy that runs beneath all of it: that the small, beautiful, intentional thing is not small at all. Together every piece becomes a little enchanted story. A Faeblette.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HOUSE ILLUSTRATION ── -->
+  <div class="fb-house">
+    <div class="fb-house-img-wrap">
+      <!-- Replace the placeholder below with: <img src="house-illustration.png" alt="the faeblette home" /> -->
+      <div class="fb-house-placeholder">
+        <img src="faeblette-bird.png" alt="" style="height:40px;opacity:0.12;filter:brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);" />
+        <span class="fb-house-placeholder-label">house illustration — coming soon</span>
+      </div>
     </div>
   </div>
 
   <!-- ── THE BIRD ── -->
   <div class="fb-bird">
     <div>
-      <div class="fb-bird-label">the heart of it</div>
-      <h2 class="fb-bird-title">the bird at the threshold</h2>
+      <div class="fb-bird-label">fun fact</div>
+      <h2 class="fb-bird-title">Look for the bird.</h2>
     </div>
     <div class="fb-bird-body">
-      <p>In the oldest stories, fairies never just brought magic. They showed up at the exact moment a journey needed to begin. Not to make things easier. To make things <em>clearer.</em></p>
-      <p>The name has always held it. <em>Fae.</em> Something that arrives and disrupts — so you can finally see.</p>
-      <p>And so the robin appears in every story we tell. Not as decoration. As invitation. <em>Come up here. Look from here.</em> Far enough from the mess to see the shape of it.</p>
-      <p>That is the bird's eye view. Stories told in the hope that you leave seeing your life — your pain, your ordinary days — with a little more faith in what connects it all.</p>
-    </div>
-  </div>
-
-  <!-- ── THE HOME ── -->
-  <div class="fb-home">
-    <div class="fb-home-label">the house we keep</div>
-    <h2 class="fb-home-title">Faeblette is a home.</h2>
-    <p class="fb-home-intro">Not a store. Not a content channel. Not a brand trying to get your attention. A home has a particular feeling when you walk in — the light, the smell, the sense that someone thought carefully about what belongs here. Ours took time to build. And we're protective of what lives inside it.</p>
-
-    <div class="fb-home-grid">
-      <div class="fb-home-card">
-        <span class="fb-home-card-label">what you'll always find inside</span>
-        <ul class="fb-home-list">
-          <li>Slowness that doesn't apologize for itself.</li>
-          <li>The imperfect line and the human hand behind it.</li>
-          <li>Curiosity that isn't in a hurry to become a conclusion.</li>
-          <li>Small moments treated like they matter — because they do.</li>
-          <li>Warmth. Always warmth.</li>
-        </ul>
-      </div>
-
-      <div class="fb-home-card">
-        <span class="fb-home-card-label">we leave these at the door</span>
-        <ul class="fb-home-list">
-          <li>Urgency. Noise. The pressure to keep up.</li>
-          <li>The feeling that you're behind, or not enough, or missing out.</li>
-          <li>The need to perform.</li>
-        </ul>
-        <p class="fb-home-door-note">We don't carry those things inside. And we don't ask you to either.</p>
-      </div>
-    </div>
-
-    <div class="fb-home-film-note">
-      Every film we make lives inside that tension — the pull toward urgency, performance, and keeping up — and finds its way to the same quiet conclusion: none of that is what your life is actually made of. The most meaningful version of your days is already here. It's just waiting for the noise to settle.
+      <p>Crystal believes stories help us look at our lives from a bird's-eye view: to see beyond a moment in time, to find purpose in every experience and how they string together to tell a powerful story.</p>
+      <p>So a bird swoops in like a fairy, showing up at the precise moment the journey needs to begin. <em>Not to make things easier. But definitely to make them clearer.</em></p>
     </div>
   </div>
 
   <!-- ── PHILOSOPHY ── -->
   <div class="fb-philosophy">
     <div class="fb-philosophy-label">what lives inside the work</div>
-    <h2 class="fb-philosophy-title">The beliefs that shape every story, object, and imperfect line.</h2>
+    <h2 class="fb-philosophy-title">The Faeblette Philosophy.</h2>
     <div class="fb-philosophy-grid">
 
       <div class="fb-phil-card">
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">01</span>
-          <div class="fb-phil-statement">You are already seen. And that changes everything.</div>
-          <p class="fb-phil-body">Not when you've earned it. Not when you've become a better version of yourself. Right now, exactly as you are. The discovery that you are already fully known — and believed in anyway — is where transformation actually begins. Not in self-will or striving. From that knowing, something loosens. You stop performing. You stop waiting to deserve your place. And almost without trying, you begin to see others the same way. It moves outward. It becomes contagious. It is grace, not grind.</p>
+          <div class="fb-phil-statement">Somebody believes in you.</div>
+          <p class="fb-phil-body">Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation.</p>
         </div>
       </div>
 
@@ -511,8 +475,8 @@
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">02</span>
-          <div class="fb-phil-statement">Real power looks like bowing down.</div>
-          <p class="fb-phil-body">The world sells ascent. Faeblette points elsewhere. The most powerful posture is not dominance or arrival — it is humility, openness, the willingness to kneel. Strength wears a quiet face here.</p>
+          <div class="fb-phil-statement">Power bows down.</div>
+          <p class="fb-phil-body">While the world sells ascent, Faeblette hugs the ground. We believe the most powerful posture takes a bow, with a spirit of awe. An open heart, a curious mind, a humble disposition. This is strength embodied.</p>
         </div>
       </div>
 
@@ -520,8 +484,8 @@
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">03</span>
-          <div class="fb-phil-statement">There is no arriving. Only now.</div>
-          <p class="fb-phil-body">There is no destination self waiting at the finish line. The present moment is not a stepping stone — it is the whole thing. To be here, fully, is not a consolation prize. It is the point.</p>
+          <div class="fb-phil-statement">There is no arrival.</div>
+          <p class="fb-phil-body">The bar constantly moves. The world constantly changes. Just because it looks good doesn't mean it feels good. Faeblette focuses on the internal feeling of growth. Practice. Moving. Breathing. The work will never feel finished, nor perfect, but always moving. Growth is not a grand act. It is many, many small decisions to be present. Present with a paintbrush. Present with a book. Present with a person.</p>
         </div>
       </div>
 
@@ -529,8 +493,8 @@
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">04</span>
-          <div class="fb-phil-statement">Beauty is a form of truth.</div>
-          <p class="fb-phil-body">The way something looks and feels is an argument about what matters. Beauty is not added on top of meaning — it carries meaning. The imperfect line, the hand-drawn edge, the palette that feels like late afternoon. These are not accidents. They are convictions.</p>
+          <div class="fb-phil-statement">Beauty is a way of seeing ourselves.</div>
+          <p class="fb-phil-body">True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what we already are, when we know we have nothing to hide.</p>
         </div>
       </div>
 
@@ -538,8 +502,8 @@
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">05</span>
-          <div class="fb-phil-statement">The small, unglamorous moment is where real life lives.</div>
-          <p class="fb-phil-body">Not the peaks. Not the curated version. The bitter brew, the longing, the quiet falling apart — that is where human life actually happens. These moments are not problems to fix. They are worthy of witness.</p>
+          <div class="fb-phil-statement">The smallest moments change our lives.</div>
+          <p class="fb-phil-body">Sending the email. Answering the phone. Buying the art supplies. Drawing something badly. Writing the first post. Applying even though you don't qualify. Raising your hand in class. Your big move might look like nothing extraordinary. No one may notice or clap. But you know you are growing. And that's all that matters.</p>
         </div>
       </div>
 
@@ -547,8 +511,8 @@
         <div class="fb-phil-glow"></div>
         <div class="fb-phil-inner">
           <span class="fb-phil-num">06</span>
-          <div class="fb-phil-statement">The sacred is folded inside the ordinary.</div>
-          <p class="fb-phil-body">A mug held with both hands. A journal opened. A story told to a child at the edge of sleep. The holy is not somewhere else. It is here, hiding inside the everyday, waiting to be noticed. To make ordinary things with intention is an act of reverence.</p>
+          <div class="fb-phil-statement">The Sacred Lives in the Ordinary.</div>
+          <p class="fb-phil-body">We exist in a living, breathing art piece. The sky twinkles. The clouds drop tears. Nature grows, harmonizes, and adapts. What we see in the mirror: a force of nature, an intelligence in our DNA we never knew to ask for. It simply is. Stopping to feel the sun hit your face. Really looking, really seeing the world around us. It changes us, moves us, and fills us up.</p>
         </div>
       </div>
 
@@ -558,7 +522,7 @@
   <!-- ── CLOSING ── -->
   <div class="fb-closing">
     <div class="fb-closing-eyebrow">a place to land</div>
-    <p class="fb-closing-text">for the ones who linger. for those who notice what most people miss. for the one who sees the whole universe in the smallest detail.</p>
+    <p class="fb-closing-text">for the ones who linger. for those who notice what most people miss. for the one who recognizes the whole universe in the smallest detail.</p>
     <p class="fb-closing-sub">films. illustration. goods.</p>
   </div>
 
@@ -567,25 +531,22 @@
     <div class="fb-makes-label">the work</div>
     <h2 class="fb-makes-title">what faeblette makes</h2>
     <div class="fb-makes-grid">
-
       <div class="fb-make-card">
         <div>
           <span class="fb-make-tag">moving image</span>
           <div class="fb-make-name">Films</div>
-          <p class="fb-make-desc">Short films about the interior life. The fears carried quietly, the grace that arrives unexpectedly. Made slowly. Made to stay with you.</p>
+          <p class="fb-make-desc">Short films about the interior life: the fears carried quietly, the grace that arrives unexpectedly. Made with heart. Made to stay with you.</p>
         </div>
         <a href="index.html#films" class="fb-make-link">see the films →</a>
       </div>
-
       <div class="fb-make-card">
         <div>
           <span class="fb-make-tag">stories</span>
           <div class="fb-make-name">Books</div>
-          <p class="fb-make-desc">Children's books with imperfect lines and a human hand behind every illustration. For young readers who deserve to be taken seriously — and given something to grow into.</p>
+          <p class="fb-make-desc">Children's books with imperfect lines and a human hand behind every illustration. For young readers who deserve to be taken seriously and given something to grow into.</p>
         </div>
         <a href="index.html" class="fb-make-link">coming soon →</a>
       </div>
-
       <div class="fb-make-card">
         <div>
           <span class="fb-make-tag">goods</span>
@@ -594,28 +555,28 @@
         </div>
         <a href="https://etsy.com/shop/TheFaebletteShop" class="fb-make-link" target="_blank">visit the shop →</a>
       </div>
-
     </div>
   </div>
 
-  <!-- ── CTA ── -->
-  <div class="fb-about-cta">
+  <!-- ── COLLABORATE ── -->
+  <div class="fb-collab">
     <div>
-      <div class="fb-about-cta-label">stay close</div>
-      <h2 class="fb-about-cta-headline">things are always being made here.</h2>
+      <div class="fb-collab-label">collaborate with us</div>
+      <h2 class="fb-collab-headline">Faeblette is just beginning.</h2>
+      <p class="fb-collab-sub">If you love what we are doing, don't hesitate to connect with us.</p>
     </div>
-    <div class="fb-about-cta-links">
+    <div class="fb-collab-links">
       <a href="https://www.instagram.com/faeblette_" class="fb-cta-btn" target="_blank">instagram →</a>
       <a href="https://www.youtube.com/@faeblette" class="fb-cta-btn" target="_blank">youtube →</a>
       <a href="index.html#field-notes" class="fb-cta-link">read the field notes →</a>
     </div>
   </div>
 
-  <!-- ── FOOTER ── */
+  <!-- ── FOOTER ── -->
   <div class="fb-footer">
     <div class="fb-footer-logo">
       <img src="faeblette-logo.png" alt="faeblette" />
-      <div class="fb-footer-sub">est. 2024 — los angeles, ca</div>
+      <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
     </div>
     <div class="fb-footer-links">
       <a href="index.html#field-notes">the field notes</a>
@@ -627,7 +588,7 @@
       <a href="https://www.tiktok.com/@faeblette" target="_blank">tiktok</a>
     </div>
     <div class="fb-footer-tagline">
-      honor the unseen,<br>the forgotten,<br>and the small.
+      little lights that guide us home.
     </div>
   </div>
   <div class="fb-footer-bottom">
