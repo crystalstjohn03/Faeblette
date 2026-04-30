@@ -120,6 +120,199 @@
     .fb-footer-bottom { margin: 0 3rem; padding: 1.5rem 0 0; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
     .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
 
+    /* ===================== */
+    /* GIFT POPUP            */
+    /* ===================== */
+    .fb-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 18, 8, 0.55);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .fb-popup-overlay.is-visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .fb-popup {
+      background: #F0E8DA;
+      border-radius: 6px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(18px);
+      transition: transform 0.5s ease;
+      border: 0.5px solid #C4B09A;
+    }
+    .fb-popup-overlay.is-visible .fb-popup {
+      transform: translateY(0);
+    }
+    .fb-popup-top {
+      background: #1C140D;
+      padding: 2.4rem 2.4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .fb-popup-glow-a {
+      position: absolute;
+      width: 180px; height: 140px;
+      background: #B8720A; opacity: 0.12;
+      border-radius: 50%;
+      top: -20px; left: 30%;
+      pointer-events: none;
+    }
+    .fb-popup-glow-b {
+      position: absolute;
+      width: 80px; height: 100px;
+      background: #D4A020; opacity: 0.07;
+      border-radius: 50%;
+      top: 10px; right: 10%;
+      pointer-events: none;
+    }
+    .fb-popup-eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(240,232,218,0.35);
+      text-transform: lowercase;
+      margin-bottom: 0.7rem;
+      position: relative;
+      z-index: 2;
+    }
+    .fb-popup-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: rgba(240,232,218,0.88);
+      line-height: 1.15;
+      position: relative;
+      z-index: 2;
+    }
+    .fb-popup-bottom {
+      padding: 1.8rem 2.4rem 2.2rem;
+    }
+    .fb-popup-body {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #8A7660;
+      line-height: 1.8;
+      text-transform: lowercase;
+      margin-bottom: 1.6rem;
+    }
+    .fb-popup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fb-popup-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: #EAE1D3;
+      border: 0.5px solid #C4B09A;
+      border-radius: 3px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: #26201A;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .fb-popup-input::placeholder {
+      color: #B0977E;
+    }
+    .fb-popup-input:focus {
+      border-color: #8A7660;
+    }
+    .fb-popup-btn {
+      width: 100%;
+      padding: 12px 14px;
+      background: #26201A;
+      border: none;
+      border-radius: 3px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: rgba(240,232,218,0.82);
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .fb-popup-btn:hover {
+      background: #3A2C1E;
+    }
+    .fb-popup-dismiss {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: #C4B09A;
+      text-transform: lowercase;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+    }
+    .fb-popup-dismiss:hover {
+      color: #8A7660;
+    }
+    .fb-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Courier Prime', monospace;
+      font-size: 18px;
+      color: rgba(240,232,218,0.25);
+      line-height: 1;
+      z-index: 10;
+      transition: color 0.2s;
+    }
+    .fb-popup-close:hover {
+      color: rgba(240,232,218,0.6);
+    }
+    /* success state */
+    .fb-popup-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 2.4rem;
+    }
+    .fb-popup-success-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #A8917A;
+      margin-bottom: 1rem;
+    }
+    .fb-popup-success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #26201A;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .fb-popup-success-body {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #8A7660;
+      line-height: 1.8;
+      text-transform: lowercase;
+    }
+
     @media (max-width: 768px) {
       .fb-nav { padding: 1.5rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
       .fb-nav-bird img { height: 22px; }
@@ -144,6 +337,9 @@
       .fb-notes-head { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
       .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
+      .fb-popup-headline { font-size: 24px; }
+      .fb-popup-top { padding: 2rem 1.8rem 1.6rem; }
+      .fb-popup-bottom { padding: 1.5rem 1.8rem 2rem; }
     }
 
     @media (max-width: 480px) {
@@ -178,6 +374,48 @@
   </style>
 </head>
 <body>
+
+<!-- ===================== -->
+<!-- GIFT POPUP            -->
+<!-- ===================== -->
+<div class="fb-popup-overlay" id="fbPopupOverlay" role="dialog" aria-modal="true" aria-label="A gift for your wall">
+  <div class="fb-popup" id="fbPopup">
+    <button class="fb-popup-close" id="fbPopupClose" aria-label="Close">×</button>
+
+    <!-- default state -->
+    <div id="fbPopupContent">
+      <div class="fb-popup-top">
+        <div class="fb-popup-glow-a"></div>
+        <div class="fb-popup-glow-b"></div>
+        <div class="fb-popup-eyebrow">a gift for your wall</div>
+        <div class="fb-popup-headline">a gift for your wall —<br>and letters worth keeping.</div>
+      </div>
+      <div class="fb-popup-bottom">
+        <p class="fb-popup-body">field notes in your inbox: essays on making, noticing, and becoming.<br>plus a free print to download, just for being here.</p>
+        <div class="fb-popup-form">
+          <input
+            class="fb-popup-input"
+            type="email"
+            id="fbPopupEmail"
+            placeholder="your email address"
+            autocomplete="email"
+          />
+          <button class="fb-popup-btn" id="fbPopupSubmit">send me the gift →</button>
+        </div>
+        <button class="fb-popup-dismiss" id="fbPopupDismiss">i'll find my own way, thank you</button>
+      </div>
+    </div>
+
+    <!-- success state -->
+    <div class="fb-popup-success" id="fbPopupSuccess">
+      <div class="fb-popup-success-icon">✦</div>
+      <div class="fb-popup-success-title">it's on its way to you.</div>
+      <p class="fb-popup-success-body">check your inbox for your free print<br>and your first field note.</p>
+    </div>
+
+  </div>
+</div>
+
 <div class="fb-wrap">
 
   <nav class="fb-nav">
@@ -217,8 +455,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
   </div>
 
   <div class="fb-gathered">
-
-    <!-- tall left: led by curiosity -->
     <div class="fb-gc fb-gc-dark fb-gc-tall">
       <img src="openbook-grid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;z-index:0;" />
       <div style="position:absolute;inset:0;background:rgba(38,27,12,0.25);z-index:1;border-radius:inherit;"></div>
@@ -228,8 +464,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
         <div style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:0.14em;color:rgba(240,232,218,0.40);text-transform:lowercase;">— faeblette</div>
       </div>
     </div>
-
-    <!-- Sadie's Song -->
     <div class="fb-gc fb-gc-warm">
       <img src="sadie-song-grid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;z-index:0;" />
       <div style="position:absolute;inset:0;background:rgba(38,27,12,0.3);z-index:1;border-radius:inherit;"></div>
@@ -240,8 +474,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
         <div style="font-family:'Playfair Display',serif;font-size:22px;line-height:1.2;color:rgba(240,232,218,0.85);">Sadie's<br>Song</div>
       </div>
     </div>
-
-    <!-- Numb -->
     <div class="fb-gc fb-gc-warm">
       <img src="numb-grid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;z-index:0;" />
       <div style="position:absolute;inset:0;background:rgba(38,27,12,0.3);z-index:1;border-radius:inherit;"></div>
@@ -252,8 +484,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
         <div style="font-family:'Playfair Display',serif;font-size:22px;line-height:1.2;color:rgba(240,232,218,0.85);">Numb</div>
       </div>
     </div>
-
-    <!-- fox in glasses -->
     <div class="fb-gc fb-gc-mid">
       <img src="fox-grid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;z-index:0;" />
       <div style="position:absolute;inset:0;background:rgba(38,27,12,0.3);z-index:1;border-radius:inherit;"></div>
@@ -264,8 +494,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
         <div style="font-family:'Playfair Display',serif;font-size:20px;line-height:1.25;color:rgba(240,232,218,0.85);">the fox<br>in glasses</div>
       </div>
     </div>
-
-    <!-- quote -->
     <div class="fb-gc fb-gc-pale">
       <img src="books-grid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;z-index:0;" />
       <div style="position:absolute;inset:0;background:rgba(38,27,12,0.3);z-index:1;border-radius:inherit;"></div>
@@ -276,7 +504,6 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
         <div style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:0.14em;color:rgba(240,232,218,0.40);text-transform:lowercase;">— faeblette</div>
       </div>
     </div>
-
   </div>
 
   <div id="films" class="fb-section fb-section-border">
@@ -458,5 +685,79 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
   </div>
 
 </div>
+
+<!-- Kit embed (handles actual signup) -->
+<script async data-uid="2807d1f569" src="https://faeblette.kit.com/2807d1f569/index.js"></script>
+
+<script>
+  (function () {
+    const COOKIE_KEY = 'fb_popup_seen';
+    const DELAY_MS   = 25000; // 25 seconds
+
+    function setCookie(name, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = name + '=1;expires=' + d.toUTCString() + ';path=/';
+    }
+
+    function getCookie(name) {
+      return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
+    }
+
+    function closePopup() {
+      overlay.classList.remove('is-visible');
+      setCookie(COOKIE_KEY, 30); // don't show again for 30 days
+    }
+
+    function showSuccess() {
+      document.getElementById('fbPopupContent').style.display = 'none';
+      document.getElementById('fbPopupSuccess').style.display = 'block';
+      setCookie(COOKIE_KEY, 365);
+      setTimeout(closePopup, 3000);
+    }
+
+    // Submit handler — posts to Kit via their hidden form
+    function handleSubmit() {
+      const email = document.getElementById('fbPopupEmail').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('fbPopupEmail').focus();
+        return;
+      }
+
+      // Kit form submission via their API endpoint
+      const uid = '2807d1f569';
+      const url = 'https://app.kit.com/forms/' + uid + '/subscriptions';
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email_address: email })
+      })
+      .then(() => showSuccess())
+      .catch(() => showSuccess()); // show success either way — Kit handles errors
+    }
+
+    const overlay = document.getElementById('fbPopupOverlay');
+
+    if (!getCookie(COOKIE_KEY)) {
+      setTimeout(function () {
+        overlay.classList.add('is-visible');
+      }, DELAY_MS);
+    }
+
+    document.getElementById('fbPopupClose').addEventListener('click', closePopup);
+    document.getElementById('fbPopupDismiss').addEventListener('click', closePopup);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closePopup();
+    });
+    document.getElementById('fbPopupSubmit').addEventListener('click', handleSubmit);
+    document.getElementById('fbPopupEmail').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') handleSubmit();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closePopup();
+    });
+  })();
+</script>
+
 </body>
 </html>
