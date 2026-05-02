@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../faeblette-bird.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>the person behind the bird — faeblette</title>
+  <meta name="description" content="I spent years waiting to be chosen. Faeblette is what I built instead. A field note by Crystal St. John." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F0E8DA;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      color: #26201A;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 6rem;
+    }
+
+    .fb-wrap { max-width: 1400px; margin: 0 auto; }
+
+    /* NAV */
+    .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
+    .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); }
+    .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-nav-links a:hover { color: #26201A; }
+
+    /* HEADER IMAGE */
+    .fb-note-header-img {
+      margin: 0 3rem;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 340px;
+      position: relative;
+    }
+    .fb-note-header-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+    .fb-note-header-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 16, 6, 0.38);
+    }
+
+    /* ARTICLE */
+    .fb-note-article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 0;
+    }
+
+    .fb-note-back {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: #A8917A;
+      text-transform: lowercase;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 2.4rem;
+      border-bottom: 0.5px solid #C4B09A;
+      padding-bottom: 2px;
+    }
+    .fb-note-back:hover { color: #26201A; }
+
+    .fb-note-eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: #A8917A;
+      text-transform: lowercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .fb-note-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 400;
+      color: #26201A;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
+    }
+
+    .fb-note-meta {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid #C4B09A;
+    }
+    .fb-note-author {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #8A7660;
+      text-transform: lowercase;
+    }
+    .fb-note-dot {
+      width: 3px; height: 3px;
+      background: #C4B09A;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .fb-note-date {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #B0977E;
+      text-transform: lowercase;
+    }
+    .fb-note-tag-pill {
+      font-family: 'Courier Prime', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: #A8917A;
+      text-transform: lowercase;
+      border: 0.5px solid #C4B09A;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* BODY COPY */
+    .fb-note-body p {
+      font-size: 16px;
+      line-height: 2;
+      color: #3E2E20;
+      margin-bottom: 1.6rem;
+    }
+    .fb-note-body p:last-child { margin-bottom: 0; }
+    .fb-note-body em { font-style: italic; color: #5C4A36; }
+
+    .fb-note-rule {
+      width: 60px;
+      height: 0.5px;
+      background: #C4B09A;
+      margin: 2.4rem 0;
+    }
+
+    .fb-note-pullquote {
+      border-left: 1.5px solid #C4B09A;
+      padding: 0.4rem 0 0.4rem 1.6rem;
+      margin: 2.4rem 0;
+    }
+    .fb-note-pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: #5C4A36;
+      line-height: 1.6;
+    }
+
+    /* SIGN OFF */
+    .fb-note-signoff {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid #C4B09A;
+    }
+    .fb-note-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: #26201A;
+      margin-bottom: 3px;
+    }
+    .fb-note-sign-sub {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: #A8917A;
+      text-transform: lowercase;
+    }
+
+    /* MORE NOTES */
+    .fb-note-more {
+      max-width: 680px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+    .fb-note-more-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #A8917A;
+      text-transform: lowercase;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid #C4B09A;
+    }
+    .fb-note-more-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 0.5px solid #C4B09A;
+      text-decoration: none;
+      color: #26201A;
+      gap: 1.5rem;
+    }
+    .fb-note-more-row:hover .fb-note-more-title { color: #5C4A36; }
+    .fb-note-more-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: #26201A;
+      line-height: 1.2;
+    }
+    .fb-note-more-tag {
+      font-family: 'Courier Prime', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: #C4A882;
+      text-transform: lowercase;
+      margin-top: 3px;
+    }
+    .fb-note-more-date {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: #B0977E;
+      text-transform: lowercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+    .fb-footer { margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A; padding: 2.5rem 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start; }
+    .fb-footer-logo img { height: 150px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); opacity: 0.9; display: block; margin-bottom: 0.8rem; }
+    .fb-footer-sub { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
+    .fb-footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .fb-footer-links a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-footer-tagline { font-family: 'Libre Baskerville', serif; font-size: 14px; font-style: italic; color: #A8917A; line-height: 1.8; }
+    .fb-footer-bottom { margin: 0 3rem; padding: 1.5rem 0 0; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
+    .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
+
+    @media (max-width: 768px) {
+      .fb-nav { padding: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+      .fb-nav-bird img { height: 22px; }
+      .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .fb-nav-links a { font-size: 11px; }
+      .fb-note-header-img { margin: 0 1.5rem; height: 240px; }
+      .fb-note-article { padding: 3rem 1.5rem 0; }
+      .fb-note-more { padding: 0 1.5rem; }
+      .fb-note-title { font-size: 32px; }
+      .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .fb-note-header-img { margin: 0 1.2rem; height: 200px; }
+      .fb-note-article { padding: 2.5rem 1.2rem 0; }
+      .fb-note-more { padding: 0 1.2rem; }
+      .fb-note-title { font-size: 26px; }
+      .fb-note-body p { font-size: 15px; }
+      .fb-note-meta { flex-wrap: wrap; gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="fb-wrap">
+
+  <nav class="fb-nav">
+    <div class="fb-nav-bird">
+      <a href="../index.html"><img src="../faeblette-bird.png" alt="faeblette" /></a>
+    </div>
+    <div class="fb-nav-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="../index.html#shop">shop</a>
+      <a href="../about.html">about</a>
+    </div>
+  </nav>
+
+  <div class="fb-note-header-img">
+    <img src="../openbook-grid.jpg" alt="an open book with a candle" />
+    <div class="fb-note-header-img-overlay"></div>
+  </div>
+
+  <div class="fb-note-article">
+
+    <a href="../index.html#field-notes" class="fb-note-back">← the field notes</a>
+
+    <div class="fb-note-eyebrow">start here — on making faeblette</div>
+    <h1 class="fb-note-title">The person behind the bird</h1>
+
+    <div class="fb-note-meta">
+      <span class="fb-note-author">crystal st. john</span>
+      <div class="fb-note-dot"></div>
+      <span class="fb-note-date">may 2026</span>
+      <div class="fb-note-dot"></div>
+      <span class="fb-note-tag-pill">on making faeblette</span>
+    </div>
+
+    <div class="fb-note-body">
+
+      <p>I'm a filmmaker, illustrator, and writer based in Los Angeles, and faeblette is everything I've been trying to make my whole life. I just didn't have a name for it until now.</p>
+
+      <p>I spent years waiting to be chosen. Auditioning. Submitting. Hoping someone with power would look at what I was making and say <em>yes, you belong here.</em> And somewhere along the way, I realized my sense of self was crumbling away as I tried to fit into a mold someone else made. So I stopped.</p>
+
+      <p>Faeblette is what I built instead.</p>
+
+      <div class="fb-note-rule"></div>
+
+      <p>My work is rooted in something I keep coming back to: the idea that the world has everything upside down. That real power bows down. That the smallest moments are the ones that change us. That the overlooked thing is usually the most important thing in the room.</p>
+
+      <p>I find these ideas everywhere — in parables, in poetry, in the teachings of Jesus, in the quiet of an ordinary Tuesday. They don't announce themselves. They just show up, if you're paying attention.</p>
+
+      <div class="fb-note-pullquote">
+        <p>The ones who linger, who notice, who feel too much, who move quietly through a loud world — they are not behind. They are exactly where they need to be.</p>
+      </div>
+
+      <p>My work has a point of view. And that point of view is this: the ones who linger, who notice, who feel too much, who move quietly through a loud world, they are not behind. They are exactly where they need to be.</p>
+
+      <div class="fb-note-rule"></div>
+
+      <p>I believe the world is overstimulated and under-nourished. Surrounded by content and starving for meaning. Faeblette is my answer to that.</p>
+
+      <p>Films that linger. Illustration that lives on your wall and works on you quietly. Goods that keep you company. And these letters — field notes from inside the process of building something real.</p>
+
+      <p>I'm so glad you're here for it.</p>
+
+    </div>
+
+    <div class="fb-note-signoff">
+      <div class="fb-note-sign">— Crystal</div>
+      <div class="fb-note-sign-sub">faeblette</div>
+    </div>
+
+  </div>
+
+  <div class="fb-note-more">
+    <div class="fb-note-more-label">more field notes</div>
+
+    <a href="real-power.html" class="fb-note-more-row">
+      <div>
+        <div class="fb-note-more-title">Real power is bowing down</div>
+        <div class="fb-note-more-tag">philosophy</div>
+      </div>
+      <span class="fb-note-more-date">apr 2026</span>
+    </a>
+
+    <a href="stopped-auditioning.html" class="fb-note-more-row">
+      <div>
+        <div class="fb-note-more-title">The role I stopped auditioning for.</div>
+        <div class="fb-note-more-tag">entrepreneurship / entertainment</div>
+      </div>
+      <span class="fb-note-more-date">apr 2026</span>
+    </a>
+
+    <a href="drawing-wobbly-lines.html" class="fb-note-more-row">
+      <div>
+        <div class="fb-note-more-title">I used to erase the wobbly lines. I don't anymore.</div>
+        <div class="fb-note-more-tag">illustration</div>
+      </div>
+      <span class="fb-note-more-date">mar 2026</span>
+    </a>
+
+  </div>
+
+  <div class="fb-footer">
+    <div class="fb-footer-logo">
+      <img src="../faeblette-logo.png" alt="faeblette" />
+      <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
+    </div>
+    <div class="fb-footer-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="https://etsy.com/shop/TheFaebletteShop" target="_blank">the faeblette shop</a>
+      <a href="../about.html">about</a>
+      <a href="https://www.instagram.com/faeblette_" target="_blank">instagram</a>
+      <a href="https://www.youtube.com/@faeblette" target="_blank">youtube</a>
+      <a href="https://www.tiktok.com/@faeblette" target="_blank">tiktok</a>
+    </div>
+    <div class="fb-footer-tagline">
+      little lights that guide us home.
+    </div>
+  </div>
+  <div class="fb-footer-bottom">
+    <span class="fb-footer-bottom-text">© 2026 faeblette — all rights reserved</span>
+    <span class="fb-footer-bottom-text">faeblette.com</span>
+  </div>
+
+</div>
+</body>
+</html>
