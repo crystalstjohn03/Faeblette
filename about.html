@@ -124,10 +124,14 @@
       display: flex; align-items: center; justify-content: center;
       min-height: 700px; position: relative;
     }
-    .fb-house-img-wrap img {
-      width: 100%; height: 100%; display: block;
-      object-fit: cover; object-position: center;
-    }
+    .fb-house-img-wrap {
+  width: 100%; border-radius: 5px; overflow: hidden;
+  background: #E4DACE;
+  display: block;
+}
+.fb-house-img-wrap img {
+  width: 100%; height: auto; display: block;
+}
     /* Placeholder shown when no image */
     .fb-house-placeholder {
       display: flex; flex-direction: column;
