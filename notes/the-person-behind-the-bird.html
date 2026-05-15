@@ -139,17 +139,45 @@
     .fb-note-body p:last-child { margin-bottom: 0; }
     .fb-note-body em { font-style: italic; color: #5C4A36; }
 
+    /* INSET PORTRAIT */
+    .fb-note-portrait {
+      float: right;
+      width: 240px;
+      aspect-ratio: 4 / 5;
+      margin: 6px 0 1.4rem 1.8rem;
+      border-radius: 4px;
+      overflow: hidden;
+      shape-outside: margin-box;
+    }
+    .fb-note-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fb-note-portrait figcaption {
+      font-family: 'Courier Prime', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: #A8917A;
+      text-transform: lowercase;
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+
     .fb-note-rule {
       width: 60px;
       height: 0.5px;
       background: #C4B09A;
       margin: 2.4rem 0;
+      clear: both;
     }
 
     .fb-note-pullquote {
       border-left: 1.5px solid #C4B09A;
       padding: 0.4rem 0 0.4rem 1.6rem;
       margin: 2.4rem 0;
+      clear: both;
     }
     .fb-note-pullquote p {
       font-family: 'Playfair Display', serif;
@@ -164,6 +192,7 @@
       margin-top: 3rem;
       padding-top: 2rem;
       border-top: 0.5px solid #C4B09A;
+      clear: both;
     }
     .fb-note-sign {
       font-family: 'Playfair Display', serif;
@@ -251,6 +280,13 @@
       .fb-note-article { padding: 3rem 1.5rem 0; }
       .fb-note-more { padding: 0 1.5rem; }
       .fb-note-title { font-size: 32px; }
+      .fb-note-portrait {
+        float: none;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto 1.6rem;
+        display: block;
+      }
       .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
@@ -303,6 +339,10 @@
     <div class="fb-note-body">
 
       <p>I'm a filmmaker, illustrator, and writer based in Los Angeles, and faeblette is everything I've been trying to make my whole life. I just didn't have a name for it until now.</p>
+
+      <figure class="fb-note-portrait">
+        <img src="../crystal-portrait.jpg" alt="Crystal St. John, founder of faeblette" />
+      </figure>
 
       <p>I spent years waiting to be chosen. Auditioning. Submitting. Hoping someone with power would look at what I was making and say <em>yes, you belong here.</em> And somewhere along the way, I realized my sense of self was crumbling away as I tried to fit into a mold someone else made. So I stopped.</p>
 
