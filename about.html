@@ -179,22 +179,25 @@
     .fb-tv-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 0.95;  /* TV is a touch wider than tall, leaves room for legs */
-      filter: drop-shadow(0 30px 40px rgba(38, 32, 26, 0.18));
+      aspect-ratio: 1 / 1;  /* TV is square-ish now, with legs included */
+      /* No drop shadow — flat ink illustration feel */
     }
     .fb-tv-frame svg {
       width: 100%;
       height: 100%;
       display: block;
     }
-    /* The screen is positioned absolutely over the SVG */
+    /* The screen is positioned absolutely over the SVG.
+       New TV has the screen on the left, control panel on the right.
+       Screen sits between roughly x=95–432 and y=115–410 in the 600x600 viewBox.
+       That's ~56% wide, starting at ~16% from left, top ~19%, height ~49% */
     .fb-tv-screen {
       position: absolute;
-      top: 9%;
-      left: 9%;
-      width: 70%;
-      height: 70%;
-      border-radius: 18% / 14%;  /* subtle CRT curve */
+      top: 19.2%;
+      left: 15.8%;
+      width: 56.2%;
+      height: 49.3%;
+      border-radius: 2%;  /* Boxy with a slight rounding, matches the line drawing */
       overflow: hidden;
       background: #2A1F14;
     }
@@ -219,34 +222,34 @@
       object-fit: cover;
       display: block;
     }
-    /* Scanline / vintage texture overlay on the screen */
+    /* Subtle screen texture (lighter than before — illustration style is gentler) */
     .fb-tv-scanlines {
       position: absolute;
       inset: 0;
       pointer-events: none;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(0,0,0,0.06) 0px,
-        rgba(0,0,0,0.06) 1px,
+        rgba(0,0,0,0.04) 0px,
+        rgba(0,0,0,0.04) 1px,
         transparent 1px,
-        transparent 3px
+        transparent 4px
       );
       mix-blend-mode: multiply;
-      opacity: 0.4;
+      opacity: 0.3;
     }
     .fb-tv-vignette {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.25) 100%);
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.18) 100%);
     }
 
     /* Nav arrows */
     .fb-tv-arrow {
       position: absolute;
-      top: 38%;
+      top: 44%;
       transform: translateY(-50%);
-      background: none;
+      background: #F0E8DA;
       border: 0.5px solid #C4B09A;
       width: 40px; height: 40px;
       border-radius: 50%;
@@ -571,95 +574,133 @@
       <button class="fb-tv-arrow fb-tv-arrow-prev" id="fbTvPrev" aria-label="Previous">&#8249;</button>
       <button class="fb-tv-arrow fb-tv-arrow-next" id="fbTvNext" aria-label="Next">&#8250;</button>
 
-      <!-- TV Frame -->
+      <!-- TV Frame (hand-drawn line style) -->
       <div class="fb-tv-frame">
-        <svg viewBox="0 0 600 570" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Antenna -->
-          <line x1="240" y1="40" x2="180" y2="0" stroke="#5C4A36" stroke-width="3" stroke-linecap="round"/>
-          <line x1="360" y1="40" x2="420" y2="0" stroke="#5C4A36" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="300" cy="42" r="6" fill="#5C4A36"/>
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <!-- Wobble filter to make lines look hand-drawn -->
+            <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="3" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5"/>
+            </filter>
+            <filter id="wobbleStrong" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5"/>
+            </filter>
+          </defs>
 
-          <!-- Main cabinet body (warm wood tone) -->
-          <rect x="40" y="40" width="520" height="430" rx="22" ry="22"
-                fill="#9B7651" stroke="#5C4A36" stroke-width="2"/>
-          <!-- Wood grain hints -->
-          <rect x="40" y="40" width="520" height="430" rx="22" ry="22"
-                fill="url(#woodGrain)" opacity="0.3"/>
+          <!-- All lines in a single group with the wobble filter -->
+          <g fill="none" stroke="#3A2E22" stroke-linecap="round" stroke-linejoin="round" filter="url(#wobble)">
 
-          <!-- Inner bezel around screen -->
-          <rect x="65" y="65" width="470" height="380" rx="48" ry="36"
-                fill="#3D2E1F" stroke="#2A1F14" stroke-width="2"/>
+            <!-- Antenna: two diagonal rods, slightly uneven -->
+            <line x1="245" y1="65" x2="175" y2="12" stroke-width="3.5"/>
+            <line x1="362" y1="63" x2="438" y2="8" stroke-width="3.5"/>
+            <!-- Antenna base (small triangle) -->
+            <path d="M 280 60 L 300 75 L 322 60" stroke-width="3"/>
 
-          <!-- Screen "well" (dark inset where the actual screen content sits) -->
-          <rect x="78" y="78" width="444" height="354" rx="40" ry="30"
-                fill="#1C140D"/>
+            <!-- Main cabinet body — slightly irregular rectangle drawn as path -->
+            <path d="M 50 80
+                     Q 48 78, 52 75
+                     L 548 78
+                     Q 554 76, 552 82
+                     L 555 470
+                     Q 556 478, 548 478
+                     L 52 475
+                     Q 45 477, 48 470
+                     Z" stroke-width="4"/>
 
-          <!-- Right side: speaker grille + dials -->
-          <!-- (Note: drawn ON TOP of cabinet, to the right of screen area)
-               Adjusted: this TV has the screen on the left and controls on the right side.
-               But to keep the screen visually centered, we'll put small dials at the bottom. -->
+            <!-- Inner cabinet outline (a second line just inside, the way ink drawings double-up) -->
+            <path d="M 60 92
+                     L 542 90
+                     L 545 466
+                     L 58 464 Z" stroke-width="1.5" opacity="0.5"/>
 
-          <!-- Bottom bar with dials and brand plate -->
-          <rect x="40" y="445" width="520" height="25" fill="#7A5C3F" rx="2"/>
+            <!-- Screen bezel — rounded rectangle drawn imperfectly -->
+            <path d="M 95 115
+                     Q 90 110, 100 108
+                     L 425 110
+                     Q 432 110, 432 118
+                     L 433 405
+                     Q 434 413, 425 413
+                     L 100 411
+                     Q 92 412, 92 403
+                     L 93 120
+                     Z" stroke-width="3.5"/>
 
-          <!-- Two dials at bottom right -->
-          <circle cx="480" cy="498" r="14" fill="#5C4A36" stroke="#3D2E1F" stroke-width="1.5"/>
-          <circle cx="480" cy="498" r="6" fill="#3D2E1F"/>
-          <line x1="480" y1="490" x2="480" y2="498" stroke="#C4B09A" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Inner screen bezel (double line for that ink illustration feel) -->
+            <path d="M 105 125
+                     L 420 124
+                     L 421 398
+                     L 104 396 Z" stroke-width="1.2" opacity="0.55"/>
 
-          <circle cx="525" cy="498" r="14" fill="#5C4A36" stroke="#3D2E1F" stroke-width="1.5"/>
-          <circle cx="525" cy="498" r="6" fill="#3D2E1F"/>
-          <line x1="525" y1="492" x2="528" y2="498" stroke="#C4B09A" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Right side control panel (vertical strip) -->
+            <path d="M 460 120
+                     L 522 122
+                     L 524 400
+                     L 458 398 Z" stroke-width="3"/>
 
-          <!-- Brand plate / channel readout -->
-          <rect x="75" y="485" width="80" height="26" rx="3" fill="#2A1F14"/>
-          <text x="115" y="503" text-anchor="middle"
-                font-family="Courier Prime, monospace" font-size="11"
-                fill="#C4A882" letter-spacing="2">faeblette</text>
+            <!-- Control panel inner line -->
+            <path d="M 468 132
+                     L 514 134
+                     L 515 388
+                     L 466 386 Z" stroke-width="1" opacity="0.5"/>
 
-          <!-- Speaker grille (small dots, between brand plate and dials) -->
-          <g fill="#3D2E1F">
-            <circle cx="180" cy="498" r="1.5"/>
-            <circle cx="190" cy="498" r="1.5"/>
-            <circle cx="200" cy="498" r="1.5"/>
-            <circle cx="210" cy="498" r="1.5"/>
-            <circle cx="220" cy="498" r="1.5"/>
-            <circle cx="230" cy="498" r="1.5"/>
-            <circle cx="240" cy="498" r="1.5"/>
-            <circle cx="250" cy="498" r="1.5"/>
-            <circle cx="260" cy="498" r="1.5"/>
-            <circle cx="270" cy="498" r="1.5"/>
-            <circle cx="280" cy="498" r="1.5"/>
-            <circle cx="290" cy="498" r="1.5"/>
-            <circle cx="300" cy="498" r="1.5"/>
-            <circle cx="310" cy="498" r="1.5"/>
-            <circle cx="320" cy="498" r="1.5"/>
-            <circle cx="330" cy="498" r="1.5"/>
-            <circle cx="340" cy="498" r="1.5"/>
-            <circle cx="350" cy="498" r="1.5"/>
-            <circle cx="360" cy="498" r="1.5"/>
-            <circle cx="370" cy="498" r="1.5"/>
-            <circle cx="380" cy="498" r="1.5"/>
-            <circle cx="390" cy="498" r="1.5"/>
-            <circle cx="400" cy="498" r="1.5"/>
-            <circle cx="410" cy="498" r="1.5"/>
-            <circle cx="420" cy="498" r="1.5"/>
-            <circle cx="430" cy="498" r="1.5"/>
-            <circle cx="440" cy="498" r="1.5"/>
+            <!-- Two big dials in the control panel -->
+            <!-- Top dial -->
+            <circle cx="491" cy="180" r="22" stroke-width="3"/>
+            <circle cx="491" cy="180" r="14" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="491" cy="180" r="4" stroke-width="2" fill="#3A2E22"/>
+            <!-- Indicator notch -->
+            <line x1="491" y1="160" x2="491" y2="168" stroke-width="2.5"/>
+
+            <!-- Bottom dial -->
+            <circle cx="491" cy="250" r="22" stroke-width="3"/>
+            <circle cx="491" cy="250" r="14" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="491" cy="250" r="4" stroke-width="2" fill="#3A2E22"/>
+            <line x1="478" y1="240" x2="486" y2="246" stroke-width="2.5"/>
+
+            <!-- Small rectangular speaker section at bottom of control panel -->
+            <rect x="472" y="295" width="40" height="85" stroke-width="2"/>
+            <!-- Horizontal speaker lines -->
+            <line x1="478" y1="310" x2="506" y2="310" stroke-width="1"/>
+            <line x1="478" y1="322" x2="506" y2="322" stroke-width="1"/>
+            <line x1="478" y1="334" x2="506" y2="334" stroke-width="1"/>
+            <line x1="478" y1="346" x2="506" y2="346" stroke-width="1"/>
+            <line x1="478" y1="358" x2="506" y2="358" stroke-width="1"/>
+            <line x1="478" y1="370" x2="506" y2="370" stroke-width="1"/>
+
+            <!-- Bottom panel (under the screen) with small details -->
+            <line x1="55" y1="478" x2="548" y2="478" stroke-width="2.5"/>
+
+            <!-- Channel label plate (small rectangle at bottom-left) -->
+            <rect x="95" y="495" width="110" height="22" stroke-width="2"/>
+
+            <!-- Three small marks/buttons at bottom middle -->
+            <circle cx="280" cy="506" r="6" stroke-width="2"/>
+            <circle cx="305" cy="506" r="6" stroke-width="2"/>
+            <circle cx="330" cy="506" r="6" stroke-width="2"/>
+
+            <!-- LEGS — splayed slightly outward, hand-drawn -->
+            <!-- Left leg -->
+            <path d="M 130 478 L 105 575" stroke-width="4"/>
+            <path d="M 145 478 L 125 575" stroke-width="2" opacity="0.5"/>
+            <!-- Foot detail -->
+            <line x1="98" y1="575" x2="132" y2="575" stroke-width="2.5"/>
+
+            <!-- Right leg -->
+            <path d="M 470 478 L 495 575" stroke-width="4"/>
+            <path d="M 455 478 L 475 575" stroke-width="2" opacity="0.5"/>
+            <line x1="468" y1="575" x2="502" y2="575" stroke-width="2.5"/>
+
           </g>
 
-          <!-- Legs -->
-          <rect x="120" y="510" width="20" height="50" rx="3" fill="#5C4A36"/>
-          <rect x="460" y="510" width="20" height="50" rx="3" fill="#5C4A36"/>
+          <!-- Faeblette label inside the channel plate (Courier, hand-positioned) -->
+          <g filter="url(#wobbleStrong)">
+            <text x="150" y="511" text-anchor="middle"
+                  font-family="Courier Prime, monospace" font-size="11"
+                  fill="#3A2E22" letter-spacing="2" opacity="0.8">faeblette</text>
+          </g>
 
-          <!-- Wood grain pattern definition -->
-          <defs>
-            <pattern id="woodGrain" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse">
-              <rect width="100" height="20" fill="transparent"/>
-              <path d="M0 10 Q 25 8, 50 10 T 100 10" stroke="#7A5C3F" stroke-width="0.5" fill="none" opacity="0.6"/>
-              <path d="M0 15 Q 30 13, 60 15 T 100 15" stroke="#7A5C3F" stroke-width="0.4" fill="none" opacity="0.4"/>
-            </pattern>
-          </defs>
         </svg>
 
         <!-- The screen content overlay (positioned over the SVG screen well) -->
