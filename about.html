@@ -46,6 +46,14 @@
       margin: 0 3rem; padding: 3rem 0 3.5rem;
       border-bottom: 0.5px solid #C4B09A;
     }
+    .fb-about-hero-logo {
+      display: block;
+      height: 150px;
+      width: auto;
+      margin-bottom: 1.4rem;
+      filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
+      opacity: 0.9;
+    }
     .fb-about-header-label {
       font-family: 'Courier Prime', monospace; font-size: 12px;
       letter-spacing: 0.2em; color: #A8917A;
@@ -56,54 +64,22 @@
       font-weight: 400; line-height: 1.0; color: #26201A; letter-spacing: 0.01em;
     }
 
-    /* ── MAIN GRID ── */
+    /* ── OPENING COPY (photo removed, single column) ── */
     .fb-about-main {
       margin: 3.5rem 3rem 0;
-      display: grid; grid-template-columns: 1fr 1.5fr;
-      gap: 4rem; align-items: stretch;
+      max-width: 760px;
     }
-    .fb-about-photo-col {
-      display: flex; flex-direction: column;
-    }
-    .fb-about-photo {
-      width: 100%; flex: 1;
-      min-height: 280px;
-      background: #DDD4C0; border-radius: 5px;
-      position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .fb-about-photo img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-    }
-    .fb-about-photo-inner {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(ellipse 3px 4px at 50% 50%, #C4B09A 40%, transparent 60%);
-      background-size: 18px 20px; opacity: 0.2;
-    }
-    .fb-about-photo-label {
-      position: relative; z-index: 2; font-family: 'Courier Prime', monospace;
-      font-size: 10px; letter-spacing: 0.14em;
-      color: rgba(38,32,26,0.3); text-transform: lowercase;
-    }
-    .fb-about-photo-caption {
-      margin-top: 0.9rem; font-family: 'Courier Prime', monospace;
-      font-size: 10px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase;
-    }
-
-    /* Opening copy */
-    .fb-about-copy { padding-top: 0.5rem; }
     .fb-about-copy-eyebrow {
       font-family: 'Courier Prime', monospace; font-size: 12px;
       letter-spacing: 0.2em; color: #A8917A;
       text-transform: lowercase; margin-bottom: 1.2rem;
     }
     .fb-about-copy-headline {
-      font-family: 'Playfair Display', serif; font-size: 34px;
-      font-weight: 400; line-height: 1.15; color: #26201A; margin-bottom: 1.8rem;
+      font-family: 'Playfair Display', serif; font-size: 38px;
+      font-weight: 400; line-height: 1.2; color: #26201A; margin-bottom: 2rem;
     }
     .fb-about-copy p {
-      font-size: 15px; line-height: 1.95; color: #5C4A36; margin-bottom: 1.4rem;
+      font-size: 16px; line-height: 2; color: #5C4A36; margin-bottom: 1.4rem;
     }
     .fb-about-copy p:last-of-type { margin-bottom: 0; }
     .fb-about-crystal {
@@ -112,53 +88,22 @@
       font-size: 15px; line-height: 1.95; color: #5C4A36;
     }
 
-    /* ── HOUSE ILLUSTRATION ── */
+    /* ── STUDIO IMAGE (frame fixed) ── */
     .fb-house {
       margin: 4rem 3rem 0;
       border-top: 0.5px solid #C4B09A;
       padding-top: 3.5rem;
     }
     .fb-house-img-wrap {
-      width: 100%; border-radius: 5px; overflow: hidden;
-      background: #E4DACE;
-      display: flex; align-items: center; justify-content: center;
-      min-height: 700px; position: relative;
+      width: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+      display: block;
     }
-    .fb-house-img-wrap {
-  width: 100%; border-radius: 5px; overflow: hidden;
-  background: #E4DACE;
-  display: block;
-}
-.fb-house-img-wrap img {
-  width: 100%; height: auto; display: block;
-}
-    /* Placeholder shown when no image */
-    .fb-house-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1rem; padding: 4rem 2rem;
-      width: 100%; height: 100%;
-      position: absolute; inset: 0;
-    }
-    .fb-house-placeholder-label {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.18em; color: rgba(38,32,26,0.25); text-transform: lowercase;
-    }
-
-    /* ── HOME SECTION ── */
-    .fb-home {
-      margin: 4rem 3rem 0;
-      border-top: 0.5px solid #C4B09A;
-      padding-top: 3.5rem;
-    }
-    .fb-home-label {
-      font-family: 'Courier Prime', monospace; font-size: 13px;
-      letter-spacing: 0.2em; color: #A8917A;
-      text-transform: lowercase; margin-bottom: 0.6rem;
-    }
-    .fb-home-title {
-      font-family: 'Playfair Display', serif; font-size: 34px;
-      font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 1.4rem;
+    .fb-house-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ── BIRD ── */
@@ -321,16 +266,20 @@
       border-bottom: 0.5px solid #C4B09A; padding-bottom: 2px; text-decoration: none;
     }
 
-    /* ── FOOTER ── */
+    /* ── FOOTER (serif name to match homepage) ── */
     .fb-footer {
       margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A;
       padding: 2.5rem 0; display: grid;
       grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start;
     }
-    .fb-footer-logo img {
-      height: 150px; width: auto;
-      filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%);
-      opacity: 0.9; display: block; margin-bottom: 0.8rem;
+    .fb-footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.0;
+      color: #26201A;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.9rem;
     }
     .fb-footer-sub {
       font-family: 'Courier Prime', monospace; font-size: 11px;
@@ -361,11 +310,11 @@
       .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
       .fb-nav-links a { font-size: 11px; }
       .fb-about-header { margin: 0 1.5rem; }
+      .fb-about-hero-logo { height: 110px; }
       .fb-about-header-title { font-size: 38px; }
-      .fb-about-main { margin: 2.5rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-about-main { margin: 2.5rem 1.5rem 0; }
+      .fb-about-copy-headline { font-size: 28px; }
       .fb-house { margin: 3rem 1.5rem 0; }
-      .fb-home { margin: 3rem 1.5rem 0; }
-      .fb-home-grid { grid-template-columns: 1fr; }
       .fb-bird { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
       .fb-philosophy { margin: 3rem 1.5rem 0; }
       .fb-philosophy-grid { grid-template-columns: 1fr; }
@@ -375,16 +324,19 @@
       .fb-makes-grid { grid-template-columns: 1fr; }
       .fb-collab { margin: 3rem 1.5rem 0; flex-direction: column; align-items: flex-start; }
       .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-footer-name { font-size: 42px; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
     @media (max-width: 480px) {
       .fb-nav { padding: 1.2rem; }
+      .fb-about-hero-logo { height: 90px; }
       .fb-about-header-title { font-size: 30px; }
-      .fb-about-copy-headline { font-size: 26px; }
-      .fb-bird-title, .fb-home-title, .fb-philosophy-title, .fb-makes-title { font-size: 26px; }
+      .fb-about-copy-headline { font-size: 24px; }
+      .fb-bird-title, .fb-philosophy-title, .fb-makes-title { font-size: 26px; }
       .fb-phil-statement { font-size: 19px; }
       .fb-closing-text { font-size: 19px; }
       .fb-collab-headline { font-size: 24px; }
+      .fb-footer-name { font-size: 36px; }
     }
 
   </style>
@@ -406,21 +358,13 @@
 
   <!-- ── PAGE HEADER ── -->
   <div class="fb-about-header">
+    <img class="fb-about-hero-logo" src="faeblette-logo.png" alt="faeblette" />
     <div class="fb-about-header-label">the story behind the studio</div>
     <h1 class="fb-about-header-title">about faeblette</h1>
   </div>
 
-  <!-- ── OPENING: photo + why we exist ── -->
+  <!-- ── OPENING: single column, no photo ── -->
   <div class="fb-about-main">
-    <div class="fb-about-photo-col">
-      <div class="fb-about-photo">
-        <div class="fb-about-photo-inner"></div>
-        <span class="fb-about-photo-label"></span>
-       <img src="crystal-photo.jpg" alt="Crystal St. John, founder of Faeblette" />
-      </div>
-      <div class="fb-about-photo-caption">crystal st. john, founder</div>
-    </div>
-
     <div class="fb-about-copy">
       <div class="fb-about-copy-eyebrow">why does faeblette exist?</div>
       <h2 class="fb-about-copy-headline">In a world that profits from your restlessness, Faeblette is a place to exhale and come back to yourself.</h2>
@@ -435,7 +379,7 @@
     </div>
   </div>
 
-  <!-- ── HOUSE ILLUSTRATION ── -->
+  <!-- ── STUDIO IMAGE ── -->
   <div class="fb-house">
     <div class="fb-house-img-wrap">
       <img src="faeblette-studio.jpg" alt="the faeblette studio" />
@@ -570,10 +514,10 @@
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
+  <!-- ── FOOTER (serif name swap) ── -->
   <div class="fb-footer">
-    <div class="fb-footer-logo">
-      <img src="faeblette-logo.png" alt="faeblette" />
+    <div>
+      <div class="fb-footer-name">faeblette</div>
       <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
     </div>
     <div class="fb-footer-links">
