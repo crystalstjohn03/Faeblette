@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../faeblette-bird.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>real power is bowing down — faeblette</title>
+  <meta name="description" content="On transcendence, grief, and the kind of power that serves. A field note by Crystal St. John." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0E8DA; font-family: 'Libre Baskerville', Georgia, serif; color: #26201A; -webkit-font-smoothing: antialiased; padding-bottom: 5rem; }
+    .fb-wrap { max-width: 1400px; margin: 0 auto; }
+
+    /* NAV */
+    .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
+    .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); opacity: 1; }
+    .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-nav-links a:hover { color: #26201A; }
+
+    /* ARTICLE HERO */
+    .fb-article-hero { margin: 0 3rem; border-radius: 5px; overflow: hidden; position: relative; height: 380px; display: flex; align-items: flex-end; padding: 2.5rem; background: #1C140D; }
+    .fb-article-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+    .fb-article-hero-content { position: relative; z-index: 2; }
+    .fb-article-eyebrow { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(240,232,218,0.55); text-transform: lowercase; margin-bottom: 8px; }
+    .fb-article-hero-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: rgba(240,232,218,0.95); line-height: 1.15; max-width: 720px; }
+
+    /* BREADCRUMB */
+    .fb-breadcrumb { margin: 1.8rem 3rem 0; }
+    .fb-breadcrumb a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-breadcrumb a:hover { color: #26201A; }
+
+    /* ARTICLE BODY */
+    .fb-article { max-width: 680px; margin: 3rem auto 0; padding: 0 1.5rem; }
+    .fb-article-meta { display: flex; flex-direction: column; gap: 4px; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 0.5px solid #C4B09A; }
+    .fb-article-byline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #5C4A36; }
+    .fb-article-date { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
+    .fb-article-tag { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C4A882; text-transform: lowercase; margin-top: 4px; }
+
+    .fb-article p { font-size: 16px; line-height: 1.95; color: #3A2E22; margin-bottom: 1.5rem; }
+    .fb-article p.fb-lede { font-size: 18px; font-style: italic; color: #5C4A36; line-height: 1.8; }
+
+    /* INLINE IMAGE */
+    .fb-article-figure { margin: 3rem -2rem; }
+    .fb-article-figure img { width: 100%; height: auto; border-radius: 5px; display: block; }
+    .fb-article-figure figcaption { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.14em; color: #A8917A; text-transform: lowercase; margin-top: 0.8rem; text-align: center; }
+
+    /* PULL QUOTE */
+    .fb-pullquote { margin: 3rem 0; padding: 1.5rem 0; border-top: 0.5px solid #C4B09A; border-bottom: 0.5px solid #C4B09A; text-align: center; }
+    .fb-pullquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; line-height: 1.4; color: #26201A; margin: 0; }
+
+    /* DIVIDER */
+    .fb-divider { text-align: center; margin: 2.5rem 0; font-family: 'Playfair Display', serif; font-size: 18px; color: #C4B09A; letter-spacing: 0.4em; }
+
+    /* CLOSING */
+    .fb-article-closing { margin-top: 3rem; padding-top: 2.5rem; border-top: 0.5px solid #C4B09A; }
+    .fb-article-closing p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #5C4A36; line-height: 1.7; }
+    .fb-article-signoff { font-family: 'Playfair Display', serif; font-size: 18px; color: #26201A; margin-top: 1.5rem; }
+    .fb-article-brand { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: #B0977E; text-transform: lowercase; margin-top: 0.4rem; }
+
+    /* MORE NOTES */
+    .fb-more { margin: 5rem 3rem 0; border-top: 0.5px solid #C4B09A; padding-top: 3rem; }
+    .fb-more-label { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 1.6rem; }
+    .fb-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .fb-more-item { display: flex; flex-direction: column; gap: 6px; padding: 1.2rem 1.2rem 1.4rem; border: 0.5px solid #C4B09A; border-radius: 5px; text-decoration: none; color: #26201A; transition: background 0.2s ease; }
+    .fb-more-item:hover { background: #E8DDD0; }
+    .fb-more-item-title { font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.25; color: #26201A; }
+    .fb-more-item-tag { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4A882; text-transform: lowercase; }
+    .fb-more-item-date { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #B0977E; text-transform: lowercase; margin-top: 2px; }
+
+    /* FOOTER */
+    .fb-footer { margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A; padding: 2.5rem 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start; }
+    .fb-footer-name { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 400; line-height: 1.0; color: #26201A; letter-spacing: 0.02em; margin-bottom: 0.9rem; }
+    .fb-footer-sub { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
+    .fb-footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .fb-footer-links a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-footer-tagline { font-family: 'Libre Baskerville', serif; font-size: 14px; font-style: italic; color: #A8917A; line-height: 1.8; }
+    .fb-footer-bottom { margin: 0 3rem; padding: 1.5rem 0 0; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
+    .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
+
+    @media (max-width: 768px) {
+      .fb-nav { padding: 1.5rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+      .fb-nav-bird img { height: 22px; }
+      .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .fb-nav-links a { font-size: 11px; }
+      .fb-article-hero { margin: 0 1.5rem; height: 280px; padding: 1.5rem; }
+      .fb-article-hero-title { font-size: 26px; }
+      .fb-breadcrumb { margin: 1.5rem 1.5rem 0; }
+      .fb-article { margin: 2rem auto 0; padding: 0 1.5rem; }
+      .fb-article-figure { margin: 2.5rem 0; }
+      .fb-pullquote p { font-size: 20px; }
+      .fb-more { margin: 4rem 1.5rem 0; }
+      .fb-more-grid { grid-template-columns: 1fr; }
+      .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-footer-name { font-size: 42px; }
+      .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .fb-nav { padding: 1.2rem 1.2rem; }
+      .fb-nav-links { gap: 1rem; }
+      .fb-nav-links a { font-size: 10px; letter-spacing: 0.1em; }
+      .fb-article-hero { margin: 0 1.2rem; height: 240px; }
+      .fb-article-hero-title { font-size: 22px; }
+      .fb-article p { font-size: 15px; line-height: 1.9; }
+      .fb-pullquote p { font-size: 18px; }
+      .fb-more { margin: 3rem 1.2rem 0; }
+      .fb-footer { margin: 2.5rem 1.2rem 0; }
+      .fb-footer-name { font-size: 36px; }
+      .fb-footer-bottom { margin: 0 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="fb-wrap">
+
+  <nav class="fb-nav">
+    <div class="fb-nav-bird">
+      <a href="../index.html"><img src="../faeblette-bird.png" alt="faeblette" /></a>
+    </div>
+    <div class="fb-nav-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="../index.html#shop">shop</a>
+      <a href="../about.html">about</a>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <div class="fb-article-hero">
+    <img class="fb-article-hero-img" src="../real-power-hero.jpg" alt="view from an airplane window of mountains below" />
+    <div class="fb-article-hero-content">
+      <div class="fb-article-eyebrow">on transcendence and grief</div>
+      <h1 class="fb-article-hero-title">Real power is bowing down</h1>
+    </div>
+  </div>
+
+  <div class="fb-breadcrumb">
+    <a href="../index.html#field-notes">&#8592; the field notes</a>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <article class="fb-article">
+
+    <div class="fb-article-meta">
+      <span class="fb-article-byline">crystal st. john</span>
+      <span class="fb-article-date">apr 2026</span>
+      <span class="fb-article-tag">philosophy</span>
+    </div>
+
+    <p class="fb-lede">I was sitting in the window seat of an airplane, flying back to Los Angeles, after being home for the funeral of my grandmother.</p>
+
+    <p>The light was splashing on the mountains below. I watched as it moved, danced. We live in a time when we get to see the world from this vantage point, a place where even mountains hover beneath us. Yet all I wanted to do was press my cheek against the ground, hug the earth, and say, <em>thank you.</em></p>
+
+    <p>I don't always know what I am thanking God for, but I always know I am being held, carried in some way. And even in the smallness of my human body, looking down upon the massive mountain range, I feel transcendent of all of it.</p>
+
+    <div class="fb-pullquote">
+      <p>My spirit cannot be scaled to a size.</p>
+    </div>
+
+    <p>It can hug each mountaintop. It can also visit the smallest ant, trailing along through the dirt.</p>
+
+    <p>I am not defined by my body. I am not defined by hierarchies or systems that organize this world. I am not defined by success or failure. I am a soul placed in a body, feeling what it is to move through space and time. I am my will, my intentions, and my offering. Everything else is beyond my control.</p>
+
+    <p>And for this I know, I am limitless. I can shape my reality each day, even though I cannot shape my circumstances.</p>
+
+    <div class="fb-divider">&#10022; &#10022; &#10022;</div>
+
+    <figure class="fb-article-figure">
+      <img src="../real-power-earth.jpg" alt="a hand resting on the earth" />
+      <figcaption>the ground that holds us</figcaption>
+    </figure>
+
+    <p>If I am transcendent, so are you. Titles, or the lack of them, don't define our ability to shape the world, to speak life or death into it. If we are all transcendent, no one is above us, and in that same stroke, no one is beneath us.</p>
+
+    <p>To understand one's own transcendence puts within them such confidence, they don't need to prove a thing. Do you need to prove your power, when you know you have it? Or do you feel the weight of it instead. Your words, your actions, your choices. Do they bring poison, or medicine?</p>
+
+    <p>If you really believed you are powerful, would you choose revenge? Or do you choose revenge because deep down you feel terribly weak? So weak, you need to defend yourself, because your body is fragile.</p>
+
+    <p>But your spirit is transcendent.</p>
+
+    <p>It takes great strength to choose to walk in your power. Many don't know their own, so they set out to make you feel powerless.</p>
+
+    <div class="fb-pullquote">
+      <p>But true power bows down. True power serves.</p>
+    </div>
+
+    <p>True power is gentle. It listens. It sees.</p>
+
+    <div class="fb-article-closing">
+      <p>For my grandmother, who knew this long before I did.</p>
+      <div class="fb-article-signoff">Xx Crystal</div>
+      <div class="fb-article-brand">faeblette</div>
+    </div>
+
+  </article>
+
+  <!-- MORE NOTES -->
+  <div class="fb-more">
+    <div class="fb-more-label">more field notes</div>
+    <div class="fb-more-grid">
+      <a href="the-person-behind-the-bird.html" class="fb-more-item">
+        <span class="fb-more-item-title">The person behind the bird</span>
+        <span class="fb-more-item-tag">start here, on making faeblette</span>
+        <span class="fb-more-item-date">may 2026</span>
+      </a>
+      <a href="poetcore-and-the-comfort-of-old-things.html" class="fb-more-item">
+        <span class="fb-more-item-title">Poetcore and the comfort of old things</span>
+        <span class="fb-more-item-tag">culture / philosophy</span>
+        <span class="fb-more-item-date">may 2026</span>
+      </a>
+      <a href="stopped-auditioning.html" class="fb-more-item">
+        <span class="fb-more-item-title">The role I stopped auditioning for.</span>
+        <span class="fb-more-item-tag">entrepreneurship / entertainment</span>
+        <span class="fb-more-item-date">apr 2026</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="fb-footer">
+    <div>
+      <div class="fb-footer-name">faeblette</div>
+      <div class="fb-footer-sub">est. 2025, los angeles, ca</div>
+    </div>
+    <div class="fb-footer-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="https://etsy.com/shop/TheFaebletteShop" target="_blank">the faeblette shop</a>
+      <a href="../about.html">about</a>
+      <a href="https://www.instagram.com/faeblette_" target="_blank">instagram</a>
+      <a href="https://www.youtube.com/@faeblette" target="_blank">youtube</a>
+      <a href="https://www.tiktok.com/@faeblette" target="_blank">tiktok</a>
+    </div>
+    <div class="fb-footer-tagline">
+      little lights that guide us home.
+    </div>
+  </div>
+  <div class="fb-footer-bottom">
+    <span class="fb-footer-bottom-text">&#169; 2026 faeblette, all rights reserved</span>
+    <span class="fb-footer-bottom-text">faeblette.com</span>
+  </div>
+
+</div>
+
+</body>
+</html>
