@@ -41,7 +41,7 @@
     .fb-nav-links a:hover { color: #26201A; }
     .fb-nav-links a.active { color: #26201A; border-bottom: 0.5px solid #C4B09A; padding-bottom: 1px; }
 
-    /* ── PAGE HEADER (small) ── */
+    /* ── PAGE HEADER ── */
     .fb-about-header {
       margin: 0 3rem; padding: 1.5rem 0 2rem;
     }
@@ -55,7 +55,7 @@
       font-weight: 400; line-height: 1.0; color: #26201A; letter-spacing: 0.01em;
     }
 
-    /* ── BIG STATEMENT (full width) ── */
+    /* ── BIG STATEMENT ── */
     .fb-about-statement {
       margin: 1rem 3rem 3rem;
       padding: 2rem 0 3rem;
@@ -76,7 +76,7 @@
       max-width: 1100px;
     }
 
-    /* ── STUDIO IMAGE (full-width) ── */
+    /* ── STUDIO IMAGE + caption ── */
     .fb-house {
       margin: 0 3rem;
     }
@@ -91,6 +91,16 @@
       height: auto;
       display: block;
     }
+    .fb-house-caption {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #A8917A;
+      text-transform: lowercase;
+      margin-top: 0.9rem;
+      text-align: center;
+      font-style: normal;
+    }
 
     /* ── INTRO COPY ── */
     .fb-about-main {
@@ -104,8 +114,21 @@
     .fb-about-crystal {
       margin-top: 2rem; padding-top: 1.8rem;
       border-top: 0.5px solid #C4B09A;
-      font-size: 15px; line-height: 1.95; color: #5C4A36;
+      font-size: 16px; line-height: 1.95; color: #5C4A36;
     }
+    .fb-about-meet-link {
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: #8A7660;
+      text-decoration: none;
+      text-transform: lowercase;
+      border-bottom: 0.5px solid #C4B09A;
+      padding-bottom: 2px;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    .fb-about-meet-link:hover { color: #26201A; border-color: #8A7660; }
 
     /* ── BIRD ── */
     .fb-bird {
@@ -131,7 +154,7 @@
     .fb-bird-body p:last-of-type { margin-bottom: 0; }
     .fb-bird-body em { font-style: italic; color: #8A7660; }
 
-    /* ── PHILOSOPHY ── */
+    /* ── PHILOSOPHY (TV SLIDESHOW) ── */
     .fb-philosophy {
       margin: 4rem 3rem 0;
       border-top: 0.5px solid #C4B09A;
@@ -146,33 +169,161 @@
       font-family: 'Playfair Display', serif; font-size: 34px;
       font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 3rem;
     }
-    .fb-philosophy-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+
+    /* TV wrapper */
+    .fb-tv-stage {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
     }
-    .fb-phil-card {
-      background: #1C140D; border-radius: 5px;
-      padding: 2.2rem 2rem; position: relative; overflow: hidden;
+    .fb-tv-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 0.95;  /* TV is a touch wider than tall, leaves room for legs */
+      filter: drop-shadow(0 30px 40px rgba(38, 32, 26, 0.18));
     }
-    .fb-phil-glow {
-      position: absolute; width: 200px; height: 160px;
-      background: #A06808; opacity: 0.09;
-      border-radius: 50%; top: -10%; left: 15%;
+    .fb-tv-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    /* The screen is positioned absolutely over the SVG */
+    .fb-tv-screen {
+      position: absolute;
+      top: 9%;
+      left: 9%;
+      width: 70%;
+      height: 70%;
+      border-radius: 18% / 14%;  /* subtle CRT curve */
+      overflow: hidden;
+      background: #2A1F14;
+    }
+    .fb-tv-screen-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #E8DDC8;  /* warm cream while images load */
+    }
+    .fb-tv-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .fb-tv-slide.active { opacity: 1; }
+    .fb-tv-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Scanline / vintage texture overlay on the screen */
+    .fb-tv-scanlines {
+      position: absolute;
+      inset: 0;
       pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.06) 0px,
+        rgba(0,0,0,0.06) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode: multiply;
+      opacity: 0.4;
     }
-    .fb-phil-inner { position: relative; z-index: 2; }
-    .fb-phil-num {
-      font-family: 'Courier Prime', monospace; font-size: 10px;
-      letter-spacing: 0.2em; color: rgba(240,232,218,0.2);
-      text-transform: lowercase; margin-bottom: 1.1rem; display: block;
+    .fb-tv-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.25) 100%);
     }
-    .fb-phil-statement {
-      font-family: 'Playfair Display', serif; font-size: 22px;
-      font-weight: 400; color: rgba(240,232,218,0.85);
-      line-height: 1.2; margin-bottom: 1rem;
+
+    /* Nav arrows */
+    .fb-tv-arrow {
+      position: absolute;
+      top: 38%;
+      transform: translateY(-50%);
+      background: none;
+      border: 0.5px solid #C4B09A;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: #8A7660;
+      font-family: 'Courier Prime', monospace;
+      font-size: 18px;
+      transition: all 0.2s ease;
+      z-index: 5;
     }
-    .fb-phil-body {
-      font-size: 14px; line-height: 1.9;
-      color: rgba(240,232,218,0.40); max-width: 480px;
+    .fb-tv-arrow:hover {
+      background: #E8DDD0;
+      color: #26201A;
+      border-color: #8A7660;
+    }
+    .fb-tv-arrow-prev { left: -1rem; }
+    .fb-tv-arrow-next { right: -1rem; }
+
+    /* Counter beneath TV */
+    .fb-tv-counter {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #A8917A;
+      text-transform: lowercase;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    /* Text panel beneath TV */
+    .fb-tv-text {
+      max-width: 580px;
+      margin: 2rem auto 0;
+      text-align: center;
+      min-height: 220px;
+    }
+    .fb-tv-text-statement {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #26201A;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .fb-tv-text-body {
+      font-size: 15px;
+      line-height: 1.95;
+      color: #5C4A36;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.1s;
+    }
+    .fb-tv-text-statement.active,
+    .fb-tv-text-body.active { opacity: 1; }
+
+    /* Pagination dots */
+    .fb-tv-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 2rem;
+    }
+    .fb-tv-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: transparent;
+      border: 0.5px solid #C4B09A;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+    .fb-tv-dot:hover { border-color: #8A7660; }
+    .fb-tv-dot.active {
+      background: #8A7660;
+      border-color: #8A7660;
     }
 
     /* ── CLOSING ── */
@@ -318,7 +469,10 @@
       .fb-about-main { margin: 2.5rem 1.5rem 0; }
       .fb-bird { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
       .fb-philosophy { margin: 3rem 1.5rem 0; }
-      .fb-philosophy-grid { grid-template-columns: 1fr; }
+      .fb-tv-text-statement { font-size: 26px; }
+      .fb-tv-arrow { width: 36px; height: 36px; }
+      .fb-tv-arrow-prev { left: -0.5rem; }
+      .fb-tv-arrow-next { right: -0.5rem; }
       .fb-closing { margin: 3rem 1.5rem 0; padding: 3rem 0; }
       .fb-closing-text { font-size: 22px; }
       .fb-makes { margin: 3rem 1.5rem 0; }
@@ -333,7 +487,10 @@
       .fb-about-header-title { font-size: 20px; }
       .fb-about-statement-headline { font-size: 26px; }
       .fb-bird-title, .fb-philosophy-title, .fb-makes-title { font-size: 26px; }
-      .fb-phil-statement { font-size: 19px; }
+      .fb-tv-text-statement { font-size: 22px; }
+      .fb-tv-text-body { font-size: 14px; }
+      .fb-tv-arrow-prev { left: 0; }
+      .fb-tv-arrow-next { right: 0; }
       .fb-closing-text { font-size: 19px; }
       .fb-collab-headline { font-size: 24px; }
       .fb-footer-name { font-size: 36px; }
@@ -356,23 +513,24 @@
     </div>
   </nav>
 
-  <!-- ── PAGE HEADER (small, sets the stage) ── -->
+  <!-- ── PAGE HEADER ── -->
   <div class="fb-about-header">
     <div class="fb-about-header-label">the story behind the studio</div>
     <h1 class="fb-about-header-title">about faeblette</h1>
   </div>
 
-  <!-- ── BIG STATEMENT (full width) ── -->
+  <!-- ── BIG STATEMENT ── -->
   <div class="fb-about-statement">
     <div class="fb-about-statement-eyebrow">why does faeblette exist?</div>
     <h2 class="fb-about-statement-headline">In a world that profits from your restlessness, Faeblette is a place to exhale and come back to yourself.</h2>
   </div>
 
-  <!-- ── STUDIO IMAGE (full width) ── -->
+  <!-- ── STUDIO IMAGE + caption ── -->
   <div class="fb-house">
     <div class="fb-house-img-wrap">
       <img src="faeblette-studio.jpg" alt="the faeblette studio" />
     </div>
+    <div class="fb-house-caption">the studio, on an ordinary tuesday</div>
   </div>
 
   <!-- ── INTRO COPY ── -->
@@ -383,7 +541,9 @@
       <p>Here, we cultivate stories &amp; goods, but really, we cultivate a feeling of home.</p>
 
       <div class="fb-about-crystal">
-        Founded by Crystal St. John, she brings an eye trained across many disciplines: film, illustration, design, the way a room feels when you walk into it, and a philosophy that runs beneath all of it: that the small, beautiful, intentional thing is not small at all. Together every piece becomes a little enchanted story. A Faeblette.
+        Faeblette was founded by Crystal St. John in Los Angeles.
+        <br>
+        <a href="notes/the-person-behind-the-bird.html" class="fb-about-meet-link">meet the person behind the bird →</a>
       </div>
     </div>
   </div>
@@ -391,7 +551,7 @@
   <!-- ── THE BIRD ── -->
   <div class="fb-bird">
     <div>
-      <div class="fb-bird-label">fun fact</div>
+      <div class="fb-bird-label">a note on the name</div>
       <h2 class="fb-bird-title">Look for the bird.</h2>
     </div>
     <div class="fb-bird-body">
@@ -400,64 +560,152 @@
     </div>
   </div>
 
-  <!-- ── PHILOSOPHY ── -->
+  <!-- ── PHILOSOPHY (TV SLIDESHOW) ── -->
   <div class="fb-philosophy">
     <div class="fb-philosophy-label">what lives inside the work</div>
     <h2 class="fb-philosophy-title">The Faeblette Philosophy.</h2>
-    <div class="fb-philosophy-grid">
 
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">01</span>
-          <div class="fb-phil-statement">Somebody believes in you.</div>
-          <p class="fb-phil-body">Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation.</p>
+    <div class="fb-tv-stage">
+
+      <!-- Arrows -->
+      <button class="fb-tv-arrow fb-tv-arrow-prev" id="fbTvPrev" aria-label="Previous">&#8249;</button>
+      <button class="fb-tv-arrow fb-tv-arrow-next" id="fbTvNext" aria-label="Next">&#8250;</button>
+
+      <!-- TV Frame -->
+      <div class="fb-tv-frame">
+        <svg viewBox="0 0 600 570" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Antenna -->
+          <line x1="240" y1="40" x2="180" y2="0" stroke="#5C4A36" stroke-width="3" stroke-linecap="round"/>
+          <line x1="360" y1="40" x2="420" y2="0" stroke="#5C4A36" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="300" cy="42" r="6" fill="#5C4A36"/>
+
+          <!-- Main cabinet body (warm wood tone) -->
+          <rect x="40" y="40" width="520" height="430" rx="22" ry="22"
+                fill="#9B7651" stroke="#5C4A36" stroke-width="2"/>
+          <!-- Wood grain hints -->
+          <rect x="40" y="40" width="520" height="430" rx="22" ry="22"
+                fill="url(#woodGrain)" opacity="0.3"/>
+
+          <!-- Inner bezel around screen -->
+          <rect x="65" y="65" width="470" height="380" rx="48" ry="36"
+                fill="#3D2E1F" stroke="#2A1F14" stroke-width="2"/>
+
+          <!-- Screen "well" (dark inset where the actual screen content sits) -->
+          <rect x="78" y="78" width="444" height="354" rx="40" ry="30"
+                fill="#1C140D"/>
+
+          <!-- Right side: speaker grille + dials -->
+          <!-- (Note: drawn ON TOP of cabinet, to the right of screen area)
+               Adjusted: this TV has the screen on the left and controls on the right side.
+               But to keep the screen visually centered, we'll put small dials at the bottom. -->
+
+          <!-- Bottom bar with dials and brand plate -->
+          <rect x="40" y="445" width="520" height="25" fill="#7A5C3F" rx="2"/>
+
+          <!-- Two dials at bottom right -->
+          <circle cx="480" cy="498" r="14" fill="#5C4A36" stroke="#3D2E1F" stroke-width="1.5"/>
+          <circle cx="480" cy="498" r="6" fill="#3D2E1F"/>
+          <line x1="480" y1="490" x2="480" y2="498" stroke="#C4B09A" stroke-width="1.5" stroke-linecap="round"/>
+
+          <circle cx="525" cy="498" r="14" fill="#5C4A36" stroke="#3D2E1F" stroke-width="1.5"/>
+          <circle cx="525" cy="498" r="6" fill="#3D2E1F"/>
+          <line x1="525" y1="492" x2="528" y2="498" stroke="#C4B09A" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Brand plate / channel readout -->
+          <rect x="75" y="485" width="80" height="26" rx="3" fill="#2A1F14"/>
+          <text x="115" y="503" text-anchor="middle"
+                font-family="Courier Prime, monospace" font-size="11"
+                fill="#C4A882" letter-spacing="2">faeblette</text>
+
+          <!-- Speaker grille (small dots, between brand plate and dials) -->
+          <g fill="#3D2E1F">
+            <circle cx="180" cy="498" r="1.5"/>
+            <circle cx="190" cy="498" r="1.5"/>
+            <circle cx="200" cy="498" r="1.5"/>
+            <circle cx="210" cy="498" r="1.5"/>
+            <circle cx="220" cy="498" r="1.5"/>
+            <circle cx="230" cy="498" r="1.5"/>
+            <circle cx="240" cy="498" r="1.5"/>
+            <circle cx="250" cy="498" r="1.5"/>
+            <circle cx="260" cy="498" r="1.5"/>
+            <circle cx="270" cy="498" r="1.5"/>
+            <circle cx="280" cy="498" r="1.5"/>
+            <circle cx="290" cy="498" r="1.5"/>
+            <circle cx="300" cy="498" r="1.5"/>
+            <circle cx="310" cy="498" r="1.5"/>
+            <circle cx="320" cy="498" r="1.5"/>
+            <circle cx="330" cy="498" r="1.5"/>
+            <circle cx="340" cy="498" r="1.5"/>
+            <circle cx="350" cy="498" r="1.5"/>
+            <circle cx="360" cy="498" r="1.5"/>
+            <circle cx="370" cy="498" r="1.5"/>
+            <circle cx="380" cy="498" r="1.5"/>
+            <circle cx="390" cy="498" r="1.5"/>
+            <circle cx="400" cy="498" r="1.5"/>
+            <circle cx="410" cy="498" r="1.5"/>
+            <circle cx="420" cy="498" r="1.5"/>
+            <circle cx="430" cy="498" r="1.5"/>
+            <circle cx="440" cy="498" r="1.5"/>
+          </g>
+
+          <!-- Legs -->
+          <rect x="120" y="510" width="20" height="50" rx="3" fill="#5C4A36"/>
+          <rect x="460" y="510" width="20" height="50" rx="3" fill="#5C4A36"/>
+
+          <!-- Wood grain pattern definition -->
+          <defs>
+            <pattern id="woodGrain" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse">
+              <rect width="100" height="20" fill="transparent"/>
+              <path d="M0 10 Q 25 8, 50 10 T 100 10" stroke="#7A5C3F" stroke-width="0.5" fill="none" opacity="0.6"/>
+              <path d="M0 15 Q 30 13, 60 15 T 100 15" stroke="#7A5C3F" stroke-width="0.4" fill="none" opacity="0.4"/>
+            </pattern>
+          </defs>
+        </svg>
+
+        <!-- The screen content overlay (positioned over the SVG screen well) -->
+        <div class="fb-tv-screen">
+          <div class="fb-tv-screen-inner">
+            <div class="fb-tv-slide active" data-slide="0">
+              <img src="philosophy-01.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-slide" data-slide="1">
+              <img src="philosophy-02.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-slide" data-slide="2">
+              <img src="philosophy-03.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-slide" data-slide="3">
+              <img src="philosophy-04.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-slide" data-slide="4">
+              <img src="philosophy-05.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-slide" data-slide="5">
+              <img src="philosophy-06.jpg" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="fb-tv-scanlines"></div>
+            <div class="fb-tv-vignette"></div>
+          </div>
         </div>
       </div>
 
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">02</span>
-          <div class="fb-phil-statement">Power bows down.</div>
-          <p class="fb-phil-body">While the world sells ascent, Faeblette hugs the ground. We believe the most powerful posture takes a bow, with a spirit of awe. An open heart, a curious mind, a humble disposition. This is strength embodied.</p>
-        </div>
+      <!-- Counter -->
+      <div class="fb-tv-counter" id="fbTvCounter">01 / 06</div>
+
+      <!-- Text below TV -->
+      <div class="fb-tv-text">
+        <div class="fb-tv-text-statement active" id="fbTvStatement">Somebody believes in you.</div>
+        <div class="fb-tv-text-body active" id="fbTvBody">Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation.</div>
       </div>
 
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">03</span>
-          <div class="fb-phil-statement">There is no arrival.</div>
-          <p class="fb-phil-body">The bar constantly moves. The world constantly changes. Just because it looks good doesn't mean it feels good. Faeblette focuses on the internal feeling of growth. Practice. Moving. Breathing. The work will never feel finished, nor perfect, but always moving. Growth is not a grand act. It is many, many small decisions to be present. Present with a paintbrush. Present with a book. Present with a person.</p>
-        </div>
-      </div>
-
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">04</span>
-          <div class="fb-phil-statement">Beauty is a way of seeing ourselves.</div>
-          <p class="fb-phil-body">True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what we already are, when we know we have nothing to hide.</p>
-        </div>
-      </div>
-
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">05</span>
-          <div class="fb-phil-statement">The smallest moments change our lives.</div>
-          <p class="fb-phil-body">Sending the email. Answering the phone. Buying the art supplies. Drawing something badly. Writing the first post. Applying even though you don't qualify. Raising your hand in class. Your big move might look like nothing extraordinary. No one may notice or clap. But you know you are growing. And that's all that matters.</p>
-        </div>
-      </div>
-
-      <div class="fb-phil-card">
-        <div class="fb-phil-glow"></div>
-        <div class="fb-phil-inner">
-          <span class="fb-phil-num">06</span>
-          <div class="fb-phil-statement">The Sacred Lives in the Ordinary.</div>
-          <p class="fb-phil-body">We exist in a living, breathing art piece. The sky twinkles. The clouds drop tears. Nature grows, harmonizes, and adapts. What we see in the mirror: a force of nature, an intelligence in our DNA we never knew to ask for. It simply is. Stopping to feel the sun hit your face. Really looking, really seeing the world around us. It changes us, moves us, and fills us up.</p>
-        </div>
+      <!-- Dots -->
+      <div class="fb-tv-dots" id="fbTvDots">
+        <button class="fb-tv-dot active" data-dot="0" aria-label="Slide 1"></button>
+        <button class="fb-tv-dot" data-dot="1" aria-label="Slide 2"></button>
+        <button class="fb-tv-dot" data-dot="2" aria-label="Slide 3"></button>
+        <button class="fb-tv-dot" data-dot="3" aria-label="Slide 4"></button>
+        <button class="fb-tv-dot" data-dot="4" aria-label="Slide 5"></button>
+        <button class="fb-tv-dot" data-dot="5" aria-label="Slide 6"></button>
       </div>
 
     </div>
@@ -541,5 +789,123 @@
   </div>
 
 </div>
+
+<script>
+(function() {
+  const philosophy = [
+    {
+      statement: "Somebody believes in you.",
+      body: "Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation."
+    },
+    {
+      statement: "Power bows down.",
+      body: "While the world sells ascent, Faeblette hugs the ground. We believe the most powerful posture takes a bow, with a spirit of awe. An open heart, a curious mind, a humble disposition. This is strength embodied."
+    },
+    {
+      statement: "There is no arrival.",
+      body: "The bar constantly moves. The world constantly changes. Just because it looks good doesn't mean it feels good. Faeblette focuses on the internal feeling of growth. Practice. Moving. Breathing. The work will never feel finished, nor perfect, but always moving. Growth is not a grand act. It is many, many small decisions to be present."
+    },
+    {
+      statement: "Beauty is a way of seeing ourselves.",
+      body: "True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what we already are, when we know we have nothing to hide."
+    },
+    {
+      statement: "The smallest moments change our lives.",
+      body: "Sending the email. Answering the phone. Buying the art supplies. Drawing something badly. Writing the first post. Applying even though you don't qualify. Raising your hand in class. Your big move might look like nothing extraordinary. No one may notice or clap. But you know you are growing. And that's all that matters."
+    },
+    {
+      statement: "The sacred lives in the ordinary.",
+      body: "We exist in a living, breathing art piece. The sky twinkles. The clouds drop tears. Nature grows, harmonizes, and adapts. Stopping to feel the sun hit your face. Really looking, really seeing the world around us. It changes us, moves us, and fills us up."
+    }
+  ];
+
+  let currentSlide = 0;
+  const totalSlides = philosophy.length;
+
+  const slides = document.querySelectorAll('.fb-tv-slide');
+  const dots = document.querySelectorAll('.fb-tv-dot');
+  const statementEl = document.getElementById('fbTvStatement');
+  const bodyEl = document.getElementById('fbTvBody');
+  const counterEl = document.getElementById('fbTvCounter');
+  const prevBtn = document.getElementById('fbTvPrev');
+  const nextBtn = document.getElementById('fbTvNext');
+
+  function pad(n) {
+    return n < 10 ? '0' + n : '' + n;
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    // Fade text out
+    statementEl.classList.remove('active');
+    bodyEl.classList.remove('active');
+
+    setTimeout(() => {
+      // Update slides
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
+      // Update text content
+      statementEl.textContent = philosophy[index].statement;
+      bodyEl.textContent = philosophy[index].body;
+      counterEl.textContent = pad(index + 1) + ' / ' + pad(totalSlides);
+
+      // Fade text back in
+      requestAnimationFrame(() => {
+        statementEl.classList.add('active');
+        bodyEl.classList.add('active');
+      });
+
+      currentSlide = index;
+    }, 200);
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-dot'));
+      goToSlide(idx);
+    });
+  });
+
+  // Keyboard navigation when TV is in viewport
+  const stage = document.querySelector('.fb-tv-stage');
+  let tvVisible = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { tvVisible = entry.isIntersecting; });
+  }, { threshold: 0.3 });
+  if (stage) observer.observe(stage);
+
+  document.addEventListener('keydown', (e) => {
+    if (!tvVisible) return;
+    if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+    if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+  });
+
+  // Touch swipe on mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const tvFrame = document.querySelector('.fb-tv-frame');
+  if (tvFrame) {
+    tvFrame.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    tvFrame.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
 </body>
 </html>
