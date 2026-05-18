@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="faeblette-bird.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>a free print — faeblette</title>
+  <meta name="description" content="A free printable wall art, from Crystal at Faeblette." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0E8DA; font-family: 'Libre Baskerville', Georgia, serif; color: #26201A; -webkit-font-smoothing: antialiased; }
+    .fb-wrap { max-width: 1400px; margin: 0 auto; }
+
+    /* NAV */
+    .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
+    .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); }
+    .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-nav-links a:hover { color: #26201A; }
+
+    /* MAIN */
+    .fb-fp-main { min-height: calc(100vh - 120px); display: flex; align-items: center; justify-content: center; padding: 3rem; }
+
+    .fb-fp-card { display: grid; grid-template-columns: 1fr 1fr; max-width: 860px; width: 100%; border: 0.5px solid #C4B09A; border-radius: 5px; overflow: hidden; }
+
+    /* PHOTO SIDE */
+    .fb-fp-photo { position: relative; min-height: 560px; }
+    .fb-fp-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+    /* TEXT SIDE */
+    .fb-fp-content { background: #EAE1D3; padding: 3rem 2.8rem; display: flex; flex-direction: column; justify-content: center; gap: 1.6rem; }
+    .fb-fp-eyebrow { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.22em; color: #A8917A; text-transform: lowercase; }
+    .fb-fp-headline { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: #26201A; line-height: 1.15; }
+    .fb-fp-body { font-size: 15px; line-height: 1.9; color: #5C4A36; }
+    .fb-fp-divider { width: 36px; height: 0.5px; background: #C4B09A; }
+
+    /* FORM */
+    .fb-fp-form { display: flex; flex-direction: column; gap: 10px; }
+    .fb-fp-input { width: 100%; padding: 12px 14px; background: #F0E8DA; border: 0.5px solid #C4B09A; border-radius: 3px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.1em; color: #26201A; outline: none; transition: border-color 0.2s; }
+    .fb-fp-input::placeholder { color: #B0977E; }
+    .fb-fp-input:focus { border-color: #8A7660; }
+    .fb-fp-btn { width: 100%; padding: 12px 14px; background: #26201A; border: none; border-radius: 3px; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.2em; color: rgba(240,232,218,0.85); text-transform: lowercase; cursor: pointer; transition: background 0.2s; }
+    .fb-fp-btn:hover { background: #3A2C1E; }
+    .fb-fp-btn:disabled { opacity: 0.5; cursor: default; }
+    .fb-fp-small { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.08em; color: #B0977E; text-transform: lowercase; line-height: 1.8; font-style: italic; }
+
+    /* SUCCESS */
+    .fb-fp-success { display: none; flex-direction: column; gap: 0.6rem; }
+    .fb-fp-success-icon { font-family: 'Playfair Display', serif; font-size: 26px; color: #A8917A; }
+    .fb-fp-success-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: #26201A; line-height: 1.2; }
+    .fb-fp-success-body { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A7660; line-height: 1.8; text-transform: lowercase; }
+    .fb-fp-spam { margin-top: 0.4rem; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.08em; color: #B0977E; text-transform: lowercase; font-style: italic; line-height: 1.7; }
+
+    /* FOOTER */
+    .fb-footer-bottom { padding: 2rem 3rem; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
+    .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
+
+    @media (max-width: 768px) {
+      .fb-nav { padding: 1.5rem; }
+      .fb-nav-bird img { height: 28px; }
+      .fb-fp-main { padding: 2rem 1.5rem; align-items: flex-start; }
+      .fb-fp-card { grid-template-columns: 1fr; }
+      .fb-fp-photo { min-height: 320px; }
+      .fb-fp-content { padding: 2.5rem 2rem; }
+      .fb-fp-headline { font-size: 26px; }
+      .fb-footer-bottom { padding: 1.5rem; flex-direction: column; gap: 0.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      .fb-nav { padding: 1.2rem; }
+      .fb-fp-main { padding: 1.5rem 1.2rem; }
+      .fb-fp-photo { min-height: 260px; }
+      .fb-fp-content { padding: 2rem 1.5rem; }
+      .fb-fp-headline { font-size: 22px; }
+      .fb-footer-bottom { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="fb-wrap">
+
+  <nav class="fb-nav">
+    <div class="fb-nav-bird">
+      <a href="index.html"><img src="faeblette-bird.png" alt="faeblette" /></a>
+    </div>
+    <div class="fb-nav-links">
+      <a href="index.html#field-notes">the field notes</a>
+      <a href="index.html#films">films</a>
+      <a href="index.html#shop">shop</a>
+      <a href="about.html">about</a>
+    </div>
+  </nav>
+
+  <div class="fb-fp-main">
+    <div class="fb-fp-card">
+
+      <div class="fb-fp-photo">
+        <img src="crystal-portrait.jpg" alt="Crystal, the creator behind Faeblette" />
+      </div>
+
+      <div class="fb-fp-content">
+        <div class="fb-fp-eyebrow">a gift from faeblette</div>
+        <h1 class="fb-fp-headline">hi, I'm Crystal.</h1>
+        <p class="fb-fp-body">I'm the creator behind all things Faeblette: the films, the stories, the designs. I would love to send you a free printable for your wall. Subscribe below and I'll send it right over.</p>
+        <div class="fb-fp-divider"></div>
+
+        <div id="fbFpFormWrap" class="fb-fp-form">
+          <input class="fb-fp-input" type="email" id="fbFpEmail" placeholder="your email address" autocomplete="email" />
+          <button class="fb-fp-btn" id="fbFpSubmit">send me the print &#8594;</button>
+          <p class="fb-fp-small">on occasion, you'll receive a field note on making, noticing, and becoming, along with updates on what we're creating next. unsubscribe anytime.</p>
+        </div>
+
+        <div id="fbFpSuccess" class="fb-fp-success">
+          <div class="fb-fp-success-icon">&#10022;</div>
+          <div class="fb-fp-success-title">it's on its way.</div>
+          <p class="fb-fp-success-body">check your inbox & confirm your subscription.</p>
+          <p class="fb-fp-spam">don't see it just yet? check your spam or promotions tab.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="fb-footer-bottom">
+    <span class="fb-footer-bottom-text">&#169; 2026 faeblette — all rights reserved</span>
+    <span class="fb-footer-bottom-text">faeblette.com</span>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    const KIT_URL = 'https://app.kit.com/forms/2807d1f569/subscriptions';
+    const btn = document.getElementById('fbFpSubmit');
+    const input = document.getElementById('fbFpEmail');
+    const formWrap = document.getElementById('fbFpFormWrap');
+    const success = document.getElementById('fbFpSuccess');
+
+    function submit() {
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) { input.focus(); return; }
+      btn.disabled = true;
+      btn.textContent = 'sending…';
+      fetch(KIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email_address: email })
+      }).finally(function () {
+        formWrap.style.display = 'none';
+        success.style.display = 'flex';
+      });
+    }
+
+    btn.addEventListener('click', submit);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+  })();
+</script>
+
+</body>
+</html>
