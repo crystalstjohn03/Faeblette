@@ -13,55 +13,36 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #F0E8DA; font-family: 'Libre Baskerville', Georgia, serif; color: #26201A; -webkit-font-smoothing: antialiased; padding-bottom: 5rem; }
     .fb-wrap { max-width: 1400px; margin: 0 auto; }
-
-    /* NAV */
     .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
     .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); opacity: 1; }
     .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
     .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
     .fb-nav-links a:hover { color: #26201A; }
-
-    /* ARTICLE HERO */
     .fb-article-hero { margin: 0 3rem; border-radius: 5px; overflow: hidden; position: relative; height: 380px; display: flex; align-items: flex-end; padding: 2.5rem; background: #1C140D; }
     .fb-article-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
     .fb-article-hero-content { position: relative; z-index: 2; }
     .fb-article-eyebrow { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(240,232,218,0.55); text-transform: lowercase; margin-bottom: 8px; }
     .fb-article-hero-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: rgba(240,232,218,0.95); line-height: 1.15; max-width: 720px; }
-
-    /* BREADCRUMB */
     .fb-breadcrumb { margin: 1.8rem 3rem 0; }
     .fb-breadcrumb a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
     .fb-breadcrumb a:hover { color: #26201A; }
-
-    /* ARTICLE BODY */
     .fb-article { max-width: 680px; margin: 3rem auto 0; padding: 0 1.5rem; }
     .fb-article-meta { display: flex; flex-direction: column; gap: 4px; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 0.5px solid #C4B09A; }
     .fb-article-byline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #5C4A36; }
     .fb-article-date { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
     .fb-article-tag { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C4A882; text-transform: lowercase; margin-top: 4px; }
-
     .fb-article p { font-size: 16px; line-height: 1.95; color: #3A2E22; margin-bottom: 1.5rem; }
     .fb-article p.fb-lede { font-size: 18px; font-style: italic; color: #5C4A36; line-height: 1.8; }
-
-    /* INLINE IMAGE */
     .fb-article-figure { margin: 3rem -2rem; }
     .fb-article-figure img { width: 100%; height: auto; border-radius: 5px; display: block; }
     .fb-article-figure figcaption { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.14em; color: #A8917A; text-transform: lowercase; margin-top: 0.8rem; text-align: center; }
-
-    /* PULL QUOTE */
     .fb-pullquote { margin: 3rem 0; padding: 1.5rem 0; border-top: 0.5px solid #C4B09A; border-bottom: 0.5px solid #C4B09A; text-align: center; }
     .fb-pullquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; line-height: 1.4; color: #26201A; margin: 0; }
-
-    /* DIVIDER */
     .fb-divider { text-align: center; margin: 2.5rem 0; font-family: 'Playfair Display', serif; font-size: 18px; color: #C4B09A; letter-spacing: 0.4em; }
-
-    /* CLOSING */
     .fb-article-closing { margin-top: 3rem; padding-top: 2.5rem; border-top: 0.5px solid #C4B09A; }
     .fb-article-closing p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #5C4A36; line-height: 1.7; }
     .fb-article-signoff { font-family: 'Playfair Display', serif; font-size: 18px; color: #26201A; margin-top: 1.5rem; }
     .fb-article-brand { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: #B0977E; text-transform: lowercase; margin-top: 0.4rem; }
-
-    /* MORE NOTES */
     .fb-more { margin: 5rem 3rem 0; border-top: 0.5px solid #C4B09A; padding-top: 3rem; }
     .fb-more-label { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 1.6rem; }
     .fb-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
@@ -70,8 +51,6 @@
     .fb-more-item-title { font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.25; color: #26201A; }
     .fb-more-item-tag { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4A882; text-transform: lowercase; }
     .fb-more-item-date { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #B0977E; text-transform: lowercase; margin-top: 2px; }
-
-    /* FOOTER */
     .fb-footer { margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A; padding: 2.5rem 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start; }
     .fb-footer-name { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 400; line-height: 1.0; color: #26201A; letter-spacing: 0.02em; margin-bottom: 0.9rem; }
     .fb-footer-sub { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
@@ -80,7 +59,6 @@
     .fb-footer-tagline { font-family: 'Libre Baskerville', serif; font-size: 14px; font-style: italic; color: #A8917A; line-height: 1.8; }
     .fb-footer-bottom { margin: 0 3rem; padding: 1.5rem 0 0; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
     .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
-
     @media (max-width: 768px) {
       .fb-nav { padding: 1.5rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
       .fb-nav-bird img { height: 22px; }
@@ -98,7 +76,6 @@
       .fb-footer-name { font-size: 42px; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
-
     @media (max-width: 480px) {
       .fb-nav { padding: 1.2rem 1.2rem; }
       .fb-nav-links { gap: 1rem; }
@@ -130,7 +107,6 @@
     </div>
   </nav>
 
-  <!-- ARTICLE HERO -->
   <div class="fb-article-hero">
     <img class="fb-article-hero-img" src="../real-power-hero.jpg" alt="view from an airplane window of mountains below" />
     <div class="fb-article-hero-content">
@@ -143,7 +119,6 @@
     <a href="../index.html#field-notes">&#8592; the field notes</a>
   </div>
 
-  <!-- ARTICLE BODY -->
   <article class="fb-article">
 
     <div class="fb-article-meta">
@@ -199,33 +174,18 @@
 
   </article>
 
-  <!-- MORE NOTES -->
-  <div class="fb-more">
+  <!-- MORE NOTES — dynamic, powered by field-notes.json -->
+  <div id="fb-more-section" class="fb-more">
     <div class="fb-more-label">more field notes</div>
-    <div class="fb-more-grid">
-      <a href="the-person-behind-the-bird.html" class="fb-more-item">
-        <span class="fb-more-item-title">The person behind the bird</span>
-        <span class="fb-more-item-tag">start here, on making faeblette</span>
-        <span class="fb-more-item-date">may 2026</span>
-      </a>
-      <a href="poetcore-and-the-comfort-of-old-things.html" class="fb-more-item">
-        <span class="fb-more-item-title">Poetcore and the comfort of old things</span>
-        <span class="fb-more-item-tag">culture / philosophy</span>
-        <span class="fb-more-item-date">may 2026</span>
-      </a>
-      <a href="stopped-auditioning.html" class="fb-more-item">
-        <span class="fb-more-item-title">The role I stopped auditioning for.</span>
-        <span class="fb-more-item-tag">entrepreneurship / entertainment</span>
-        <span class="fb-more-item-date">apr 2026</span>
-      </a>
+    <div id="fb-more-grid" class="fb-more-grid">
+      <!-- populated by field-notes-loader.js -->
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="fb-footer">
     <div>
       <div class="fb-footer-name">faeblette</div>
-      <div class="fb-footer-sub">est. 2025, los angeles, ca</div>
+      <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
     </div>
     <div class="fb-footer-links">
       <a href="../index.html#field-notes">the field notes</a>
@@ -241,11 +201,11 @@
     </div>
   </div>
   <div class="fb-footer-bottom">
-    <span class="fb-footer-bottom-text">&#169; 2026 faeblette, all rights reserved</span>
+    <span class="fb-footer-bottom-text">&#169; 2026 faeblette — all rights reserved</span>
     <span class="fb-footer-bottom-text">faeblette.com</span>
   </div>
 
 </div>
-
+<script src="../field-notes-loader.js"></script>
 </body>
 </html>
