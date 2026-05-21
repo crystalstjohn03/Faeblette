@@ -154,7 +154,7 @@
     .fb-bird-body p:last-of-type { margin-bottom: 0; }
     .fb-bird-body em { font-style: italic; color: #8A7660; }
 
-    /* ── PHILOSOPHY (TV SLIDESHOW) ── */
+    /* ── PHILOSOPHY (GIF SLIDESHOW) ── */
     .fb-philosophy {
       margin: 4rem 3rem 0;
       border-top: 0.5px solid #C4B09A;
@@ -170,84 +170,43 @@
       font-weight: 400; color: #26201A; line-height: 1.1; margin-bottom: 3rem;
     }
 
-    /* TV wrapper */
-    .fb-tv-stage {
+    /* GIF stage */
+    .fb-gif-stage {
       max-width: 720px;
       margin: 0 auto;
       position: relative;
     }
-    .fb-tv-frame {
+
+    /* GIF frame */
+    .fb-gif-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;  /* TV is square-ish now, with legs included */
-      /* No drop shadow — flat ink illustration feel */
-    }
-    .fb-tv-frame svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    /* The screen is positioned absolutely over the SVG.
-       New TV has the screen on the left, control panel on the right.
-       Screen sits between roughly x=95–432 and y=115–410 in the 600x600 viewBox.
-       That's ~56% wide, starting at ~16% from left, top ~19%, height ~49% */
-    .fb-tv-screen {
-      position: absolute;
-      top: 19.2%;
-      left: 15.8%;
-      width: 56.2%;
-      height: 49.3%;
-      border-radius: 2%;  /* Boxy with a slight rounding, matches the line drawing */
+      border-radius: 5px;
       overflow: hidden;
       background: #2A1F14;
+      aspect-ratio: 16 / 9;
     }
-    .fb-tv-screen-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: #E8DDC8;  /* warm cream while images load */
-    }
-    .fb-tv-slide {
+
+    .fb-gif-slide {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.5s ease;
     }
-    .fb-tv-slide.active { opacity: 1; }
-    .fb-tv-slide img {
+    .fb-gif-slide.active { opacity: 1; }
+    .fb-gif-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    /* Subtle screen texture (lighter than before — illustration style is gentler) */
-    .fb-tv-scanlines {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.04) 0px,
-        rgba(0,0,0,0.04) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-      mix-blend-mode: multiply;
-      opacity: 0.3;
-    }
-    .fb-tv-vignette {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.18) 100%);
-    }
 
     /* Nav arrows */
-    .fb-tv-arrow {
+    .fb-gif-arrow {
       position: absolute;
-      top: 44%;
+      top: 50%;
       transform: translateY(-50%);
       background: #F0E8DA;
       border: 0.5px solid #C4B09A;
@@ -261,16 +220,16 @@
       transition: all 0.2s ease;
       z-index: 5;
     }
-    .fb-tv-arrow:hover {
+    .fb-gif-arrow:hover {
       background: #E8DDD0;
       color: #26201A;
       border-color: #8A7660;
     }
-    .fb-tv-arrow-prev { left: -1rem; }
-    .fb-tv-arrow-next { right: -1rem; }
+    .fb-gif-arrow-prev { left: -1.2rem; }
+    .fb-gif-arrow-next { right: -1.2rem; }
 
-    /* Counter beneath TV */
-    .fb-tv-counter {
+    /* Counter beneath */
+    .fb-gif-counter {
       font-family: 'Courier Prime', monospace;
       font-size: 11px;
       letter-spacing: 0.2em;
@@ -280,41 +239,30 @@
       margin-top: 1.5rem;
     }
 
-    /* Text panel beneath TV */
-    .fb-tv-text {
+    /* Text panel beneath GIF — body only */
+    .fb-gif-text {
       max-width: 580px;
-      margin: 2rem auto 0;
+      margin: 1.8rem auto 0;
       text-align: center;
-      min-height: 220px;
+      min-height: 120px;
     }
-    .fb-tv-text-statement {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 400;
-      color: #26201A;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .fb-tv-text-body {
+    .fb-gif-text-body {
       font-size: 15px;
       line-height: 1.95;
       color: #5C4A36;
       opacity: 0;
       transition: opacity 0.5s ease 0.1s;
     }
-    .fb-tv-text-statement.active,
-    .fb-tv-text-body.active { opacity: 1; }
+    .fb-gif-text-body.active { opacity: 1; }
 
     /* Pagination dots */
-    .fb-tv-dots {
+    .fb-gif-dots {
       display: flex;
       justify-content: center;
       gap: 0.7rem;
       margin-top: 2rem;
     }
-    .fb-tv-dot {
+    .fb-gif-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
       background: transparent;
@@ -323,8 +271,8 @@
       transition: all 0.2s ease;
       padding: 0;
     }
-    .fb-tv-dot:hover { border-color: #8A7660; }
-    .fb-tv-dot.active {
+    .fb-gif-dot:hover { border-color: #8A7660; }
+    .fb-gif-dot.active {
       background: #8A7660;
       border-color: #8A7660;
     }
@@ -472,10 +420,9 @@
       .fb-about-main { margin: 2.5rem 1.5rem 0; }
       .fb-bird { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
       .fb-philosophy { margin: 3rem 1.5rem 0; }
-      .fb-tv-text-statement { font-size: 26px; }
-      .fb-tv-arrow { width: 36px; height: 36px; }
-      .fb-tv-arrow-prev { left: -0.5rem; }
-      .fb-tv-arrow-next { right: -0.5rem; }
+      .fb-gif-arrow { width: 36px; height: 36px; }
+      .fb-gif-arrow-prev { left: -0.5rem; }
+      .fb-gif-arrow-next { right: -0.5rem; }
       .fb-closing { margin: 3rem 1.5rem 0; padding: 3rem 0; }
       .fb-closing-text { font-size: 22px; }
       .fb-makes { margin: 3rem 1.5rem 0; }
@@ -490,10 +437,9 @@
       .fb-about-header-title { font-size: 20px; }
       .fb-about-statement-headline { font-size: 26px; }
       .fb-bird-title, .fb-philosophy-title, .fb-makes-title { font-size: 26px; }
-      .fb-tv-text-statement { font-size: 22px; }
-      .fb-tv-text-body { font-size: 14px; }
-      .fb-tv-arrow-prev { left: 0; }
-      .fb-tv-arrow-next { right: 0; }
+      .fb-gif-text-body { font-size: 14px; }
+      .fb-gif-arrow-prev { left: 0; }
+      .fb-gif-arrow-next { right: 0; }
       .fb-closing-text { font-size: 19px; }
       .fb-collab-headline { font-size: 24px; }
       .fb-footer-name { font-size: 36px; }
@@ -559,194 +505,59 @@
     </div>
     <div class="fb-bird-body">
       <p>Crystal believes stories help us look at our lives from a bird's-eye view: to see beyond a moment in time, to find purpose in every experience and how they string together to tell a powerful story.</p>
-      <p>So a bird swoops in like a fairy, showing up at the precise moment the journey needs to begin. <em>Not to make things easier. But definitely to make them clearer.</em></p>
+      <p>Therefore, a bird shows up at the precise moment the journey needs to begin. <em>Not to make things easier. But definitely to make them clearer. Nature's little fairies.</em></p>
     </div>
   </div>
 
-  <!-- ── PHILOSOPHY (TV SLIDESHOW) ── -->
+  <!-- ── PHILOSOPHY (GIF SLIDESHOW) ── -->
   <div class="fb-philosophy">
     <div class="fb-philosophy-label">what lives inside the work</div>
     <h2 class="fb-philosophy-title">The Faeblette Philosophy.</h2>
 
-    <div class="fb-tv-stage">
+    <div class="fb-gif-stage">
 
       <!-- Arrows -->
-      <button class="fb-tv-arrow fb-tv-arrow-prev" id="fbTvPrev" aria-label="Previous">&#8249;</button>
-      <button class="fb-tv-arrow fb-tv-arrow-next" id="fbTvNext" aria-label="Next">&#8250;</button>
+      <button class="fb-gif-arrow fb-gif-arrow-prev" id="fbGifPrev" aria-label="Previous">&#8249;</button>
+      <button class="fb-gif-arrow fb-gif-arrow-next" id="fbGifNext" aria-label="Next">&#8250;</button>
 
-      <!-- TV Frame (hand-drawn line style) -->
-      <div class="fb-tv-frame">
-        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <!-- Wobble filter to make lines look hand-drawn -->
-            <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="3" result="noise"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5"/>
-            </filter>
-            <filter id="wobbleStrong" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="noise"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5"/>
-            </filter>
-          </defs>
-
-          <!-- All lines in a single group with the wobble filter -->
-          <g fill="none" stroke="#3A2E22" stroke-linecap="round" stroke-linejoin="round" filter="url(#wobble)">
-
-            <!-- Antenna: two diagonal rods, slightly uneven -->
-            <line x1="245" y1="65" x2="175" y2="12" stroke-width="3.5"/>
-            <line x1="362" y1="63" x2="438" y2="8" stroke-width="3.5"/>
-            <!-- Antenna base (small triangle) -->
-            <path d="M 280 60 L 300 75 L 322 60" stroke-width="3"/>
-
-            <!-- Main cabinet body — slightly irregular rectangle drawn as path -->
-            <path d="M 50 80
-                     Q 48 78, 52 75
-                     L 548 78
-                     Q 554 76, 552 82
-                     L 555 470
-                     Q 556 478, 548 478
-                     L 52 475
-                     Q 45 477, 48 470
-                     Z" stroke-width="4"/>
-
-            <!-- Inner cabinet outline (a second line just inside, the way ink drawings double-up) -->
-            <path d="M 60 92
-                     L 542 90
-                     L 545 466
-                     L 58 464 Z" stroke-width="1.5" opacity="0.5"/>
-
-            <!-- Screen bezel — rounded rectangle drawn imperfectly -->
-            <path d="M 95 115
-                     Q 90 110, 100 108
-                     L 425 110
-                     Q 432 110, 432 118
-                     L 433 405
-                     Q 434 413, 425 413
-                     L 100 411
-                     Q 92 412, 92 403
-                     L 93 120
-                     Z" stroke-width="3.5"/>
-
-            <!-- Inner screen bezel (double line for that ink illustration feel) -->
-            <path d="M 105 125
-                     L 420 124
-                     L 421 398
-                     L 104 396 Z" stroke-width="1.2" opacity="0.55"/>
-
-            <!-- Right side control panel (vertical strip) -->
-            <path d="M 460 120
-                     L 522 122
-                     L 524 400
-                     L 458 398 Z" stroke-width="3"/>
-
-            <!-- Control panel inner line -->
-            <path d="M 468 132
-                     L 514 134
-                     L 515 388
-                     L 466 386 Z" stroke-width="1" opacity="0.5"/>
-
-            <!-- Two big dials in the control panel -->
-            <!-- Top dial -->
-            <circle cx="491" cy="180" r="22" stroke-width="3"/>
-            <circle cx="491" cy="180" r="14" stroke-width="1.5" opacity="0.6"/>
-            <circle cx="491" cy="180" r="4" stroke-width="2" fill="#3A2E22"/>
-            <!-- Indicator notch -->
-            <line x1="491" y1="160" x2="491" y2="168" stroke-width="2.5"/>
-
-            <!-- Bottom dial -->
-            <circle cx="491" cy="250" r="22" stroke-width="3"/>
-            <circle cx="491" cy="250" r="14" stroke-width="1.5" opacity="0.6"/>
-            <circle cx="491" cy="250" r="4" stroke-width="2" fill="#3A2E22"/>
-            <line x1="478" y1="240" x2="486" y2="246" stroke-width="2.5"/>
-
-            <!-- Small rectangular speaker section at bottom of control panel -->
-            <rect x="472" y="295" width="40" height="85" stroke-width="2"/>
-            <!-- Horizontal speaker lines -->
-            <line x1="478" y1="310" x2="506" y2="310" stroke-width="1"/>
-            <line x1="478" y1="322" x2="506" y2="322" stroke-width="1"/>
-            <line x1="478" y1="334" x2="506" y2="334" stroke-width="1"/>
-            <line x1="478" y1="346" x2="506" y2="346" stroke-width="1"/>
-            <line x1="478" y1="358" x2="506" y2="358" stroke-width="1"/>
-            <line x1="478" y1="370" x2="506" y2="370" stroke-width="1"/>
-
-            <!-- Bottom panel (under the screen) with small details -->
-            <line x1="55" y1="478" x2="548" y2="478" stroke-width="2.5"/>
-
-            <!-- Channel label plate (small rectangle at bottom-left) -->
-            <rect x="95" y="495" width="110" height="22" stroke-width="2"/>
-
-            <!-- Three small marks/buttons at bottom middle -->
-            <circle cx="280" cy="506" r="6" stroke-width="2"/>
-            <circle cx="305" cy="506" r="6" stroke-width="2"/>
-            <circle cx="330" cy="506" r="6" stroke-width="2"/>
-
-            <!-- LEGS — splayed slightly outward, hand-drawn -->
-            <!-- Left leg -->
-            <path d="M 130 478 L 105 575" stroke-width="4"/>
-            <path d="M 145 478 L 125 575" stroke-width="2" opacity="0.5"/>
-            <!-- Foot detail -->
-            <line x1="98" y1="575" x2="132" y2="575" stroke-width="2.5"/>
-
-            <!-- Right leg -->
-            <path d="M 470 478 L 495 575" stroke-width="4"/>
-            <path d="M 455 478 L 475 575" stroke-width="2" opacity="0.5"/>
-            <line x1="468" y1="575" x2="502" y2="575" stroke-width="2.5"/>
-
-          </g>
-
-          <!-- Faeblette label inside the channel plate (Courier, hand-positioned) -->
-          <g filter="url(#wobbleStrong)">
-            <text x="150" y="511" text-anchor="middle"
-                  font-family="Courier Prime, monospace" font-size="11"
-                  fill="#3A2E22" letter-spacing="2" opacity="0.8">faeblette</text>
-          </g>
-
-        </svg>
-
-        <!-- The screen content overlay (positioned over the SVG screen well) -->
-        <div class="fb-tv-screen">
-          <div class="fb-tv-screen-inner">
-            <div class="fb-tv-slide active" data-slide="0">
-              <img src="philosophy-01.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-slide" data-slide="1">
-              <img src="philosophy-02.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-slide" data-slide="2">
-              <img src="philosophy-03.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-slide" data-slide="3">
-              <img src="philosophy-04.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-slide" data-slide="4">
-              <img src="philosophy-05.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-slide" data-slide="5">
-              <img src="philosophy-06.jpg" alt="" onerror="this.style.display='none'">
-            </div>
-            <div class="fb-tv-scanlines"></div>
-            <div class="fb-tv-vignette"></div>
-          </div>
+      <!-- GIF Frame -->
+      <div class="fb-gif-frame">
+        <div class="fb-gif-slide active" data-slide="0">
+          <img src="somebody-believes-in-you-philosophy.gif" alt="Somebody believes in you" />
+        </div>
+        <div class="fb-gif-slide" data-slide="1">
+          <img src="power-bows-down-philosophy.gif" alt="Power bows down" />
+        </div>
+        <div class="fb-gif-slide" data-slide="2">
+          <img src="there-is-no-arrival-philosophy.gif" alt="There is no arrival" />
+        </div>
+        <div class="fb-gif-slide" data-slide="3">
+          <img src="beauty-is-a-way-of-seeing-yourself-philosophy.gif" alt="Beauty is a way of seeing ourselves" />
+        </div>
+        <div class="fb-gif-slide" data-slide="4">
+          <img src="the-smallest-moments-change-your-life-philosophy.gif" alt="The smallest moments change our lives" />
+        </div>
+        <div class="fb-gif-slide" data-slide="5">
+          <img src="the-sacred-lives-in-the-ordinary-philosophy.gif" alt="The sacred lives in the ordinary" />
         </div>
       </div>
 
       <!-- Counter -->
-      <div class="fb-tv-counter" id="fbTvCounter">01 / 06</div>
+      <div class="fb-gif-counter" id="fbGifCounter">01 / 06</div>
 
-      <!-- Text below TV -->
-      <div class="fb-tv-text">
-        <div class="fb-tv-text-statement active" id="fbTvStatement">Somebody believes in you.</div>
-        <div class="fb-tv-text-body active" id="fbTvBody">Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation.</div>
+      <!-- Text below GIF — body only -->
+      <div class="fb-gif-text">
+        <div class="fb-gif-text-body active" id="fbGifBody">Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation.</div>
       </div>
 
       <!-- Dots -->
-      <div class="fb-tv-dots" id="fbTvDots">
-        <button class="fb-tv-dot active" data-dot="0" aria-label="Slide 1"></button>
-        <button class="fb-tv-dot" data-dot="1" aria-label="Slide 2"></button>
-        <button class="fb-tv-dot" data-dot="2" aria-label="Slide 3"></button>
-        <button class="fb-tv-dot" data-dot="3" aria-label="Slide 4"></button>
-        <button class="fb-tv-dot" data-dot="4" aria-label="Slide 5"></button>
-        <button class="fb-tv-dot" data-dot="5" aria-label="Slide 6"></button>
+      <div class="fb-gif-dots" id="fbGifDots">
+        <button class="fb-gif-dot active" data-dot="0" aria-label="Slide 1"></button>
+        <button class="fb-gif-dot" data-dot="1" aria-label="Slide 2"></button>
+        <button class="fb-gif-dot" data-dot="2" aria-label="Slide 3"></button>
+        <button class="fb-gif-dot" data-dot="3" aria-label="Slide 4"></button>
+        <button class="fb-gif-dot" data-dot="4" aria-label="Slide 5"></button>
+        <button class="fb-gif-dot" data-dot="5" aria-label="Slide 6"></button>
       </div>
 
     </div>
@@ -835,27 +646,21 @@
 (function() {
   const philosophy = [
     {
-      statement: "Somebody believes in you.",
       body: "Even if you don't know it yet. You are already seen and fully understood. Discovering that you are witnessed is where transformation begins. Sometimes it's a moment, a synchronicity, or a person that makes it clear. From this discovery, this knowing, something in you relaxes. Stops performing. Stops waiting for validation."
     },
     {
-      statement: "Power bows down.",
       body: "While the world sells ascent, Faeblette hugs the ground. We believe the most powerful posture takes a bow, with a spirit of awe. An open heart, a curious mind, a humble disposition. This is strength embodied."
     },
     {
-      statement: "There is no arrival.",
       body: "The bar constantly moves. The world constantly changes. Just because it looks good doesn't mean it feels good. Faeblette focuses on the internal feeling of growth. Practice. Moving. Breathing. The work will never feel finished, nor perfect, but always moving. Growth is not a grand act. It is many, many small decisions to be present."
     },
     {
-      statement: "Beauty is a way of seeing ourselves.",
-      body: "True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what we already are, when we know we have nothing to hide."
+      body: "True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what you already are, when you know you have nothing to hide."
     },
     {
-      statement: "The smallest moments change our lives.",
       body: "Sending the email. Answering the phone. Buying the art supplies. Drawing something badly. Writing the first post. Applying even though you don't qualify. Raising your hand in class. Your big move might look like nothing extraordinary. No one may notice or clap. But you know you are growing. And that's all that matters."
     },
     {
-      statement: "The sacred lives in the ordinary.",
       body: "We exist in a living, breathing art piece. The sky twinkles. The clouds drop tears. Nature grows, harmonizes, and adapts. Stopping to feel the sun hit your face. Really looking, really seeing the world around us. It changes us, moves us, and fills us up."
     }
   ];
@@ -863,13 +668,12 @@
   let currentSlide = 0;
   const totalSlides = philosophy.length;
 
-  const slides = document.querySelectorAll('.fb-tv-slide');
-  const dots = document.querySelectorAll('.fb-tv-dot');
-  const statementEl = document.getElementById('fbTvStatement');
-  const bodyEl = document.getElementById('fbTvBody');
-  const counterEl = document.getElementById('fbTvCounter');
-  const prevBtn = document.getElementById('fbTvPrev');
-  const nextBtn = document.getElementById('fbTvNext');
+  const slides = document.querySelectorAll('.fb-gif-slide');
+  const dots = document.querySelectorAll('.fb-gif-dot');
+  const bodyEl = document.getElementById('fbGifBody');
+  const counterEl = document.getElementById('fbGifCounter');
+  const prevBtn = document.getElementById('fbGifPrev');
+  const nextBtn = document.getElementById('fbGifNext');
 
   function pad(n) {
     return n < 10 ? '0' + n : '' + n;
@@ -880,7 +684,6 @@
     if (index >= totalSlides) index = 0;
 
     // Fade text out
-    statementEl.classList.remove('active');
     bodyEl.classList.remove('active');
 
     setTimeout(() => {
@@ -889,13 +692,11 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
 
       // Update text content
-      statementEl.textContent = philosophy[index].statement;
       bodyEl.textContent = philosophy[index].body;
       counterEl.textContent = pad(index + 1) + ' / ' + pad(totalSlides);
 
       // Fade text back in
       requestAnimationFrame(() => {
-        statementEl.classList.add('active');
         bodyEl.classList.add('active');
       });
 
@@ -913,17 +714,17 @@
     });
   });
 
-  // Keyboard navigation when TV is in viewport
-  const stage = document.querySelector('.fb-tv-stage');
-  let tvVisible = false;
+  // Keyboard navigation when GIF stage is in viewport
+  const stage = document.querySelector('.fb-gif-stage');
+  let gifVisible = false;
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { tvVisible = entry.isIntersecting; });
+    entries.forEach(entry => { gifVisible = entry.isIntersecting; });
   }, { threshold: 0.3 });
   if (stage) observer.observe(stage);
 
   document.addEventListener('keydown', (e) => {
-    if (!tvVisible) return;
+    if (!gifVisible) return;
     if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
     if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
   });
@@ -931,12 +732,12 @@
   // Touch swipe on mobile
   let touchStartX = 0;
   let touchEndX = 0;
-  const tvFrame = document.querySelector('.fb-tv-frame');
-  if (tvFrame) {
-    tvFrame.addEventListener('touchstart', (e) => {
+  const gifFrame = document.querySelector('.fb-gif-frame');
+  if (gifFrame) {
+    gifFrame.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
-    tvFrame.addEventListener('touchend', (e) => {
+    gifFrame.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
       const diff = touchStartX - touchEndX;
       if (Math.abs(diff) > 50) {
