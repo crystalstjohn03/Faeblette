@@ -209,57 +209,15 @@
       text-transform: lowercase;
     }
 
-    /* MORE NOTES */
-    .fb-note-more {
-      max-width: 680px;
-      margin: 4rem auto 0;
-      padding: 0 2rem;
-    }
-    .fb-note-more-label {
-      font-family: 'Courier Prime', monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: #A8917A;
-      text-transform: lowercase;
-      margin-bottom: 1.4rem;
-      padding-bottom: 1rem;
-      border-bottom: 0.5px solid #C4B09A;
-    }
-    .fb-note-more-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-bottom: 0.5px solid #C4B09A;
-      text-decoration: none;
-      color: #26201A;
-      gap: 1.5rem;
-    }
-    .fb-note-more-row:hover .fb-note-more-title { color: #5C4A36; }
-    .fb-note-more-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 400;
-      color: #26201A;
-      line-height: 1.2;
-    }
-    .fb-note-more-tag {
-      font-family: 'Courier Prime', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      color: #C4A882;
-      text-transform: lowercase;
-      margin-top: 3px;
-    }
-    .fb-note-more-date {
-      font-family: 'Courier Prime', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      color: #B0977E;
-      text-transform: lowercase;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
+    /* MORE NOTES — card grid (matches real-power.html and poetcore.html) */
+    .fb-more { margin: 5rem 3rem 0; border-top: 0.5px solid #C4B09A; padding-top: 3rem; }
+    .fb-more-label { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 1.6rem; }
+    .fb-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .fb-more-item { display: flex; flex-direction: column; gap: 6px; padding: 1.2rem 1.2rem 1.4rem; border: 0.5px solid #C4B09A; border-radius: 5px; text-decoration: none; color: #26201A; transition: background 0.2s ease; }
+    .fb-more-item:hover { background: #E8DDD0; }
+    .fb-more-item-title { font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.25; color: #26201A; }
+    .fb-more-item-tag { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4A882; text-transform: lowercase; }
+    .fb-more-item-date { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #B0977E; text-transform: lowercase; margin-top: 2px; }
 
     /* FOOTER */
     .fb-footer { margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A; padding: 2.5rem 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start; }
@@ -278,7 +236,6 @@
       .fb-nav-links a { font-size: 11px; }
       .fb-note-header-img { margin: 0 1.5rem; height: 240px; }
       .fb-note-article { padding: 3rem 1.5rem 0; }
-      .fb-note-more { padding: 0 1.5rem; }
       .fb-note-title { font-size: 32px; }
       .fb-note-portrait {
         float: none;
@@ -287,6 +244,8 @@
         margin: 0 auto 1.6rem;
         display: block;
       }
+      .fb-more { margin: 4rem 1.5rem 0; }
+      .fb-more-grid { grid-template-columns: 1fr; }
       .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
       .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
@@ -294,10 +253,12 @@
     @media (max-width: 480px) {
       .fb-note-header-img { margin: 0 1.2rem; height: 200px; }
       .fb-note-article { padding: 2.5rem 1.2rem 0; }
-      .fb-note-more { padding: 0 1.2rem; }
       .fb-note-title { font-size: 26px; }
       .fb-note-body p { font-size: 15px; }
       .fb-note-meta { flex-wrap: wrap; gap: 0.8rem; }
+      .fb-more { margin: 3rem 1.2rem 0; }
+      .fb-footer { margin: 2.5rem 1.2rem 0; }
+      .fb-footer-bottom { margin: 0 1.2rem; }
     }
   </style>
 </head>
@@ -323,7 +284,7 @@
 
   <div class="fb-note-article">
 
-    <a href="../index.html#field-notes" class="fb-note-back">← the field notes</a>
+    <a href="../index.html#field-notes" class="fb-note-back">&#8592; the field notes</a>
 
     <div class="fb-note-eyebrow">start here — on making faeblette</div>
     <h1 class="fb-note-title">The person behind the bird</h1>
@@ -379,33 +340,12 @@
 
   </div>
 
-  <div class="fb-note-more">
-    <div class="fb-note-more-label">more field notes</div>
-
-    <a href="real-power.html" class="fb-note-more-row">
-      <div>
-        <div class="fb-note-more-title">Real power is bowing down</div>
-        <div class="fb-note-more-tag">philosophy</div>
-      </div>
-      <span class="fb-note-more-date">apr 2026</span>
-    </a>
-
-    <a href="stopped-auditioning.html" class="fb-note-more-row">
-      <div>
-        <div class="fb-note-more-title">The role I stopped auditioning for.</div>
-        <div class="fb-note-more-tag">entrepreneurship / entertainment</div>
-      </div>
-      <span class="fb-note-more-date">apr 2026</span>
-    </a>
-
-    <a href="drawing-wobbly-lines.html" class="fb-note-more-row">
-      <div>
-        <div class="fb-note-more-title">I used to erase the wobbly lines. I don't anymore.</div>
-        <div class="fb-note-more-tag">illustration</div>
-      </div>
-      <span class="fb-note-more-date">mar 2026</span>
-    </a>
-
+  <!-- MORE NOTES — dynamic, powered by field-notes.json -->
+  <div id="fb-more-section" class="fb-more">
+    <div class="fb-more-label">more field notes</div>
+    <div id="fb-more-grid" class="fb-more-grid">
+      <!-- populated by field-notes-loader.js -->
+    </div>
   </div>
 
   <div class="fb-footer">
@@ -427,10 +367,11 @@
     </div>
   </div>
   <div class="fb-footer-bottom">
-    <span class="fb-footer-bottom-text">© 2026 faeblette — all rights reserved</span>
+    <span class="fb-footer-bottom-text">&#169; 2026 faeblette — all rights reserved</span>
     <span class="fb-footer-bottom-text">faeblette.com</span>
   </div>
 
 </div>
+<script src="../field-notes-loader.js"></script>
 </body>
 </html>
