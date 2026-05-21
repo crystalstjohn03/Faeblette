@@ -196,7 +196,8 @@
       transition: opacity 0.5s ease;
     }
     .fb-gif-slide.active { opacity: 1; }
-    .fb-gif-slide img {
+    .fb-gif-slide img,
+    .fb-gif-slide video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -523,22 +524,34 @@
       <!-- GIF Frame -->
       <div class="fb-gif-frame">
         <div class="fb-gif-slide active" data-slide="0">
-          <img src="somebody-believes-in-you-philosophy.gif" alt="Somebody believes in you" />
+          <video autoplay loop muted playsinline>
+            <source src="somebody-believes-in-you-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="fb-gif-slide" data-slide="1">
-          <img src="power-bows-down-philosophy.gif" alt="Power bows down" />
+          <video loop muted playsinline>
+            <source src="power-bows-down-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="fb-gif-slide" data-slide="2">
-          <img src="there-is-no-arrival-philosophy.gif" alt="There is no arrival" />
+          <video loop muted playsinline>
+            <source src="there-is-no-arrival-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="fb-gif-slide" data-slide="3">
-          <img src="beauty-is-a-way-of-seeing-yourself-philosophy.gif" alt="Beauty is a way of seeing ourselves" />
+          <video loop muted playsinline>
+            <source src="beauty-is-a-way-of-seeing-yourself-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="fb-gif-slide" data-slide="4">
-          <img src="the-smallest-moments-change-your-life-philosophy.gif" alt="The smallest moments change our lives" />
+          <video loop muted playsinline>
+            <source src="the-smallest-moments-change-your-life-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="fb-gif-slide" data-slide="5">
-          <img src="the-sacred-lives-in-the-ordinary-philosophy.gif" alt="The sacred lives in the ordinary" />
+          <video loop muted playsinline>
+            <source src="the-sacred-lives-in-the-ordinary-philosophy.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
@@ -655,7 +668,7 @@
       body: "The bar constantly moves. The world constantly changes. Just because it looks good doesn't mean it feels good. Faeblette focuses on the internal feeling of growth. Practice. Moving. Breathing. The work will never feel finished, nor perfect, but always moving. Growth is not a grand act. It is many, many small decisions to be present."
     },
     {
-      body: "True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what you already are, when you know you have nothing to hide."
+      body: "True beauty is not cosmetic. It is the truth that lives underneath the mask. The vulnerable, tender person underneath the need to prove anything at all. Beauty is naked of performance. It is what we already are, when we know we have nothing to hide."
     },
     {
       body: "Sending the email. Answering the phone. Buying the art supplies. Drawing something badly. Writing the first post. Applying even though you don't qualify. Raising your hand in class. Your big move might look like nothing extraordinary. No one may notice or clap. But you know you are growing. And that's all that matters."
@@ -687,8 +700,16 @@
     bodyEl.classList.remove('active');
 
     setTimeout(() => {
-      // Update slides
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      // Pause all videos, then play the active one
+      slides.forEach((s, i) => {
+        const isActive = i === index;
+        s.classList.toggle('active', isActive);
+        const vid = s.querySelector('video');
+        if (vid) {
+          if (isActive) { vid.currentTime = 0; vid.play(); }
+          else { vid.pause(); }
+        }
+      });
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
 
       // Update text content
