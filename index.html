@@ -494,21 +494,7 @@ for the one who finds the whole world in a small thing.<br><br>films. illustrati
       <span class="fb-note-date">april 2026</span>
     </a>
 
-    <a href="notes/poetcore-and-the-comfort-of-old-things.html" class="fb-note-row">
-  <div class="fb-note-content">
-    <span class="fb-note-title">Poetcore and the comfort of old things</span>
-    <span class="fb-note-tag">culture / philosophy</span>
-  </div>
-  <span class="fb-note-date">may 2026</span>
-</a>
-
-    <a href="notes/real-power.html" class="fb-note-row">
-      <div class="fb-note-content">
-        <span class="fb-note-title">Real power is bowing down</span>
-        <span class="fb-note-tag">philosophy</span>
-      </div>
-      <span class="fb-note-date">march 2026</span>
-    </a>
+  <div id="fb-index-notes"></div>
   </div>
 
   <div class="fb-email-section">
@@ -607,6 +593,28 @@ const KIT_URL = 'https://app.kit.com/forms/9386648/subscriptions';
     document.getElementById('fbInlineEmail').addEventListener('keydown', e => {
       if (e.key === 'Enter') document.getElementById('fbInlineSubmit').click();
     });
+    // Dynamic field notes loader for index page
+(function () {
+  const grid = document.getElementById('fb-index-notes');
+  if (!grid) return;
+  fetch('field-notes.json')
+    .then(r => r.json())
+    .then(notes => {
+      const filtered = notes
+        .filter(n => n.slug !== 'the-person-behind-the-bird')
+        .slice(0, 3);
+      grid.innerHTML = filtered.map(n => `
+        <a href="notes/${n.url}" class="fb-note-row">
+          <div class="fb-note-content">
+            <span class="fb-note-title">${n.title}</span>
+            <span class="fb-note-tag">${n.tag}</span>
+          </div>
+          <span class="fb-note-date">${n.date}</span>
+        </a>
+      `).join('');
+    })
+    .catch(() => {});
+})();
   })();
 </script>
 
