@@ -18,7 +18,7 @@
     .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
     .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); }
     .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
-    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; white-space: nowrap; }
     .fb-nav-links a:hover { color: #26201A; }
 
     /* MAIN */
@@ -61,6 +61,8 @@
     @media (max-width: 768px) {
       .fb-nav { padding: 1.5rem; }
       .fb-nav-bird img { height: 28px; }
+      .fb-nav-links { gap: 1.2rem; }
+      .fb-nav-links a { font-size: 11px; letter-spacing: 0.1em; }
       .fb-fp-main { padding: 2rem 1.5rem; align-items: flex-start; }
       .fb-fp-card { grid-template-columns: 1fr; }
       .fb-fp-photo { min-height: 320px; }
@@ -71,6 +73,8 @@
 
     @media (max-width: 480px) {
       .fb-nav { padding: 1.2rem; }
+      .fb-nav-links { gap: 1rem; }
+      .fb-nav-links a { font-size: 10px; letter-spacing: 0.08em; }
       .fb-fp-main { padding: 1.5rem 1.2rem; }
       .fb-fp-photo { min-height: 260px; }
       .fb-fp-content { padding: 2rem 1.5rem; }
