@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../faeblette-bird.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>attachment to titles kills creativity — faeblette</title>
+  <meta name="description" content="On holding career identities loosely, and why interesting work is hard to translate into titles. A field note by Crystal St. John." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F0E8DA; font-family: 'Libre Baskerville', Georgia, serif; color: #26201A; -webkit-font-smoothing: antialiased; padding-bottom: 5rem; }
+    .fb-wrap { max-width: 1400px; margin: 0 auto; }
+    .fb-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
+    .fb-nav-bird img { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(800%) hue-rotate(10deg) brightness(95%); opacity: 1; }
+    .fb-nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .fb-nav-links a { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-nav-links a:hover { color: #26201A; }
+    .fb-article-hero { margin: 0 3rem; border-radius: 5px; overflow: hidden; position: relative; height: 380px; display: flex; align-items: flex-end; padding: 2.5rem; background: #1C140D; }
+    .fb-article-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+    .fb-article-hero-content { position: relative; z-index: 2; }
+    .fb-article-eyebrow { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(240,232,218,0.55); text-transform: lowercase; margin-bottom: 8px; }
+    .fb-article-hero-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: rgba(240,232,218,0.95); line-height: 1.15; max-width: 720px; }
+    .fb-breadcrumb { margin: 1.8rem 3rem 0; }
+    .fb-breadcrumb a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-breadcrumb a:hover { color: #26201A; }
+    .fb-article { max-width: 680px; margin: 3rem auto 0; padding: 0 1.5rem; }
+    .fb-article-meta { display: flex; flex-direction: column; gap: 4px; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 0.5px solid #C4B09A; }
+    .fb-article-byline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #5C4A36; }
+    .fb-article-date { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
+    .fb-article-tag { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C4A882; text-transform: lowercase; margin-top: 4px; }
+    .fb-article p { font-size: 16px; line-height: 1.95; color: #3A2E22; margin-bottom: 1.5rem; }
+    .fb-article p.fb-lede { font-size: 18px; font-style: italic; color: #5C4A36; line-height: 1.8; }
+    .fb-article-figure { margin: 3rem -2rem; }
+    .fb-article-figure img { width: 100%; height: auto; border-radius: 5px; display: block; }
+    .fb-article-figure figcaption { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.14em; color: #A8917A; text-transform: lowercase; margin-top: 0.8rem; text-align: center; }
+    .fb-pullquote { margin: 3rem 0; padding: 1.5rem 0; border-top: 0.5px solid #C4B09A; border-bottom: 0.5px solid #C4B09A; text-align: center; }
+    .fb-pullquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; line-height: 1.4; color: #26201A; margin: 0; }
+    .fb-divider { text-align: center; margin: 2.5rem 0; font-family: 'Playfair Display', serif; font-size: 18px; color: #C4B09A; letter-spacing: 0.4em; }
+    .fb-article-closing { margin-top: 3rem; padding-top: 2.5rem; border-top: 0.5px solid #C4B09A; }
+    .fb-article-closing p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #5C4A36; line-height: 1.7; }
+    .fb-article-signoff { font-family: 'Playfair Display', serif; font-size: 18px; color: #26201A; margin-top: 1.5rem; }
+    .fb-article-brand { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; color: #B0977E; text-transform: lowercase; margin-top: 0.4rem; }
+    .fb-more { margin: 5rem 3rem 0; border-top: 0.5px solid #C4B09A; padding-top: 3rem; }
+    .fb-more-label { font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: 0.2em; color: #A8917A; text-transform: lowercase; margin-bottom: 1.6rem; }
+    .fb-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .fb-more-item { display: flex; flex-direction: column; gap: 6px; padding: 1.2rem 1.2rem 1.4rem; border: 0.5px solid #C4B09A; border-radius: 5px; text-decoration: none; color: #26201A; transition: background 0.2s ease; }
+    .fb-more-item:hover { background: #E8DDD0; }
+    .fb-more-item-title { font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.25; color: #26201A; }
+    .fb-more-item-tag { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4A882; text-transform: lowercase; }
+    .fb-more-item-date { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #B0977E; text-transform: lowercase; margin-top: 2px; }
+    .fb-footer { margin: 4rem 3rem 0; border-top: 0.5px solid #C4B09A; padding: 2.5rem 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; align-items: start; }
+    .fb-footer-name { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 400; line-height: 1.0; color: #26201A; letter-spacing: 0.02em; margin-bottom: 0.9rem; }
+    .fb-footer-sub { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; color: #B0977E; text-transform: lowercase; }
+    .fb-footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .fb-footer-links a { font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A7660; text-decoration: none; text-transform: lowercase; }
+    .fb-footer-tagline { font-family: 'Libre Baskerville', serif; font-size: 14px; font-style: italic; color: #A8917A; line-height: 1.8; }
+    .fb-footer-bottom { margin: 0 3rem; padding: 1.5rem 0 0; border-top: 0.5px solid #C4B09A; display: flex; justify-content: space-between; }
+    .fb-footer-bottom-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4B09A; text-transform: lowercase; }
+    @media (max-width: 768px) {
+      .fb-nav { padding: 1.5rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+      .fb-nav-bird img { height: 22px; }
+      .fb-nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .fb-nav-links a { font-size: 11px; }
+      .fb-article-hero { margin: 0 1.5rem; height: 280px; padding: 1.5rem; }
+      .fb-article-hero-title { font-size: 26px; }
+      .fb-breadcrumb { margin: 1.5rem 1.5rem 0; }
+      .fb-article { margin: 2rem auto 0; padding: 0 1.5rem; }
+      .fb-article-figure { margin: 2.5rem 0; }
+      .fb-pullquote p { font-size: 20px; }
+      .fb-more { margin: 4rem 1.5rem 0; }
+      .fb-more-grid { grid-template-columns: 1fr; }
+      .fb-footer { margin: 3rem 1.5rem 0; grid-template-columns: 1fr; gap: 2rem; }
+      .fb-footer-name { font-size: 42px; }
+      .fb-footer-bottom { margin: 0 1.5rem; flex-direction: column; gap: 0.5rem; }
+    }
+    @media (max-width: 480px) {
+      .fb-nav { padding: 1.2rem 1.2rem; }
+      .fb-nav-links { gap: 1rem; }
+      .fb-nav-links a { font-size: 10px; letter-spacing: 0.1em; }
+      .fb-article-hero { margin: 0 1.2rem; height: 240px; }
+      .fb-article-hero-title { font-size: 22px; }
+      .fb-article p { font-size: 15px; line-height: 1.9; }
+      .fb-pullquote p { font-size: 18px; }
+      .fb-more { margin: 3rem 1.2rem 0; }
+      .fb-footer { margin: 2.5rem 1.2rem 0; }
+      .fb-footer-name { font-size: 36px; }
+      .fb-footer-bottom { margin: 0 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="fb-wrap">
+
+  <nav class="fb-nav">
+    <div class="fb-nav-bird">
+      <a href="../index.html"><img src="../faeblette-bird.png" alt="faeblette" /></a>
+    </div>
+    <div class="fb-nav-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="../index.html#shop">shop</a>
+      <a href="../about.html">about</a>
+    </div>
+  </nav>
+
+  <div class="fb-article-hero">
+    <img class="fb-article-hero-img" src="../attachment-to-titles-hero.jpg" alt="navigating titles" />
+    <div class="fb-article-hero-content">
+      <div class="fb-article-eyebrow">on identity and making</div>
+      <h1 class="fb-article-hero-title">Navigating Titles</h1>
+    </div>
+  </div>
+
+  <div class="fb-breadcrumb">
+    <a href="../index.html#field-notes">&#8592; the field notes</a>
+  </div>
+
+  <article class="fb-article">
+
+    <div class="fb-article-meta">
+      <span class="fb-article-byline">crystal st. john</span>
+      <span class="fb-article-date">june 2026</span>
+      <span class="fb-article-tag">philosophy / creative life</span>
+    </div>
+
+    <p class="fb-lede">I use titles to help people understand me in social circles, but here's how I really feel about what I am building.</p>
+
+    <p>I make films, but I'm not sure filmmaker is what I am. I direct those films, but am I trying to be a director? I hold it loosely. I sell my products on Etsy, but I don't feel like an Etsy seller. Even saying it feels like it cheapens the soul of my pieces. I currently have a children's book in production that I am writing and illustrating, but children's book author doesn't quite sum me up. I'm also interested in adults. I design products, and I've been designing the whole feeling of this world, but calling myself a designer feels like it comes up short. I have acted, and perhaps I will act again in my own stories, if it feels necessary. But it's hard to call myself an actor anymore. I don't want to diminish who I am to be something else. I've written a book, yet calling myself an author makes me feel like an expert I don't feel that I am. I have founded Faeblette — but better I forget about any of that, and just get lost in the soul of the stories I am here to tell, and the people who need what's on the other side of it.</p>
+
+    <figure class="fb-article-figure">
+      <!-- Replace src with your photo filename when ready -->
+      <img src="../attachment-to-titles-photo.jpg" alt="your caption here" />
+      <figcaption>your caption here</figcaption>
+    </figure>
+
+    <div class="fb-divider">&#10022; &#10022; &#10022;</div>
+
+    <p>Here is what I've noticed about titles: the people most attached to them are often the most paralyzed by them. The aspiring director who is too precious about their work to post it on YouTube and watch it get no views. The founder so caught up in what that word carries that the power of it distracts from the work and the service it was meant to be. The title becomes a thing to defend rather than a thing to serve. And slowly, quietly, the identity swallows the output.</p>
+
+    <div class="fb-pullquote">
+      <p>Attachment to titles kills creativity.</p>
+    </div>
+
+    <p>Faeblette is built on a philosophy I have carved out of my own life experience, biblical parables, and patterns I have observed in the world and within me. The truest thing I can call myself is a sort of philosopher. But doesn't that sound grandiose? Not something I'd likely suggest over small talk.</p>
+
+    <p>Maybe that's the point. Interesting work is hard to translate into titles. That might be how you know it's worth doing.</p>
+
+    <div class="fb-divider">&#10022; &#10022; &#10022;</div>
+
+    <p>I find myself not too concerned with being an expert in any field, but rather with creating something that feels true, and in that way, refreshing. Even if it means breaking the rules. In a world of AI perfection, I value the evidence in my work that reveals an imperfect human was here. It works for me. It helps me fear failure less. It helps me hold the work loosely. I don't need to protect a title. I do need to honor who I am by allowing myself to create.</p>
+
+    <div class="fb-article-closing">
+      <div class="fb-article-signoff">Xx Crystal</div>
+      <div class="fb-article-brand">faeblette</div>
+    </div>
+
+  </article>
+
+  <div id="fb-more-section" class="fb-more">
+    <div class="fb-more-label">more field notes</div>
+    <div id="fb-more-grid" class="fb-more-grid">
+      <!-- populated by field-notes-loader.js -->
+    </div>
+  </div>
+
+  <div class="fb-footer">
+    <div>
+      <div class="fb-footer-name">faeblette</div>
+      <div class="fb-footer-sub">est. 2025 — los angeles, ca</div>
+    </div>
+    <div class="fb-footer-links">
+      <a href="../index.html#field-notes">the field notes</a>
+      <a href="../index.html#films">films</a>
+      <a href="https://etsy.com/shop/TheFaebletteShop" target="_blank">the faeblette shop</a>
+      <a href="../about.html">about</a>
+      <a href="https://www.instagram.com/faeblette_" target="_blank">instagram</a>
+      <a href="https://www.youtube.com/@faeblette" target="_blank">youtube</a>
+      <a href="https://www.tiktok.com/@faeblette" target="_blank">tiktok</a>
+    </div>
+    <div class="fb-footer-tagline">
+      little lights that guide us home.
+    </div>
+  </div>
+  <div class="fb-footer-bottom">
+    <span class="fb-footer-bottom-text">&#169; 2026 faeblette — all rights reserved</span>
+    <span class="fb-footer-bottom-text">faeblette.com</span>
+  </div>
+
+</div>
+<script src="../field-notes-loader.js"></script>
+</body>
+</html>
