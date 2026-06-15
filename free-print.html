@@ -24,18 +24,13 @@
     /* MAIN */
     .fb-fp-main { min-height: calc(100vh - 120px); display: flex; align-items: center; justify-content: center; padding: 2rem; }
 
-    .fb-fp-card { display: grid; grid-template-columns: 1fr 1fr; max-width: 860px; width: 100%; border: 0.5px solid #C4B09A; border-radius: 5px; overflow: hidden; }
+    .fb-fp-card { display: flex; flex-direction: column; max-width: 640px; width: 100%; border: 0.5px solid #C4B09A; border-radius: 5px; overflow: hidden; }
 
-    /* PHOTO SIDE — now two stacked panels */
-    .fb-fp-photo-col { display: flex; flex-direction: column; min-height: 480px; }
+    /* PHOTO */
+    .fb-fp-photo { width: 100%; }
+    .fb-fp-photo img { display: block; width: 100%; height: auto; }
 
-    .fb-fp-photo { position: relative; flex: 1.2; }
-    .fb-fp-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-
-    .fb-fp-illustration { position: relative; flex: 1; background: #DDD1BE; display: flex; align-items: center; justify-content: center; padding: 1.2rem; border-top: 0.5px solid #C4B09A; }
-    .fb-fp-illustration img { width: 100%; height: 100%; object-fit: contain; display: block; }
-
-    /* TEXT SIDE */
+    /* TEXT / FORM */
     .fb-fp-content { background: #EAE1D3; padding: 2.4rem 2.8rem; display: flex; flex-direction: column; justify-content: center; gap: 1.4rem; }
     .fb-fp-eyebrow { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.22em; color: #A8917A; text-transform: lowercase; }
     .fb-fp-headline { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: #26201A; line-height: 1.15; }
@@ -69,10 +64,6 @@
       .fb-nav-links { gap: 1.2rem; }
       .fb-nav-links a { font-size: 11px; letter-spacing: 0.1em; }
       .fb-fp-main { padding: 2rem 1.5rem; align-items: flex-start; }
-      .fb-fp-card { grid-template-columns: 1fr; }
-      .fb-fp-photo-col { min-height: 380px; flex-direction: row; }
-      .fb-fp-photo { flex: 1.3; }
-      .fb-fp-illustration { flex: 1; border-top: none; border-left: 0.5px solid #C4B09A; padding: 0.8rem; }
       .fb-fp-content { padding: 2.5rem 2rem; }
       .fb-fp-headline { font-size: 26px; }
       .fb-footer-bottom { padding: 1.5rem; flex-direction: column; gap: 0.4rem; }
@@ -83,7 +74,6 @@
       .fb-nav-links { gap: 1rem; }
       .fb-nav-links a { font-size: 10px; letter-spacing: 0.08em; }
       .fb-fp-main { padding: 1.5rem 1.2rem; }
-      .fb-fp-photo-col { min-height: 320px; }
       .fb-fp-content { padding: 2rem 1.5rem; }
       .fb-fp-headline { font-size: 22px; }
       .fb-footer-bottom { padding: 1.2rem; }
@@ -108,13 +98,8 @@
   <div class="fb-fp-main">
     <div class="fb-fp-card">
 
-      <div class="fb-fp-photo-col">
-        <div class="fb-fp-photo">
-          <img src="crystal-honey-portrait.jpg" alt="Crystal, the creator behind Faeblette, holding her dog Honey" />
-        </div>
-        <div class="fb-fp-illustration">
-          <img src="letters-of-gratitude-print.png" alt="Preview of the Letters of Gratitude free printable" />
-        </div>
+      <div class="fb-fp-photo">
+        <img src="singer-writer-actress.png" alt="Crystal, the creator behind Faeblette, holding her dog Honey, beside a framed Letters of Gratitude print — a free printable for you" />
       </div>
 
       <div class="fb-fp-content">
